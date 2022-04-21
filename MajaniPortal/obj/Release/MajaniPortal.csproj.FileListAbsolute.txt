@@ -1,0 +1,448 @@
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\csc.exe
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\System.Collections.Immutable.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\System.Reflection.Metadata.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\vbc.exe
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\VBCSCompiler.exe
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\roslyn\VBCSCompiler.exe.config
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\MajaniPortal.dll.config
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\MajaniPortal.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\MajaniPortal.XmlSerializers.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\MajaniPortal.pdb
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Antlr3.Runtime.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\AspNet.ScriptManager.bootstrap.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\AspNet.ScriptManager.jQuery.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\EntityFramework.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\EntityFramework.SqlServer.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.Edm.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.OData.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.Services.Client.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Google.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.ScriptManager.WebForms.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Web.Infrastructure.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Newtonsoft.Json.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Owin.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Spatial.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Web.Optimization.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Web.Providers.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\WebGrease.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.Edm.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.OData.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Data.Services.Client.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Spatial.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Web.Optimization.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Antlr3.Runtime.pdb
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Newtonsoft.Json.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\EntityFramework.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\EntityFramework.SqlServer.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\System.Web.Providers.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Google.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\de\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\es\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\it\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\de\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\es\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\fr\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\it\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ja\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ko\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\ru\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hans\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\obj\Release\MajaniPortal.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\obj\Release\MajaniPortal.pdb
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\obj\Release\MajaniPortal.XmlSerializers.dll
+D:\Dynasoft Business Solutions Ltd\Dynasoft  Clients Portals\MAJANI\Majani KYM Portal\MajaniPortal\obj\Release\MajaniPortal.csprojResolveAssemblyReference.cache
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\csc.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\System.Collections.Immutable.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\System.Reflection.Metadata.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\vbc.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\VBCSCompiler.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\roslyn\VBCSCompiler.exe.config
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\MajaniPortal.dll.config
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\MajaniPortal.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\MajaniPortal.XmlSerializers.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\MajaniPortal.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Antlr3.Runtime.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\AspNet.ScriptManager.bootstrap.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\AspNet.ScriptManager.jQuery.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\EntityFramework.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\EntityFramework.SqlServer.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.Edm.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.OData.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.Services.Client.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Google.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.ScriptManager.WebForms.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Web.Infrastructure.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Newtonsoft.Json.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Spatial.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Web.Optimization.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Web.Providers.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\WebGrease.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.Edm.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.OData.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Data.Services.Client.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Spatial.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Web.Optimization.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Antlr3.Runtime.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Newtonsoft.Json.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\EntityFramework.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\EntityFramework.SqlServer.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\System.Web.Providers.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Google.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\de\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\es\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\it\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\de\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\es\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\fr\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\it\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ja\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ko\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ru\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\de\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\es\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\fr\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\it\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ja\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ko\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\ru\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hans\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\obj\Release\MajaniPortal.csprojResolveAssemblyReference.cache
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\obj\Release\MajaniPortal.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\obj\Release\MajaniPortal.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-portal-v7\MajaniPortal\obj\Release\MajaniPortal.XmlSerializers.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\csc.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\System.Collections.Immutable.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\System.Reflection.Metadata.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\vbc.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\VBCSCompiler.exe
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\roslyn\VBCSCompiler.exe.config
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\MajaniPortal.dll.config
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\MajaniPortal.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\MajaniPortal.XmlSerializers.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\MajaniPortal.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Antlr3.Runtime.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\AspNet.ScriptManager.bootstrap.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\AspNet.ScriptManager.jQuery.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\EntityFramework.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\EntityFramework.SqlServer.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.Edm.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.OData.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.Services.Client.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Google.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.ScriptManager.WebForms.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Web.Infrastructure.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Newtonsoft.Json.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Owin.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Spatial.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Web.Optimization.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Web.Providers.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\WebGrease.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.Edm.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.OData.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Data.Services.Client.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Spatial.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Web.Optimization.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Antlr3.Runtime.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Newtonsoft.Json.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\EntityFramework.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\EntityFramework.SqlServer.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\System.Web.Providers.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Google.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.xml
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\de\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\es\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\it\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\de\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\es\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\fr\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\it\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ja\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ko\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ru\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\de\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\es\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\fr\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\it\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ja\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ko\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\ru\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hans\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\obj\Release\MajaniPortal.csprojResolveAssemblyReference.cache
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\obj\Release\MajaniPortal.dll
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\obj\Release\MajaniPortal.pdb
+D:\CLIENTS PORTALS\MAJANI\majani-kym-v8\MajaniPortal\obj\Release\MajaniPortal.XmlSerializers.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\csc.exe
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\System.Collections.Immutable.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\System.Reflection.Metadata.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\vbc.exe
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\VBCSCompiler.exe
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\roslyn\VBCSCompiler.exe.config
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\MajaniPortal.dll.config
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\MajaniPortal.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\MajaniPortal.XmlSerializers.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\MajaniPortal.pdb
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Antlr3.Runtime.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\AspNet.ScriptManager.bootstrap.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\AspNet.ScriptManager.jQuery.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\EntityFramework.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\EntityFramework.SqlServer.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.Edm.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.OData.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.Services.Client.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Google.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.ScriptManager.MSAjax.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.ScriptManager.WebForms.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Web.Infrastructure.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Newtonsoft.Json.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Owin.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Spatial.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Web.Optimization.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Web.Providers.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\WebGrease.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.Edm.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.OData.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Data.Services.Client.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Spatial.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Web.Optimization.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Antlr3.Runtime.pdb
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Newtonsoft.Json.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\EntityFramework.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\EntityFramework.SqlServer.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.Core.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\System.Web.Providers.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Facebook.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Cookies.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Google.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.Twitter.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\Microsoft.Owin.Security.OAuth.xml
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\de\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\es\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\it\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\de\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\es\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\fr\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\it\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ja\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ko\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ru\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\de\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\es\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\fr\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\it\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ja\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ko\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ru\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Release\MajaniPortal.csprojResolveAssemblyReference.cache
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Release\MajaniPortal.dll
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Release\MajaniPortal.pdb
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Release\MajaniPortal.XmlSerializers.dll

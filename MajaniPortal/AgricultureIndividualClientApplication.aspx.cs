@@ -1,0 +1,1070 @@
+﻿using MajaniPortal.Nav;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+
+namespace MajaniPortal
+{
+    public partial class AgricultureIndividualClientApplication : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["empNo"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    NAV nav = Config.ReturnNav();
+                    List<DropDownList> CustomerCategorylist = new List<DropDownList>();
+                    var CustomerCategory = nav.CustomerCategory.Where(x => x.Individual == true).ToList();
+                    foreach (var item in CustomerCategory)
+                    {
+                        DropDownList itemlist = new DropDownList();
+                        itemlist.Code = item.Code;
+                        itemlist.Name = item.Description;
+                        CustomerCategorylist.Add(itemlist);
+                    }
+                    customerCategory.DataSource = CustomerCategorylist;
+                    customerCategory.DataValueField = "Code";
+                    customerCategory.DataTextField = "Name";
+                    customerCategory.DataBind();
+                    customerCategory.Items.Insert(0, "--Select Customer Category--");
+
+                    var PolicyTypes = Config.ReturnNav().PolicyTypes.Where(x => x.Insurance_Category == "MICRO-INSURANCE").ToList();
+                    List<DropDownList> PolicyTypesList = new List<DropDownList>();
+                    foreach (var item in PolicyTypes)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.Policy_Type_Code;
+                        code.Name = item.Policy_Type_Code;
+                        PolicyTypesList.Add(code);
+                    }
+                   
+
+              
+
+                    var Conditions = Config.ReturnNav().PreExistingConditions.ToList();
+                    List<DropDownList> Conditionslist = new List<DropDownList>();
+                    foreach (var item in Conditions)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.code;
+                        code.Name = item.Description;
+                        Conditionslist.Add(code);
+                    }
+                  
+
+                    List<DropDownList> customerSubCategorylist = new List<DropDownList>();
+                    var tcustomerSubCategory = nav.CustomerSubCategory.Where(x => x.Corporate == false).ToList();
+                    foreach (var item in tcustomerSubCategory)
+                    {
+                        DropDownList itemlist = new DropDownList();
+                        itemlist.Code = item.Code;
+                        itemlist.Name = item.Description;
+                        customerSubCategorylist.Add(itemlist);
+                    }
+                    customerSubCategory.DataSource = customerSubCategorylist;
+                    customerSubCategory.DataValueField = "Code";
+                    customerSubCategory.DataTextField = "Name";
+                    customerSubCategory.DataBind();
+                    customerSubCategory.Items.Insert(0, "--Select Customer Sub Category--");
+
+
+                    List<string> tgrowerapplicanttype = new List<string>();
+                    tgrowerapplicanttype.Add("-----Select Grower Type of Applicants-------");
+                    tgrowerapplicanttype.Add("KTDA Farmer");
+                    tgrowerapplicanttype.Add("Farmer Dependent");
+                    growerapplicanttype.DataSource = tgrowerapplicanttype;
+                    growerapplicanttype.DataBind();
+
+
+                    var tpostcodes = nav.postcodes.ToList();
+                    List<DropDownList> postcodeslist = new List<DropDownList>();
+                    foreach (var item in tpostcodes)
+                    {
+                        DropDownList itemcodelist = new DropDownList();
+                        itemcodelist.Code = item.Code;
+                        itemcodelist.Name = item.Code + " " + item.City;
+                        postcodeslist.Add(itemcodelist);
+                    }
+                    postcodes.DataSource = postcodeslist;
+                    postcodes.DataValueField = "Code";
+                    postcodes.DataTextField = "Name";
+                    postcodes.DataBind();
+                    postcodes.Items.Insert(0, "--Select Post Codes--");
+
+
+                    var tttxtoccupations = nav.Occupations.ToList();
+                    List<DropDownList> ttxtoccupationslist = new List<DropDownList>();
+                    foreach (var item in tttxtoccupations)
+                    {
+                        DropDownList itemcodelist = new DropDownList();
+                        itemcodelist.Code = item.Code;
+                        itemcodelist.Name = item.Name;
+                        ttxtoccupationslist.Add(itemcodelist);
+                    }
+                    ttxtoccupations.DataSource = ttxtoccupationslist;
+                    ttxtoccupations.DataValueField = "Code";
+                    ttxtoccupations.DataTextField = "Name";
+                    ttxtoccupations.DataBind();
+                    ttxtoccupations.Items.Insert(0, "--Select Occupation--");
+
+                    
+
+                    var tpolicyTypequery = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance");
+                    List<DropDownList> tpolicyTypequeryList = new List<DropDownList>();
+                    foreach (var item in tpolicyTypequery)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.No;
+                        code.Name = item.Insurer_Name + "- " + item.Description + "- " + item.Policy_Type;
+                        tpolicyTypequeryList.Add(code);
+                    }
+                    lblproduct.DataSource = tpolicyTypequeryList;
+                    lblproduct.DataTextField = "Name";
+                    lblproduct.DataValueField = "Code";
+                    lblproduct.DataBind();
+                    lblproduct.Items.Insert(0, "--Select Product--");
+
+
+                    List<string> tmodeofpayments = new List<string>();
+                    tmodeofpayments.Add("-----Select Grower Type of Applicants-------");
+                    tmodeofpayments.Add("KTDA check Off");
+                    tmodeofpayments.Add("KTDA Bonus");
+                    tmodeofpayments.Add("Mpesa");
+                    tmodeofpayments.Add("Other");
+                    tmodeofpayments.Add("Corporate Checkoff");
+                    tmodeofpayments.Add("Cheque");
+                    tmodeofpayments.Add("Bank Deposit");
+                    tmodeofpayments.Add("Cash Payments");
+                    tmodeofpayments.Add("Guarantor Form");
+                    tmodeofpayments.Add("Green Leaf");
+                    tmodeofpayments.Add("KTDA Staff deduction");
+                    tmodeofpayments.Add("Insurance Premium Finance");
+                    tmodeofpayments.Add("Post Dated Cheque");
+                    modeofpayments.DataSource = tmodeofpayments;
+                    modeofpayments.DataBind();
+
+                    List<string> txtgend = new List<string>();
+                    txtgend.Add("-----Select Gender-------");
+                    txtgend.Add("Male");
+                    txtgend.Add("Female");
+                    lblgender.DataSource = txtgend;
+                    lblgender.DataBind();
+
+                    var ApplicationNumber = Convert.ToString(Request.QueryString["requisitionNo"]);
+                    if (ApplicationNumber != null)
+                    {
+                        var Application = nav.ClientApplicationQuery.Where(x => x.No == ApplicationNumber).ToList();
+                        foreach (var item in Application)
+                        {
+                            txtfirstname.Text = item.First_Name;
+                            txtMiddleName.Text = item.Middle_Name;
+                            txtlastname.Text = item.Last_Name;
+                            krapinNumber.Text = item.KRA_PIN_No;
+                            txtHudumaNo.Text = item.Huduma_No;
+                            customerCategory.Text = item.Customer_Category;
+                            customerSubCategory.Text = item.Customer_Sub_Category;
+                            applicationTypes.Text = item.Client_Type;                          
+                            idtype.Text = item.ID_Type;
+                            txtIdNumber.Text = item.ID_No_Passport_No;
+                            lblgender.Text = item.Gender;
+                            var dateofbirth = item.Date_of_Birth;
+                            // lblcountyCode.Text = item.County;
+                            telnumber1.Text = item.Tel_Mobile_No;
+                            telnumber2.Text = item.Tel_Mobile_No_2;
+                            txtemail.Text = item.E_Mail;
+                            txtaddress.Text = item.Address;
+                            postcodes.Text = item.Post_Code;
+                            lblcity.SelectedValue = item.Post_Code;
+                            txtgoogle.Text = item.Google;
+                            txttwitter.Text = item.Twitter;
+                            txtfcebook.Text = item.Facebook;
+                            txtlinkedin.Text = item.LinkedIn;
+                           
+                            lblproduct.Text = item.Product;
+                            lblmaritalstatus.Text = item.Marital_Status;
+                            lbltitle.Text = item.Title;
+                            insurer.Text = item.Insurer;
+                           
+                            modeofpayments.Text = item.Mode_of_Payment;
+                            //agentDetail.Text = item.Agent_Detail;
+                          
+                            lblsalesgentcode.Text = item.Agent_Salespersons_Code;
+                           
+
+                        }
+                    }
+
+
+                    List<DropDownList> tCountriesOfResidencelist = new List<DropDownList>();
+                    var tCountriesOfResidence = nav.Countries.ToList();
+                    foreach (var item in tCountriesOfResidence)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.Code;
+                        code.Name = item.Name;
+                        tCountriesOfResidencelist.Add(code);
+                    }
+                    countyofresidence.DataSource = tCountriesOfResidencelist;
+                    countyofresidence.DataValueField = "Code";
+                    countyofresidence.DataTextField = "Name";
+                    countyofresidence.DataBind();
+                    countyofresidence.Items.Insert(0, "--Select Country of Residence--");
+
+                    List<string> identity = new List<string>();
+                    identity.Add("-----Select Identity Type-------");
+                    identity.Add("ID");
+                    identity.Add("Passport");
+                    idtype.DataSource = identity;
+                    idtype.DataBind();
+
+                    List<string> tlblmaritalstatus = new List<string>();
+                    tlblmaritalstatus.Add("-----Select Marital Status-------");
+                    tlblmaritalstatus.Add("Married");
+                    tlblmaritalstatus.Add("Single");
+                    lblmaritalstatus.DataSource = tlblmaritalstatus;
+                    lblmaritalstatus.DataBind();
+
+                    var countiesCodes = nav.DimensionValueList.Where(x => x.Dimension_Code == "COUNTIES").ToList();
+                    List<DropDownList> countiesCodeslist = new List<DropDownList>();
+                    foreach (var item in countiesCodes)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.Code;
+                        code.Name = item.Name;
+                        countiesCodeslist.Add(code);
+                    }
+                    lblcountyCode.DataSource = countiesCodeslist;
+                    lblcountyCode.DataValueField = "Code";
+                    lblcountyCode.DataTextField = "Name";
+                    lblcountyCode.DataBind();
+                    lblcountyCode.Items.Insert(0, "--Select County Codes--");
+
+
+
+                    List<string> tagentDetail = new List<string>();
+                    tagentDetail.Add("-----Select Agent Detail-------");
+                    tagentDetail.Add("Direct Business");
+                    tagentDetail.Add("Agent Business");
+                    tagentDetail.Add("Refferal Business");
+                    agentDetail.DataSource = tagentDetail;
+                    agentDetail.DataBind();
+
+                    List<string> tlbldepartments = new List<string>();
+                    tlbldepartments.Add("Micro-Insurance");
+                  
+
+                    List<string> tlblpolicybusinessType = new List<string>();
+                    //tlblpolicybusinessType.Add("-----Select Policy Type-------");
+                    tlblpolicybusinessType.Add("New");
+                    //tlblpolicybusinessType.Add("Existing");
+                    //tlblpolicybusinessType.Add("Renewal");
+                    //tlblpolicybusinessType.Add("Extension");
+                    //tlblpolicybusinessType.Add("Addition");
+                    //tlblpolicybusinessType.Add("Adjustment");
+                    //tlblpolicybusinessType.Add("Cancellation");
+                    membertype.DataSource = tlblpolicybusinessType;
+                    membertype.DataBind();
+
+                    List<string> txtrelation = new List<string>();
+                    txtrelation.Add("-----Select Title------");
+                    txtrelation.Add("Mr");
+                    txtrelation.Add("Major");
+                    txtrelation.Add("Captain");
+                    txtrelation.Add("Sir");
+                    txtrelation.Add("Madam");
+                    txtrelation.Add("Doctor");
+                    txtrelation.Add("Prof");
+                    txtrelation.Add("Pastor");
+                    txtrelation.Add("Mrs");
+                    txtrelation.Add("Miss");
+                    lbltitle.DataSource = txtrelation;
+                    lbltitle.DataBind();
+
+                   
+                }
+            }
+        }
+        protected void Next_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            bool flag = false;
+            string cust_category = customerCategory.SelectedValue.Trim();
+            if (cust_category.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string tcustomersubcategory = customerSubCategory.SelectedValue.Trim();
+            if (tcustomersubcategory.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string applicanttype = applicationTypes.SelectedValue.Trim();
+            if (applicanttype.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string countryOfResidence = countyofresidence.SelectedValue.Trim();
+            if (countryOfResidence.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+
+            var tResidentialLocation = ResidentialLocat.Text.Trim();           
+            if (tResidentialLocation.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            var tOfficeLocation = OfficeLocat.Text.Trim();
+            if (tOfficeLocation.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            var tMpesaNo = mpesaNo.Text.Trim();
+            if (tMpesaNo.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            int twealthSource = Convert.ToInt32(wealthSource.SelectedValue.Trim());
+            if (twealthSource == 0)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            int tincomeSource = Convert.ToInt32(sourceIncome.SelectedValue.Trim());
+            if (tincomeSource == 0)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            
+            var ttxtIdNumber = txtIdNumber.Text.Trim();
+            if (ttxtIdNumber.Length > 8)
+            {
+                flag = true;
+                str = "Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8";
+            }
+            if (ttxtIdNumber.Length < 6)
+            {
+                flag = true;
+                idNumberPassport.InnerText = "Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8";
+            }
+            string requisitionNo = "";
+            requisitionNo = Request.QueryString["requisitionNo"];
+            if (string.IsNullOrEmpty(requisitionNo))
+            {
+                try
+                {
+                    var status = new Config().ObjNav().FnCheckifIdentityNoExist(ttxtIdNumber);
+                    var res = status.Split('*');
+                    if (res[0] == "danger")
+                    {
+                        flag = true;
+                        str = "The ID No/Passport Provided Already Exist.Kindly use a different Unique ID No/Passport";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+
+            else
+            {
+                idNumberPassport.InnerText = "";
+            }
+            string policyType = "";
+            int selectedIndex2 = idtype.SelectedIndex;
+            if (selectedIndex2 < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string s = this.txtDOB.Text.Trim();
+            if (s.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string id_passport = txtIdNumber.Text.Trim();
+            if (id_passport.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            int selectedIndex3 = lblgender.SelectedIndex;
+            if (selectedIndex3 < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string pinNo = krapinNumber.Text.Trim();
+            if (pinNo.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+        
+            string countyCode = lblcountyCode.Text.Trim();
+            if (countyCode.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string firstName = txtfirstname.Text.Trim();
+            if (firstName.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            int selectedIndex4 = lblmaritalstatus.SelectedIndex;
+            if (selectedIndex4 < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string middleName = txtMiddleName.Text.Trim();
+            string hudumaNo = txtHudumaNo.Text.Trim();
+            string lastname = txtlastname.Text.Trim();
+            if (lastname.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string occupation = ttxtoccupations.SelectedValue.Trim();
+            if (occupation.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            int selectedIndex5 = lbltitle.SelectedIndex;
+            if (selectedIndex5 < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            if (flag)
+            {
+                feedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + str + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+            else
+            {
+                try
+                {
+
+                    DateTime dateTime = new DateTime();
+                    DateTime exact = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+                    try
+                    {
+
+                        if (string.IsNullOrEmpty(requisitionNo))
+                        {
+                            requisitionNo = "";
+                        }
+                    }
+                    catch
+                    {
+                        requisitionNo = "";
+                    }
+                    string empNo = Session["empNo"].ToString();
+                    var status = new Config().ObjNav().FnewAgricultureOnboadingRequests(requisitionNo, empNo, cust_category, tcustomersubcategory, selectedIndex2, id_passport, pinNo, selectedIndex5, firstName, middleName, lastname, 
+                        countryOfResidence, exact, selectedIndex3, countyCode, selectedIndex4, hudumaNo, applicanttype, occupation,tResidentialLocation,tOfficeLocation,twealthSource,tincomeSource,tMpesaNo);
+                    var res = status.Split('*');
+                    if (res[0] == "success")
+                    {
+                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + res[2] +  "&step=2");
+
+                    }
+                    else
+                    {
+                        feedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + res[1] + "</div>";
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    feedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "</div>";
+                }
+            }
+        }
+        protected void SubmitCommunicationDetails_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            bool flag = false;
+            string ttelnumber1 = telnumber1.Text.Trim();
+            if (ttelnumber1.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string txtcity = lblcity.SelectedValue.Trim();
+            if (txtcity.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string ttelnumber2 = telnumber2.Text.Trim();
+            //if (ttelnumber2.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for Tel/Mobile Number 2";
+            //}
+            string txtfacebook = txtfcebook.Text.Trim();
+            //if (txtfacebook.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for Facebook Account";
+            //}
+            string ttxtemail = txtemail.Text.Trim();
+            //if (ttxtemail.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for Email Addresss";
+            //}
+            string ttxttwitter = txttwitter.Text.Trim();
+            //if (ttxttwitter.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for Twitter Account";
+            //}
+            string ttxtaddress = txtaddress.Text.Trim();
+            if (ttxtaddress.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string ttxtlinkedin = txtlinkedin.Text.Trim();
+            //if (ttxtlinkedin.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for LinkedIn Account";
+            //}
+            string txtpostcode = postcodes.SelectedValue.Trim();
+            if (txtpostcode.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string ttxtgoogle = txtgoogle.Text.Trim();
+            //if (ttxtgoogle.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please Enter a Valid Value for Google Account";
+            //}
+            try
+            {
+                if (flag)
+                {
+                    communicationfeedbackDetails.InnerHtml = "<div class='alert alert-danger'>" + str + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    string docNo = Request.QueryString["requisitionNo"].Trim();                  
+                    var Applicant = Session["empNo"].ToString();
+                    var status = new Config().ObjNav().FnewClientApplicationsCommunicationDetails(docNo, ttelnumber1, ttelnumber2, txtcity, txtfacebook, ttxtemail, ttxtaddress, txtpostcode, ttxttwitter, ttxtlinkedin, ttxtgoogle);
+                    var res = status.Split('*');
+                    if (res[0] == "success")
+                    {
+                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo + "&step=3");
+
+                    }
+                    else
+                    {
+                        communicationfeedbackDetails.InnerHtml = "<div class='alert alert-danger'>Th New Client Application Details Could not be Submitted.Kindly Try Again" + res[1] + "</div>";
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                communicationfeedbackDetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
+            }
+        }
+        protected void previousstep_Click(object sender, EventArgs e)
+        {
+            int num1;
+            string str;           
+            try
+            {
+                num1 = Convert.ToInt32(Request.QueryString["step"].Trim());
+                str = Request.QueryString["requisitionNo"].Trim();
+
+            }
+            catch (Exception ex)
+            {
+                num1 = 0;
+                str = "";
+            }
+            int num2 = num1 - 1;
+            Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + str + "&step=" + num2);
+        }
+        protected void SubCategories_Onclick(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            string tcustomerCategory = customerCategory.SelectedValue.Trim();
+            var tsubcustomerCategory = nav.CustomerSubCategory.Where(x => x.Customer_Category == tcustomerCategory && x.Individual == true);
+            List<DropDownList> subcustomerCategorylist = new List<DropDownList>();
+            foreach (var item in tsubcustomerCategory)
+            {
+                DropDownList code = new DropDownList();
+                code.Code = item.Code;
+                code.Name = item.Description;
+                subcustomerCategorylist.Add(code);
+            }
+            customerSubCategory.DataSource = subcustomerCategorylist;
+            customerSubCategory.DataTextField = "Name";
+            customerSubCategory.DataValueField = "Code";
+            customerSubCategory.DataBind();
+            customerSubCategory.Items.Insert(0, "--Select Customer Sub Category--");
+        }
+        protected void Applications_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            string tcustomerCategory = customerCategory.SelectedValue.Trim();
+            string tsubcustomerCategory = customerSubCategory.SelectedValue.Trim();
+            if (tsubcustomerCategory == "FACTORY STAFF")
+            {
+                var KTDARelated = nav.KTDARelatedItems.Where(x => x.Customer_Category == tcustomerCategory && x.Code == tsubcustomerCategory && x.Department == "general");
+                List<DropDownList> KTDARelatedItemsList = new List<DropDownList>();
+                foreach (var item in KTDARelated)
+                {
+                    DropDownList code = new DropDownList();
+                    code.Code = item.Item_Code;
+                    code.Name = item.Description;
+                    KTDARelatedItemsList.Add(code);
+                }
+                applicationTypes.DataSource = KTDARelatedItemsList;
+                applicationTypes.DataTextField = "Name";
+                applicationTypes.DataValueField = "Code";
+                applicationTypes.DataBind();
+                applicationTypes.Items.Insert(0, "--Select Applicant Type--");
+            }
+            else
+            {
+
+                var KTDARelated = nav.KTDARelatedItems.Where(x => x.Customer_Category == tcustomerCategory && x.Code == tsubcustomerCategory && x.Department == "general");
+                List<DropDownList> KTDARelatedItemsList = new List<DropDownList>();
+                foreach (var item in KTDARelated)
+                {
+                    DropDownList code = new DropDownList();
+                    code.Code = item.Item_Code;
+                    code.Name = item.Description;
+                    KTDARelatedItemsList.Add(code);
+                }
+                applicationTypes.DataSource = KTDARelatedItemsList;
+                applicationTypes.DataTextField = "Name";
+                applicationTypes.DataValueField = "Code";
+                applicationTypes.DataBind();
+                applicationTypes.Items.Insert(0, "--Select Applicant Type--");
+            }
+        }
+        protected void PrincipalValidateDate_Text(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Now.Date;
+            DateTime dob = DateTime.ParseExact(txtDOB.Text.Trim(), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            if (dob > today)
+            {
+                datevalidator.InnerText = "The Date of Birth cannot be greater than Today";
+            }
+            int age = CalculateAge(dob);
+            if (age < 18)
+            {
+                datevalidator.InnerText = "The age cannot be less than 18 years";
+            }
+            else
+            {
+                datevalidator.Visible = false;
+            }
+        }
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age = 0;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
+        }
+        protected void PostCodes_OnClick(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            string tpostcodes = postcodes.SelectedValue.Trim();
+            var allpostcodes = nav.postcodes.Where(x => x.Code == tpostcodes);
+            List<DropDownList> allpostcodesList = new List<DropDownList>();
+            foreach (var item in allpostcodes)
+            {
+                DropDownList code = new DropDownList();
+                code.Code = item.City;
+                code.Name = item.City;
+                allpostcodesList.Add(code);
+            }
+            lblcity.DataSource = allpostcodesList;
+            lblcity.DataTextField = "Code";
+            lblcity.DataValueField = "Code";
+            lblcity.DataBind();
+        }
+        protected void GetProducts_Onlick(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+           
+            var tpolicyTypequery = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance");
+            List<DropDownList> tpolicyTypequeryList = new List<DropDownList>();
+            foreach (var item in tpolicyTypequery)
+            {
+                DropDownList code = new DropDownList();
+                code.Code = item.No;
+                code.Name = item.Insurer_Name + "- " + item.Description + "- " + item.Policy_Type;
+                tpolicyTypequeryList.Add(code);
+            }
+            lblproduct.DataSource = tpolicyTypequeryList;
+            lblproduct.DataTextField = "Name";
+            lblproduct.DataValueField = "Code";
+            lblproduct.DataBind();
+            lblproduct.Items.Insert(0, "--Select Product--");
+        }
+        protected void GetProductsdetails_Onlick(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            
+            var productDetails = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance");
+            foreach (var item in productDetails)
+            {
+                insurer.Text = item.Insurer;               
+                serviceperiod.Text = item.Service_Period;
+                //txtpolicyno.Text = item.Last_Policy_No_Used;
+            }
+   
+        }
+        protected void AgentDetails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int tagentDetail = agentDetail.SelectedIndex;
+          
+            string agentdetaildescription = "";
+            if (tagentDetail == 1)
+            {
+                agentdetaildescription = "Direct Business";
+                NAV nav = Config.ReturnNav();
+                var Salesperson = nav.ResponsibilityCenters.Where(x => x.Operating_Unit_Type == "Region");
+                List<DropDownList> Salespersonslist = new List<DropDownList>();
+                foreach (var item in Salesperson)
+                {
+                    DropDownList code = new DropDownList();
+                    code.Code = item.Code;
+                    code.Name = item.Name;
+                    Salespersonslist.Add(code);
+                }
+                lblsalesgentcode.DataSource = Salespersonslist;
+                lblsalesgentcode.DataValueField = "Code";
+                lblsalesgentcode.DataTextField = "Name";
+                lblsalesgentcode.DataBind();
+                lblsalesgentcode.Items.Insert(0, "--Select Region Code--");
+
+            }
+
+
+            if (tagentDetail == 2)
+            {
+                agentdetaildescription = "Agent Business";
+                NAV nav = Config.ReturnNav();
+                var Salesperson = nav.Salespeople_Purchasers.ToList();
+                List<DropDownList> Salespersonslist = new List<DropDownList>();
+                foreach (var item in Salesperson)
+                {
+                    DropDownList code = new DropDownList();
+                    code.Code = item.Code;
+                    code.Name = item.Name;
+                    Salespersonslist.Add(code);
+                }
+                lblsalesgentcode.DataSource = Salespersonslist;
+                lblsalesgentcode.DataValueField = "Code";
+                lblsalesgentcode.DataTextField = "Name";
+                lblsalesgentcode.DataBind();
+                lblsalesgentcode.Items.Insert(0, "--Select Agent SalesPerson Code--");
+            }
+            if (tagentDetail == 3)
+            {
+                agentdetaildescription = "Refferal Business";
+                NAV nav = Config.ReturnNav();
+                var Salesperson = nav.Salespeople_Purchasers.ToList();
+                List<DropDownList> Salespersonslist = new List<DropDownList>();
+                foreach (var item in Salesperson)
+                {
+                    DropDownList code = new DropDownList();
+                    code.Code = item.Code;
+                    code.Name = item.Name;
+                    Salespersonslist.Add(code);
+                }
+                lblsalesgentcode.DataSource = Salespersonslist;
+                lblsalesgentcode.DataValueField = "Code";
+                lblsalesgentcode.DataTextField = "Name";
+                lblsalesgentcode.DataBind();
+                lblsalesgentcode.Items.Insert(0, "--Select Agent SalesPerson Code--");
+            }
+        }
+        
+
+        protected void applicationTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            var KTDARelatedItems = nav.KTDARelatedItems.Where(r => r.Item_Code == applicationTypes.SelectedValue);
+            foreach(var item in KTDARelatedItems)
+            {
+                krapinNumber.Text = item.KRA_PIN;
+            }
+
+        }
+       
+        protected void ValidateFactoryDetail_Click(object sender, EventArgs e)
+        {
+            var tgrowerNumber = growerNumber.Text.Trim();
+            var status = new Config().ObjNav().FnCheckifGrowerNoExist(tgrowerNumber);
+            var res = status.Split('*');
+            if (res[0] == "danger")
+            {
+                growerdetails.InnerText = "The Grower Number Provided Already Exist.Kindly use a different Unique Grower No.";
+
+            }
+            else
+            {
+                growerdetails.InnerText = "";
+            }
+            var tgrowerapplicanttype = growerapplicanttype.SelectedIndex;
+            var FactoryCode = new Config().ObjNav().FnGetFactoryCode(tgrowerNumber, tgrowerapplicanttype);
+            if (FactoryCode == "")
+            {
+                growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
+            }
+            else
+            {
+                txtFactoryCode.Text = FactoryCode;
+            }
+            var FactoryName = new Config().ObjNav().FnGetFactoryName(tgrowerNumber, tgrowerapplicanttype);
+            if (FactoryName == "")
+            {
+                growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
+            }
+            else
+            {
+                ttxtFactoryName.Text = FactoryName;
+                NAV nav = Config.ReturnNav();
+                var tCategoryDetails = nav.KTDAFactories.Where(x => x.Code == FactoryName);
+                foreach (var item in tCategoryDetails)
+                {
+                    krapinNumber.Text = item.KRA_PIN;
+                }
+
+                int tgrowerapplicanttype1 = growerapplicanttype.SelectedIndex;
+                if (tgrowerapplicanttype1 == 2)
+                {
+                    List<DropDownList> KTDAFARMERSlist = new List<DropDownList>();
+                    string AllCustomers = new Config().ObjNav().FnGetKTDAFarmers(FactoryName);
+                    String[] info = AllCustomers.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (info != null)
+                    {
+                        foreach (var allInfo in info)
+                        {
+                            String[] arr = allInfo.Split('*');
+                            DropDownList code = new DropDownList();
+                            code.Code = arr[0];
+                            code.Name = arr[0] + " " + arr[1];
+                            KTDAFARMERSlist.Add(code);
+                        }
+                    }
+                    txtfinancier.DataSource = KTDAFARMERSlist;
+                    txtfinancier.DataValueField = "Code";
+                    txtfinancier.DataTextField = "Name";
+                    txtfinancier.DataBind();
+                    txtfinancier.Items.Insert(0, "--Select Financier--");
+                }
+            }
+        }
+
+        protected void binderCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            premRating.Visible = true;
+        }
+        protected void SubmitPolicyDetails_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            bool flag = false;
+            decimal tpremiumrating=0;
+            string tgrowerNumber = "";
+
+            int hasbinder = Convert.ToInt32(hasBinder.SelectedValue);
+            if (hasbinder == 1)
+            {
+                 tpremiumrating = Convert.ToDecimal(premiumrating.Text.Trim());
+            }
+
+            string product = lblproduct.SelectedValue.Trim();
+            if (product.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+
+            int tpymentOpt = Convert.ToInt32(paymentOptions.SelectedValue.Trim());
+            if (tpymentOpt == 0)
+            {
+                flag = true;
+                str = "Please select payment option";
+            }
+          
+          
+            DateTime tPolicyStartDate = Convert.ToDateTime(policyStartDate.Text.Trim());
+            int tAgentDetail = agentDetail.SelectedIndex;
+            string agentcode = "";
+          
+            if (tAgentDetail == 1)
+            {
+                tAgentDetail = agentDetail.SelectedIndex;
+                agentcode = lblsalesgentcode.SelectedValue.Trim();
+                if (agentcode.Length < 1)
+                {
+                    flag = true;
+                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                }
+            }
+            if (tAgentDetail == 2)
+            {
+                agentcode = lblsalesgentcode.SelectedValue.Trim();
+                if (agentcode.Length < 1)
+                {
+                    flag = true;
+                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                }
+            }
+            
+            
+            if (serviceperiod.Text.Trim().Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+
+
+
+
+            string tinsurer = insurer.Text.Trim();
+            if (tinsurer.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string tpaymentRefCode = paymentRefCode.Text.Trim();
+            
+            if (tpaymentRefCode.Length < 1)
+            {
+                flag = true;
+                str = "Please enter your payment reference Code";
+            }
+            string ttxtfinancier = txtfinancier.SelectedValue.Trim();
+         
+            bool thasgrowerNo = false;
+            int tgrowerapplicanttype = 0;
+            string financier = "";
+            string tfactoryCode = "";
+            string tfactoryName = "";
+            if (hasgrowerNo.Checked == true)
+            {
+                thasgrowerNo = true;
+                tgrowerapplicanttype = growerapplicanttype.SelectedIndex;
+                try
+                {
+
+                    tfactoryCode = txtFactoryCode.Text.Trim();
+                    tfactoryName = ttxtFactoryName.Text.Trim();
+                    if (tgrowerapplicanttype < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                     tgrowerNumber = growerNumber.Text.Trim();
+                    if (tgrowerNumber.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    else
+                    {
+                        if (tgrowerapplicanttype == 2)
+                        {
+                            financier = txtfinancier.Text.Trim();
+                            if (financier.Length < 1)
+                            {
+                                flag = true;
+                                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                            }
+
+                        }
+                        else
+                        {
+                            financier = "";
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            
+            int tmodepayment = modeofpayments.SelectedIndex;
+            if (tmodepayment < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+                      
+            try
+            {
+                if (flag)
+                {
+                    policyfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + str + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                  
+                    string docNo = this.Request.QueryString["requisitionNo"].Trim();                    
+                    var Applicant = Session["empNo"].ToString();
+                    var status = new Config().ObjNav().FnIndividualupdateAgriculturePolicyDetails(docNo, ttxtfinancier, product, tmodepayment, tAgentDetail, tpaymentRefCode, agentcode,
+                         tPolicyStartDate, tpymentOpt, tpremiumrating, tinsurer, hasbinder, tgrowerapplicanttype, tgrowerNumber, tfactoryCode, tfactoryName, thasgrowerNo);
+                    var res = status.Split('*');
+                    if (res[0] == "success")
+                    {
+                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo +  "&step=4");
+
+                    }
+                    else
+                    {
+                        policyfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>The New Client Application Details Could not be Submitted.Kindly Try Again" + res[1] + "</div>";
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                policyfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
+            }
+        }
+    }
+}
