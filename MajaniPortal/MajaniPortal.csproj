@@ -189,7 +189,11 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AgentsLists.aspx" />
+    <Content Include="AgriculturalPolicies.aspx" />
+    <Content Include="AgricultureCorporatePolicyAmmendments.aspx" />
     <Content Include="AgricultureIndividualClientApplication.aspx" />
+    <Content Include="AgricultureIndividualClientsPolicyAmmendments.aspx" />
+    <Content Include="AgricultureOpenApplications.aspx" />
     <Content Include="AllPolicies.aspx" />
     <Content Include="AllPolicyAmmendments.aspx" />
     <Content Include="CompanyProfile.aspx" />
@@ -354,6 +358,7 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\Site.css" />
+    <Content Include="CorporateAgricultureUnd.aspx" />
     <Content Include="CorporateDependantConditions.aspx" />
     <Content Include="Custom Js\CustomJs.js" />
     <Content Include="DebitNotePrintOut.aspx" />
@@ -419,6 +424,7 @@
     <Content Include="MyProfile.aspx" />
     <Content Include="NewAgentOnboarding.aspx" />
     <Content Include="NewClaimNotification.aspx" />
+    <Content Include="NewClaimNotificationAgriculture.aspx" />
     <Content Include="NewPolicyQuote.aspx" />
     <Content Include="OpenBCCApplications.aspx" />
     <Content Include="OpenClaimNotifications.aspx" />
@@ -426,6 +432,8 @@
     <Content Include="OpenMemberClaimNotifications.aspx" />
     <Content Include="OurProducts.aspx" />
     <Content Include="ProductCategories.aspx" />
+    <Content Include="RiskNoteProforma.aspx" />
+    <Content Include="RiskNoteProformaCorp.aspx" />
     <Content Include="RiskReportsPrintOut.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="RiskNotes.aspx" />
@@ -684,12 +692,40 @@
     <Compile Include="AgentsLists.aspx.designer.cs">
       <DependentUpon>AgentsLists.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgriculturalPolicies.aspx.cs">
+      <DependentUpon>AgriculturalPolicies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgriculturalPolicies.aspx.designer.cs">
+      <DependentUpon>AgriculturalPolicies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgricultureCorporatePolicyAmmendments.aspx.cs">
+      <DependentUpon>AgricultureCorporatePolicyAmmendments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgricultureCorporatePolicyAmmendments.aspx.designer.cs">
+      <DependentUpon>AgricultureCorporatePolicyAmmendments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgricultureIndividualClientApplication.aspx.cs">
       <DependentUpon>AgricultureIndividualClientApplication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AgricultureIndividualClientApplication.aspx.designer.cs">
       <DependentUpon>AgricultureIndividualClientApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgricultureIndividualClientsPolicyAmmendments.aspx.cs">
+      <DependentUpon>AgricultureIndividualClientsPolicyAmmendments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgricultureIndividualClientsPolicyAmmendments.aspx.designer.cs">
+      <DependentUpon>AgricultureIndividualClientsPolicyAmmendments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgricultureOpenApplications.aspx.cs">
+      <DependentUpon>AgricultureOpenApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgricultureOpenApplications.aspx.designer.cs">
+      <DependentUpon>AgricultureOpenApplications.aspx</DependentUpon>
     </Compile>
     <Compile Include="AllPolicies.aspx.cs">
       <DependentUpon>AllPolicies.aspx</DependentUpon>
@@ -730,6 +766,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CorporateAgricultureUnd.aspx.cs">
+      <DependentUpon>CorporateAgricultureUnd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorporateAgricultureUnd.aspx.designer.cs">
+      <DependentUpon>CorporateAgricultureUnd.aspx</DependentUpon>
     </Compile>
     <Compile Include="CorporateDependantConditions.aspx.cs">
       <DependentUpon>CorporateDependantConditions.aspx</DependentUpon>
@@ -1030,6 +1073,13 @@
     <Compile Include="NewClaimNotification.aspx.designer.cs">
       <DependentUpon>NewClaimNotification.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewClaimNotificationAgriculture.aspx.cs">
+      <DependentUpon>NewClaimNotificationAgriculture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewClaimNotificationAgriculture.aspx.designer.cs">
+      <DependentUpon>NewClaimNotificationAgriculture.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewPolicyQuote.aspx.cs">
       <DependentUpon>NewPolicyQuote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1084,6 +1134,20 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RiskNoteProforma.aspx.cs">
+      <DependentUpon>RiskNoteProforma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RiskNoteProforma.aspx.designer.cs">
+      <DependentUpon>RiskNoteProforma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RiskNoteProformaCorp.aspx.cs">
+      <DependentUpon>RiskNoteProformaCorp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RiskNoteProformaCorp.aspx.designer.cs">
+      <DependentUpon>RiskNoteProformaCorp.aspx</DependentUpon>
     </Compile>
     <Compile Include="RiskReportsPrintOut.aspx.cs">
       <DependentUpon>RiskReportsPrintOut.aspx</DependentUpon>

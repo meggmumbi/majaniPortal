@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MajaniPortal
 {
@@ -77,6 +78,19 @@ namespace MajaniPortal
                     customerSubCategory.DataBind();
                     customerSubCategory.Items.Insert(0, "--Select Customer Sub Category--");
 
+                    var livestockDrop = nav.DisplaySheetItems.Where(r=>r.Policy_Type== "AGRICULTURAL INSURANCE");
+                    livestock.DataSource = livestockDrop;
+                    livestock.DataTextField = "Item_Description";
+                    livestock.DataValueField = "Code";
+                    livestock.DataBind();
+                    livestock.Items.Insert(0, new ListItem("--select--", ""));
+
+                    var breedDrop = nav.breeds.ToList();
+                    Animalbreed.DataSource = breedDrop;
+                    Animalbreed.DataTextField = "Description";
+                    Animalbreed.DataValueField = "Code";
+                    Animalbreed.DataBind();
+                    Animalbreed.Items.Insert(0, new ListItem("--select--", ""));
 
                     List<string> tgrowerapplicanttype = new List<string>();
                     tgrowerapplicanttype.Add("-----Select Grower Type of Applicants-------");
@@ -199,7 +213,12 @@ namespace MajaniPortal
                             //agentDetail.Text = item.Agent_Detail;
                           
                             lblsalesgentcode.Text = item.Agent_Salespersons_Code;
-                           
+
+                            totalPremiums.Text = Convert.ToString(item.Total_Premiums);
+                            evalAmount.Text = Convert.ToString(item.Evaluation_Amount_Total);
+                            premPayable.Text= Convert.ToString(item.Total_Premiums_Payable);
+
+
 
                         }
                     }
@@ -744,7 +763,7 @@ namespace MajaniPortal
         {
             NAV nav = Config.ReturnNav();
             
-            var productDetails = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance");
+            var productDetails = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance" && x.No== lblproduct.SelectedValue);
             foreach (var item in productDetails)
             {
                 insurer.Text = item.Insurer;               
@@ -824,10 +843,17 @@ namespace MajaniPortal
         protected void applicationTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             NAV nav = Config.ReturnNav();
-            var KTDARelatedItems = nav.KTDARelatedItems.Where(r => r.Item_Code == applicationTypes.SelectedValue);
+            if (applicationTypes.SelectedValue == "FACTORY")
+            {
+                var KTDARelatedItems = nav.KTDARelatedItems.Where(r => r.Item_Code == applicationTypes.SelectedValue);
             foreach(var item in KTDARelatedItems)
             {
                 krapinNumber.Text = item.KRA_PIN;
+            }
+            }
+            else
+            {
+                krapinNumber.ReadOnly = false;
             }
 
         }
@@ -1043,7 +1069,64 @@ namespace MajaniPortal
                 }
                 else
                 {
-                  
+                    var documentsmodeofpayments = modeofpayments.SelectedValue.Trim();
+                    string ApplicationNumber = Request.QueryString["requisitionNo"].Trim();
+                    ApplicationNumber = ApplicationNumber.Replace('/', '_');
+                    ApplicationNumber = ApplicationNumber.Replace(':', '_');
+                    string path1 = Config.FilesLocation() + "Agriculture Underwriting/";
+                    string rQuisitionNo = Request.QueryString["requisitionNo"];
+                    string str1 = Convert.ToString(ApplicationNumber);
+                    string folderName = path1 + str1 + "/";
+                    bool error = false;
+                    string message = "";
+                    if (documentsmodeofpayments == "KTDA check Off")
+                    {
+                        try
+                        {
+                            if (checkoffform.HasFile)
+                            {
+                                string extension = System.IO.Path.GetExtension(checkoffform.FileName);
+                                if (new Config().IsAllowedExtension(extension))
+                                {
+                                    string filename = ApplicationNumber + "_CheckOffForm" + extension;
+                                    string fullfileName = folderName + filename;
+                                    if (!Directory.Exists(folderName))
+                                    {
+                                        Directory.CreateDirectory(folderName);
+                                    }
+                                    if (File.Exists(folderName + filename))
+                                    {
+                                        File.Delete(folderName + filename);
+                                    }
+                                    checkoffform.SaveAs(folderName + filename);
+                                    Config.navExtender.AddLinkToRecord("Individual Client Underwriting", rQuisitionNo, fullfileName, "");
+                                }
+                                else
+                                {
+                                    error = true;
+                                    message += message.Length > 0 ? "<br>" : "";
+                                    message += "The file extension of the Check off Form is not allowed,Kindly upload Pdf files";
+                                }
+
+                            }
+                            else
+                            {
+                                error = true;
+                                message += message.Length > 0 ? "<br>" : "";
+                                message += "Kindly Upload the Check off Form before you proceed";
+
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            error = true;
+                            message += message.Length > 0 ? "<br>" : "";
+                            message += "Kindly Upload the  Check off Form before you proceed" + ex;
+                        }
+                    }
+
+
+
                     string docNo = this.Request.QueryString["requisitionNo"].Trim();                    
                     var Applicant = Session["empNo"].ToString();
                     var status = new Config().ObjNav().FnIndividualupdateAgriculturePolicyDetails(docNo, ttxtfinancier, product, tmodepayment, tAgentDetail, tpaymentRefCode, agentcode,
@@ -1051,7 +1134,7 @@ namespace MajaniPortal
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
-                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo +  "&step=4");
+                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo +  "&step=4" + "&product=" +product);
 
                     }
                     else
@@ -1066,5 +1149,357 @@ namespace MajaniPortal
                 policyfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
             }
         }
+
+        protected void hasBinder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (hasBinder.SelectedValue == "1")
+            {
+                premRating.Visible = true;
+            }
+            else
+            {
+                premRating.Visible = false;
+            }
+        }
+
+        protected void modeofpayments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+  
+
+            var tmodeofpayments = modeofpayments.SelectedValue.Trim();
+            if (tmodeofpayments == "KTDA check Off")
+            {
+                generalformcheckoffs.Visible = true;
+               
+            }
+            else if (tmodeofpayments == "KTDA Bonus")
+            {
+                generalformcheckoffs.Visible = true;
+                
+            }
+            
+    }
+
+        protected void saveDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool error = false;
+                string msg = "";
+
+
+                string tlivestock = livestock.SelectedValue;
+                string tNameOfAnimal = NameOfAnimal.Text.Trim();
+                string tearTag = earTag.Text.Trim();
+                string tAnimalbreed = Animalbreed.SelectedValue.Trim();
+                int tlivestocksex = Convert.ToInt32(livestocksex.SelectedValue.Trim());
+                Decimal tAge = Convert.ToDecimal(age.Text);
+                string tmilkProd = milkProd.Text.Trim();
+                decimal tvalueInsured = Convert.ToDecimal(valueInsured.Text);
+                string docNo = Request.QueryString["requisitionNo"];
+                if (tNameOfAnimal.Length < 1)
+                {
+                    error = true;
+                    msg = "Please enter Name of livestock";
+                }
+                if (tlivestock.Length < 1)
+                {
+                    error = true;
+                    msg = "Please select livestock";
+                }
+                if (tearTag.Length < 1)
+                {
+                    error = true;
+                    msg = "Please enter ear tag";
+                }
+                if (tAnimalbreed.Length < 1)
+                {
+                    error = true;
+                    msg = "Please select breed";
+                }
+                if (tAge == 0)
+                {
+                    error = true;
+                    msg = "Please enter age";
+                }
+                if (tmilkProd.Length < 1)
+                {
+                    error = true;
+                    msg = "Please enter milk production per day";
+                }
+                if (tvalueInsured < 1)
+                {
+                    error = true;
+                    msg = "Please enter value/sum insured";
+                }
+                if (error)
+                {
+                    physicalLocations.InnerHtml = "<div class='alert alert-danger'>" + msg + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    string tproduct = Request.QueryString["product"];
+                    String status = new Config().ObjNav().FnInsterAgricultureDetails(docNo, tNameOfAnimal, tlivestock, tearTag, tAnimalbreed, tlivestocksex, tAge, tmilkProd, tvalueInsured, tproduct);
+                    String[] info = status.Split('*');
+                    if (info[0] == "success")
+                    {
+                        var nav = Config.ReturnNav();
+                        var Application = nav.ClientApplicationQuery.Where(x => x.No == docNo).ToList();
+                        foreach (var item in Application)
+                        {
+                            totalPremiums.Text = Convert.ToString(item.Total_Premiums);
+                            evalAmount.Text = Convert.ToString(item.Evaluation_Amount_Total);
+                            premPayable.Text = Convert.ToString(item.Total_Premiums_Payable);
+                        }
+
+                        livestock.SelectedValue = "";
+                        NameOfAnimal.Text = "";
+                        earTag.Text = "";
+                        Animalbreed.SelectedValue = "";
+                        livestocksex.SelectedValue = "";
+                        age.Text = "";
+                        milkProd.Text = "";
+                        valueInsured.Text = "";
+                        physicalLocations.InnerHtml = "<div class='alert alert-success'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                    else
+                    {
+                        physicalLocations.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
+            }
+            catch (Exception m)
+            {
+                physicalLocations.InnerHtml = "<div class='alert alert-danger'>" + m.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+
+
+        protected void backtostep3_Click(object sender, EventArgs e)
+        {
+            string docNo = Request.QueryString["requisitionNo"];
+            string tproduct = Request.QueryString["product"];
+            Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo + "&step=3" + "&product=" + tproduct);
+        }
+
+        protected void nextBtn_Click(object sender, EventArgs e)
+        {
+            
+            string docNo = Request.QueryString["requisitionNo"];
+            string tproduct = Request.QueryString["product"];
+            Response.Redirect("RiskNoteProforma.aspx?requisitionNo=" + docNo  + "&product=" + tproduct);
+        }
+
+        protected void hasgrowerNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hasgrowerNo.Checked)
+            {
+                growerId.Visible = true;
+            }
+            else
+            {
+                growerId.Visible = false;
+
+            }
+        }
+        protected void UploadDocumentsApplication_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var tprincipleName = "";
+                var tFirstName = "";
+                var tlastName = "";
+                string ApplicationNumber = Request.QueryString["requisitionNo"].Trim();
+                //string GrowerNumber = Request.QueryString["GrowerNumber"].Trim();
+                ApplicationNumber = ApplicationNumber.Replace('/', '_');
+                ApplicationNumber = ApplicationNumber.Replace(':', '_');
+              
+                string rQuisitionNo = Request.QueryString["requisitionNo"];
+                string path1 = Config.FilesLocation() + "Agriculture Underwriting/";
+                string str1 = Convert.ToString(ApplicationNumber);
+
+                var nav = Config.ReturnNav();
+                var applications = nav.ClientApplicationQuery.Where(r => r.No == rQuisitionNo).ToList();
+                foreach (var principalname in applications)
+                {
+                    tFirstName = principalname.First_Name;
+                    tlastName = principalname.Last_Name;
+                }
+                tprincipleName = tFirstName + "_" + tlastName;
+
+
+                string folderName = path1 + str1 + "_" + tprincipleName + "/";
+                bool error = false;
+                string message = "";
+                try
+                {
+
+                    if (filetoupload.HasFile)
+                    {
+                        string extension = System.IO.Path.GetExtension(filetoupload.FileName);
+                        if (new Config().IsAllowedExtension(extension))
+                        {
+                            string filename = "ProposalForm" + extension;
+                            string fullfileName = folderName + filename;
+                            if (!Directory.Exists(folderName))
+                            {
+                                Directory.CreateDirectory(folderName);
+                            }
+                            //if (File.Exists(folderName + filename))
+                            //{
+                            //    File.Delete(folderName + filename);
+                            //}
+                            filetoupload.SaveAs(folderName + filename);
+                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");                            
+                            //var Requisition = Request.QueryString["requisitionNo"].Trim();
+                            //var status = new Config().ObjNav().FnDocumentsValidations(Requisition, scannedcopy, depedantphoto);
+
+                        }
+                        else
+                        {
+                            error = true;
+                            message += message.Length > 0 ? "<br>" : "";
+                            message += "The file extension of the Scanned application is not allowed,Kindly upload Pdf files";
+                        }
+
+                    }
+                    else
+                    {
+                        error = true;
+                        message += message.Length > 0 ? "<br>" : "";
+                        message += "Kindly Upload the  Scanned Application before you proceed";
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = true;
+                    message += message.Length > 0 ? "<br>" : "";
+                    message += "Kindly Upload the  Scanned Application before you proceed" + ex;
+                }
+                try
+                {
+                    if (guardianshipletter.HasFile)
+                    {
+                        string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
+                        if (new Config().IsAllowedExtension(extension))
+                        {
+                            string filename =  "OtherDocument " + extension;
+                            string fullfileName = folderName + filename;
+                            if (!Directory.Exists(folderName))
+                            {
+                                Directory.CreateDirectory(folderName);
+                            }
+                            //if (File.Exists(folderName + filename))
+                            //{
+                            //    File.Delete(folderName + filename);
+                            //}
+                            guardianshipletter.SaveAs(folderName + filename);
+                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");
+                        }
+                        else
+                        {
+                            error = true;
+                            message += message.Length > 0 ? "<br>" : "";
+                            message += "The file extension of the Other is not allowed";
+                        }
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = true;
+                    message += message.Length > 0 ? "<br>" : "";
+                    message += "Kindly Upload the  Other before you proceed" + ex;
+                }
+
+                try
+                {
+                    if (principalmemberphoto.HasFile == true)
+                    {
+                        string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
+                        if (new Config().IsAllowedExtension(extension))
+                        {
+                            string filename = "VetEvaluationReport " + extension;
+                            string fullfileName = folderName + filename;
+                            if (!Directory.Exists(folderName))
+                            {
+                                Directory.CreateDirectory(folderName);
+                            }
+                            //if (File.Exists(folderName + filename))
+                            //{
+                            //    File.Delete(folderName + filename);
+                            //}
+                            guardianshipletter.SaveAs(folderName + filename);
+                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");
+                        }
+                        else
+                        {
+                            error = true;
+                            message += message.Length > 0 ? "<br>" : "";
+                            message += "The file extension of the Vet Evaluation Report is not allowed";
+                        }                   
+                    
+
+                    }
+                
+                }
+                catch (Exception ex)
+                {
+                    error = true;
+                    message += message.Length > 0 ? "<br>" : "";
+                    message += "Kindly Upload the Vet Evaluation Report before you proceed" + ex;
+
+                }
+                if (error)
+                {
+                    documentsfeedback.InnerHtml = Config.GetAlert("danger", message);
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = Config.GetAlert("success", "The Documents has been uploaded successfully");
+
+                }
+            }
+            catch (Exception y)
+            {
+                documentsfeedback.InnerHtml = Config.GetAlert("danger", y.Message);
+            }
+        }
+        protected void SubmitApplication_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NAV nav = Config.ReturnNav();
+                var Requisition = Request.QueryString["requisitionNo"].Trim();
+                var Conditions = Config.ReturnNav().ClientApplicationQuery.Where(x => x.No == Requisition).ToList();
+               
+                        var step = Convert.ToInt32(Request.QueryString["step"].Trim());
+                        var status = new Config().ObjNav().SendIndividualAgricultureApplicationApproval(Requisition);
+                        var res = status.Split('*');
+                        if (res[0] == "success")
+                        {
+                            Response.Redirect("AgricultureOpenApplications.aspx");
+                        }
+                        else
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>The New Client Application Details Could not be Submitted for Approval" + res[1] + "</div>";
+
+                        }
+                    
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }

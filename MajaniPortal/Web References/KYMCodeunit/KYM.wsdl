@@ -2017,6 +2017,113 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnInsterAgricultureDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="livestockName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="livestock" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="earTag" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="breed" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sex" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="ageinYears" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="milkProd" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="valueInsured" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="product" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsterAgricultureDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendIndividualAgricultureApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendIndividualAgricultureApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnewAgricultureCorpOnboadingRequests">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cust_category" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cust_sub_category" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="pinNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="companyName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="countryOfResidence" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="countyCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applicanttype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="residentialLocat" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="officeLoc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="wealthSource" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="incomeSource" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="incorporationcert" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnewAgricultureCorpOnboadingRequests_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetServiceContractsAgriculture">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="branchName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="profileType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetServiceContractsAgriculture_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewPolicyAmmendmentsIndAgric">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="contractNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewPolicyAmmendmentsIndAgric_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="NewClientOnboadingRequests">
@@ -2607,6 +2714,42 @@
   <message name="FnIndividualupdateAgriculturePolicyDetails_Result">
     <part name="parameters" element="tns:FnIndividualupdateAgriculturePolicyDetails_Result" />
   </message>
+  <message name="FnInsterAgricultureDetails">
+    <part name="parameters" element="tns:FnInsterAgricultureDetails" />
+  </message>
+  <message name="FnInsterAgricultureDetails_Result">
+    <part name="parameters" element="tns:FnInsterAgricultureDetails_Result" />
+  </message>
+  <message name="FnGenerateReport">
+    <part name="parameters" element="tns:FnGenerateReport" />
+  </message>
+  <message name="FnGenerateReport_Result">
+    <part name="parameters" element="tns:FnGenerateReport_Result" />
+  </message>
+  <message name="SendIndividualAgricultureApplicationApproval">
+    <part name="parameters" element="tns:SendIndividualAgricultureApplicationApproval" />
+  </message>
+  <message name="SendIndividualAgricultureApplicationApproval_Result">
+    <part name="parameters" element="tns:SendIndividualAgricultureApplicationApproval_Result" />
+  </message>
+  <message name="FnewAgricultureCorpOnboadingRequests">
+    <part name="parameters" element="tns:FnewAgricultureCorpOnboadingRequests" />
+  </message>
+  <message name="FnewAgricultureCorpOnboadingRequests_Result">
+    <part name="parameters" element="tns:FnewAgricultureCorpOnboadingRequests_Result" />
+  </message>
+  <message name="FnGetServiceContractsAgriculture">
+    <part name="parameters" element="tns:FnGetServiceContractsAgriculture" />
+  </message>
+  <message name="FnGetServiceContractsAgriculture_Result">
+    <part name="parameters" element="tns:FnGetServiceContractsAgriculture_Result" />
+  </message>
+  <message name="FnNewPolicyAmmendmentsIndAgric">
+    <part name="parameters" element="tns:FnNewPolicyAmmendmentsIndAgric" />
+  </message>
+  <message name="FnNewPolicyAmmendmentsIndAgric_Result">
+    <part name="parameters" element="tns:FnNewPolicyAmmendmentsIndAgric_Result" />
+  </message>
   <portType name="KYM_Port">
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
@@ -2999,6 +3142,30 @@
     <operation name="FnIndividualupdateAgriculturePolicyDetails">
       <input name="FnIndividualupdateAgriculturePolicyDetails" message="tns:FnIndividualupdateAgriculturePolicyDetails" />
       <output name="FnIndividualupdateAgriculturePolicyDetails_Result" message="tns:FnIndividualupdateAgriculturePolicyDetails_Result" />
+    </operation>
+    <operation name="FnInsterAgricultureDetails">
+      <input name="FnInsterAgricultureDetails" message="tns:FnInsterAgricultureDetails" />
+      <output name="FnInsterAgricultureDetails_Result" message="tns:FnInsterAgricultureDetails_Result" />
+    </operation>
+    <operation name="FnGenerateReport">
+      <input name="FnGenerateReport" message="tns:FnGenerateReport" />
+      <output name="FnGenerateReport_Result" message="tns:FnGenerateReport_Result" />
+    </operation>
+    <operation name="SendIndividualAgricultureApplicationApproval">
+      <input name="SendIndividualAgricultureApplicationApproval" message="tns:SendIndividualAgricultureApplicationApproval" />
+      <output name="SendIndividualAgricultureApplicationApproval_Result" message="tns:SendIndividualAgricultureApplicationApproval_Result" />
+    </operation>
+    <operation name="FnewAgricultureCorpOnboadingRequests">
+      <input name="FnewAgricultureCorpOnboadingRequests" message="tns:FnewAgricultureCorpOnboadingRequests" />
+      <output name="FnewAgricultureCorpOnboadingRequests_Result" message="tns:FnewAgricultureCorpOnboadingRequests_Result" />
+    </operation>
+    <operation name="FnGetServiceContractsAgriculture">
+      <input name="FnGetServiceContractsAgriculture" message="tns:FnGetServiceContractsAgriculture" />
+      <output name="FnGetServiceContractsAgriculture_Result" message="tns:FnGetServiceContractsAgriculture_Result" />
+    </operation>
+    <operation name="FnNewPolicyAmmendmentsIndAgric">
+      <input name="FnNewPolicyAmmendmentsIndAgric" message="tns:FnNewPolicyAmmendmentsIndAgric" />
+      <output name="FnNewPolicyAmmendmentsIndAgric_Result" message="tns:FnNewPolicyAmmendmentsIndAgric_Result" />
     </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
@@ -3882,6 +4049,60 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnIndividualupdateAgriculturePolicyDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsterAgricultureDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsterAgricultureDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsterAgricultureDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsterAgricultureDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendIndividualAgricultureApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:SendIndividualAgricultureApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendIndividualAgricultureApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendIndividualAgricultureApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnewAgricultureCorpOnboadingRequests">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnewAgricultureCorpOnboadingRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnewAgricultureCorpOnboadingRequests">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnewAgricultureCorpOnboadingRequests_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetServiceContractsAgriculture">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGetServiceContractsAgriculture" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetServiceContractsAgriculture">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetServiceContractsAgriculture_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnNewPolicyAmmendmentsIndAgric">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendmentsIndAgric" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnNewPolicyAmmendmentsIndAgric">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnNewPolicyAmmendmentsIndAgric_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

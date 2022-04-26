@@ -1,6 +1,27 @@
 ﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
   <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
     <Schema Namespace="NAV" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="AgricultureRiskDetails">
+        <Key>
+          <PropertyRef Name="Client_App_No" />
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Policy_Type" />
+          <PropertyRef Name="Product" />
+        </Key>
+        <Property Name="Client_App_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Product" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Policy_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Name_of_Animal" Type="Edm.String" />
+        <Property Name="Breed" Type="Edm.String" />
+        <Property Name="Value_Sum_Insured" Type="Edm.Decimal" />
+        <Property Name="Rate" Type="Edm.Decimal" />
+        <Property Name="Valuation_Amount" Type="Edm.Int32" />
+        <Property Name="Premium" Type="Edm.Decimal" />
+        <Property Name="Total_Line_Premiums" Type="Edm.Decimal" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+        <NavigationProperty Name="Product_Link" Relationship="NAV.AgricultureRiskDetails_Product_Link" ToRole="Product_Link" FromRole="AgricultureRiskDetails" />
+      </EntityType>
       <EntityType Name="ApplicantAccomplishment">
         <Key>
           <PropertyRef Name="Code" />
@@ -201,6 +222,7 @@
         <Property Name="Policy_Type" Type="Edm.String" />
         <Property Name="Product" Type="Edm.String" />
         <Property Name="Product_Name" Type="Edm.String" />
+        <Property Name="Grower_No_Client_ID" Type="Edm.String" />
         <Property Name="Starting_Date" Type="Edm.DateTime" />
         <Property Name="Expiration_Date" Type="Edm.DateTime" />
         <Property Name="Status" Type="Edm.String" />
@@ -960,6 +982,13 @@
         <Property Name="code" Type="Edm.String" Nullable="false" />
         <Property Name="Description" Type="Edm.String" />
       </EntityType>
+      <EntityType Name="breeds">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="businessTypes">
         <Key>
           <PropertyRef Name="Code" />
@@ -1126,6 +1155,7 @@
         <Property Name="Total_Premiums" Type="Edm.Decimal" />
         <Property Name="ScannedCopy" Type="Edm.Boolean" />
         <Property Name="DepedantPhoto" Type="Edm.Boolean" />
+        <Property Name="Evaluation_Amount_Total" Type="Edm.Decimal" />
       </EntityType>
       <EntityType Name="ClientPreExistingConditons">
         <Key>
@@ -5380,6 +5410,7 @@
           <PropertyRef Name="Name" />
         </Key>
         <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="AgricultureRiskDetails" Relationship="NAV.Company_AgricultureRiskDetails" ToRole="AgricultureRiskDetails" FromRole="Company" />
         <NavigationProperty Name="ApplicantAccomplishment" Relationship="NAV.Company_ApplicantAccomplishment" ToRole="ApplicantAccomplishment" FromRole="Company" />
         <NavigationProperty Name="ApplicantEmployeeHistory" Relationship="NAV.Company_ApplicantEmployeeHistory" ToRole="ApplicantEmployeeHistory" FromRole="Company" />
         <NavigationProperty Name="ApprovedWelfareBenefits" Relationship="NAV.Company_ApprovedWelfareBenefits" ToRole="ApprovedWelfareBenefits" FromRole="Company" />
@@ -5417,6 +5448,7 @@
         <NavigationProperty Name="bidscoringTemplate" Relationship="NAV.Company_bidscoringTemplate" ToRole="bidscoringTemplate" FromRole="Company" />
         <NavigationProperty Name="Binders" Relationship="NAV.Company_Binders" ToRole="Binders" FromRole="Company" />
         <NavigationProperty Name="BodyTypes" Relationship="NAV.Company_BodyTypes" ToRole="BodyTypes" FromRole="Company" />
+        <NavigationProperty Name="breeds" Relationship="NAV.Company_breeds" ToRole="breeds" FromRole="Company" />
         <NavigationProperty Name="businessTypes" Relationship="NAV.Company_businessTypes" ToRole="businessTypes" FromRole="Company" />
         <NavigationProperty Name="CalenderYearCodesList" Relationship="NAV.Company_CalenderYearCodesList" ToRole="CalenderYearCodesList" FromRole="Company" />
         <NavigationProperty Name="Casuals" Relationship="NAV.Company_Casuals" ToRole="Casuals" FromRole="Company" />
@@ -5546,6 +5578,10 @@
         <NavigationProperty Name="WorkTypes" Relationship="NAV.Company_WorkTypes" ToRole="WorkTypes" FromRole="Company" />
         <NavigationProperty Name="VendorLedgerEntries" Relationship="NAV.Company_VendorLedgerEntries" ToRole="VendorLedgerEntries" FromRole="Company" />
       </EntityType>
+      <Association Name="AgricultureRiskDetails_Product_Link">
+        <End Type="NAV.ProductList" Role="Product_Link" Multiplicity="0..1" />
+        <End Type="NAV.AgricultureRiskDetails" Role="AgricultureRiskDetails" Multiplicity="*" />
+      </Association>
       <Association Name="ApprovedWelfareBenefits_Global_Dimension_1_Code_Link">
         <End Type="NAV.DimensionValueList" Role="Global_Dimension_1_Code_Link" Multiplicity="0..1" />
         <End Type="NAV.ApprovedWelfareBenefits" Role="ApprovedWelfareBenefits" Multiplicity="*" />
@@ -5649,6 +5685,10 @@
       <Association Name="VacantPositions_Responsibility_Center_Link">
         <End Type="NAV.VacantPositions" Role="VacantPositions" Multiplicity="*" />
         <End Type="NAV.ResponsibilityCenters" Role="Responsibility_Center_Link" Multiplicity="0..1" />
+      </Association>
+      <Association Name="Company_AgricultureRiskDetails">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.AgricultureRiskDetails" Role="AgricultureRiskDetails" Multiplicity="*" />
       </Association>
       <Association Name="Company_ApplicantAccomplishment">
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -5797,6 +5837,10 @@
       <Association Name="Company_BodyTypes">
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
         <End Type="NAV.BodyTypes" Role="BodyTypes" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_breeds">
+        <End Type="NAV.breeds" Role="breeds" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_businessTypes">
         <End Type="NAV.businessTypes" Role="businessTypes" Multiplicity="*" />
@@ -6311,6 +6355,7 @@
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <EntityContainer Name="NAV" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="AgricultureRiskDetails" EntityType="NAV.AgricultureRiskDetails" />
         <EntitySet Name="ApplicantAccomplishment" EntityType="NAV.ApplicantAccomplishment" />
         <EntitySet Name="ApplicantEmployeeHistory" EntityType="NAV.ApplicantEmployeeHistory" />
         <EntitySet Name="ApprovedWelfareBenefits" EntityType="NAV.ApprovedWelfareBenefits" />
@@ -6348,6 +6393,7 @@
         <EntitySet Name="bidscoringTemplate" EntityType="NAV.bidscoringTemplate" />
         <EntitySet Name="Binders" EntityType="NAV.Binders" />
         <EntitySet Name="BodyTypes" EntityType="NAV.BodyTypes" />
+        <EntitySet Name="breeds" EntityType="NAV.breeds" />
         <EntitySet Name="businessTypes" EntityType="NAV.businessTypes" />
         <EntitySet Name="CalenderYearCodesList" EntityType="NAV.CalenderYearCodesList" />
         <EntitySet Name="Casuals" EntityType="NAV.Casuals" />
@@ -6477,6 +6523,10 @@
         <EntitySet Name="WorkTypes" EntityType="NAV.WorkTypes" />
         <EntitySet Name="VendorLedgerEntries" EntityType="NAV.VendorLedgerEntries" />
         <EntitySet Name="Company" EntityType="NAV.Company" />
+        <AssociationSet Name="AgricultureRiskDetails_Product_Link_ProductList" Association="NAV.AgricultureRiskDetails_Product_Link">
+          <End Role="AgricultureRiskDetails" EntitySet="AgricultureRiskDetails" />
+          <End Role="Product_Link" EntitySet="ProductList" />
+        </AssociationSet>
         <AssociationSet Name="ApprovedWelfareBenefits_Global_Dimension_1_Code_Link_DimensionValueList" Association="NAV.ApprovedWelfareBenefits_Global_Dimension_1_Code_Link">
           <End Role="ApprovedWelfareBenefits" EntitySet="ApprovedWelfareBenefits" />
           <End Role="Global_Dimension_1_Code_Link" EntitySet="DimensionValueList" />
@@ -6580,6 +6630,10 @@
         <AssociationSet Name="VacantPositions_Responsibility_Center_Link_ResponsibilityCenters" Association="NAV.VacantPositions_Responsibility_Center_Link">
           <End Role="VacantPositions" EntitySet="VacantPositions" />
           <End Role="Responsibility_Center_Link" EntitySet="ResponsibilityCenters" />
+        </AssociationSet>
+        <AssociationSet Name="Company_AgricultureRiskDetails_AgricultureRiskDetails" Association="NAV.Company_AgricultureRiskDetails">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="AgricultureRiskDetails" EntitySet="AgricultureRiskDetails" />
         </AssociationSet>
         <AssociationSet Name="Company_ApplicantAccomplishment_ApplicantAccomplishment" Association="NAV.Company_ApplicantAccomplishment">
           <End Role="Company" EntitySet="Company" />
@@ -6728,6 +6782,10 @@
         <AssociationSet Name="Company_BodyTypes_BodyTypes" Association="NAV.Company_BodyTypes">
           <End Role="Company" EntitySet="Company" />
           <End Role="BodyTypes" EntitySet="BodyTypes" />
+        </AssociationSet>
+        <AssociationSet Name="Company_breeds_breeds" Association="NAV.Company_breeds">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="breeds" EntitySet="breeds" />
         </AssociationSet>
         <AssociationSet Name="Company_businessTypes_businessTypes" Association="NAV.Company_businessTypes">
           <End Role="Company" EntitySet="Company" />

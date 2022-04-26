@@ -225,6 +225,18 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnIndividualupdateAgriculturePolicyDetailsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnInsterAgricultureDetailsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGenerateReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendIndividualAgricultureApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnewAgricultureCorpOnboadingRequestsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGetServiceContractsAgricultureOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnNewPolicyAmmendmentsIndAgricOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -556,6 +568,24 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnIndividualupdateAgriculturePolicyDetailsCompletedEventHandler FnIndividualupdateAgriculturePolicyDetailsCompleted;
+        
+        /// <remarks/>
+        public event FnInsterAgricultureDetailsCompletedEventHandler FnInsterAgricultureDetailsCompleted;
+        
+        /// <remarks/>
+        public event FnGenerateReportCompletedEventHandler FnGenerateReportCompleted;
+        
+        /// <remarks/>
+        public event SendIndividualAgricultureApplicationApprovalCompletedEventHandler SendIndividualAgricultureApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event FnewAgricultureCorpOnboadingRequestsCompletedEventHandler FnewAgricultureCorpOnboadingRequestsCompleted;
+        
+        /// <remarks/>
+        public event FnGetServiceContractsAgricultureCompletedEventHandler FnGetServiceContractsAgricultureCompleted;
+        
+        /// <remarks/>
+        public event FnNewPolicyAmmendmentsIndAgricCompletedEventHandler FnNewPolicyAmmendmentsIndAgricCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -5970,6 +6000,233 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsterAgricultureDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnInsterAgricultureDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsterAgricultureDetails(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, decimal ageinYears, string milkProd, decimal valueInsured, string product) {
+            object[] results = this.Invoke("FnInsterAgricultureDetails", new object[] {
+                        docNo,
+                        livestockName,
+                        livestock,
+                        earTag,
+                        breed,
+                        sex,
+                        ageinYears,
+                        milkProd,
+                        valueInsured,
+                        product});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsterAgricultureDetailsAsync(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, decimal ageinYears, string milkProd, decimal valueInsured, string product) {
+            this.FnInsterAgricultureDetailsAsync(docNo, livestockName, livestock, earTag, breed, sex, ageinYears, milkProd, valueInsured, product, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsterAgricultureDetailsAsync(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, decimal ageinYears, string milkProd, decimal valueInsured, string product, object userState) {
+            if ((this.FnInsterAgricultureDetailsOperationCompleted == null)) {
+                this.FnInsterAgricultureDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsterAgricultureDetailsOperationCompleted);
+            }
+            this.InvokeAsync("FnInsterAgricultureDetails", new object[] {
+                        docNo,
+                        livestockName,
+                        livestock,
+                        earTag,
+                        breed,
+                        sex,
+                        ageinYears,
+                        milkProd,
+                        valueInsured,
+                        product}, this.FnInsterAgricultureDetailsOperationCompleted, userState);
+        }
+        
+        private void OnFnInsterAgricultureDetailsOperationCompleted(object arg) {
+            if ((this.FnInsterAgricultureDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsterAgricultureDetailsCompleted(this, new FnInsterAgricultureDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateReport(string docNo) {
+            object[] results = this.Invoke("FnGenerateReport", new object[] {
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateReportAsync(string docNo) {
+            this.FnGenerateReportAsync(docNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateReportAsync(string docNo, object userState) {
+            if ((this.FnGenerateReportOperationCompleted == null)) {
+                this.FnGenerateReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateReportOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateReport", new object[] {
+                        docNo}, this.FnGenerateReportOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateReportOperationCompleted(object arg) {
+            if ((this.FnGenerateReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateReportCompleted(this, new FnGenerateReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:SendIndividualAgricultureApplicationA" +
+            "pproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="SendIndividualAgricultureApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string SendIndividualAgricultureApplicationApproval(string docNo) {
+            object[] results = this.Invoke("SendIndividualAgricultureApplicationApproval", new object[] {
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendIndividualAgricultureApplicationApprovalAsync(string docNo) {
+            this.SendIndividualAgricultureApplicationApprovalAsync(docNo, null);
+        }
+        
+        /// <remarks/>
+        public void SendIndividualAgricultureApplicationApprovalAsync(string docNo, object userState) {
+            if ((this.SendIndividualAgricultureApplicationApprovalOperationCompleted == null)) {
+                this.SendIndividualAgricultureApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendIndividualAgricultureApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("SendIndividualAgricultureApplicationApproval", new object[] {
+                        docNo}, this.SendIndividualAgricultureApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnSendIndividualAgricultureApplicationApprovalOperationCompleted(object arg) {
+            if ((this.SendIndividualAgricultureApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendIndividualAgricultureApplicationApprovalCompleted(this, new SendIndividualAgricultureApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnewAgricultureCorpOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnewAgricultureCorpOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnewAgricultureCorpOnboadingRequests(string docNo, string empNo, string cust_category, string cust_sub_category, string pinNo, string companyName, string countryOfResidence, string countyCode, string applicanttype, string residentialLocat, string officeLoc, int wealthSource, int incomeSource, string incorporationcert) {
+            object[] results = this.Invoke("FnewAgricultureCorpOnboadingRequests", new object[] {
+                        docNo,
+                        empNo,
+                        cust_category,
+                        cust_sub_category,
+                        pinNo,
+                        companyName,
+                        countryOfResidence,
+                        countyCode,
+                        applicanttype,
+                        residentialLocat,
+                        officeLoc,
+                        wealthSource,
+                        incomeSource,
+                        incorporationcert});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnewAgricultureCorpOnboadingRequestsAsync(string docNo, string empNo, string cust_category, string cust_sub_category, string pinNo, string companyName, string countryOfResidence, string countyCode, string applicanttype, string residentialLocat, string officeLoc, int wealthSource, int incomeSource, string incorporationcert) {
+            this.FnewAgricultureCorpOnboadingRequestsAsync(docNo, empNo, cust_category, cust_sub_category, pinNo, companyName, countryOfResidence, countyCode, applicanttype, residentialLocat, officeLoc, wealthSource, incomeSource, incorporationcert, null);
+        }
+        
+        /// <remarks/>
+        public void FnewAgricultureCorpOnboadingRequestsAsync(string docNo, string empNo, string cust_category, string cust_sub_category, string pinNo, string companyName, string countryOfResidence, string countyCode, string applicanttype, string residentialLocat, string officeLoc, int wealthSource, int incomeSource, string incorporationcert, object userState) {
+            if ((this.FnewAgricultureCorpOnboadingRequestsOperationCompleted == null)) {
+                this.FnewAgricultureCorpOnboadingRequestsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnewAgricultureCorpOnboadingRequestsOperationCompleted);
+            }
+            this.InvokeAsync("FnewAgricultureCorpOnboadingRequests", new object[] {
+                        docNo,
+                        empNo,
+                        cust_category,
+                        cust_sub_category,
+                        pinNo,
+                        companyName,
+                        countryOfResidence,
+                        countyCode,
+                        applicanttype,
+                        residentialLocat,
+                        officeLoc,
+                        wealthSource,
+                        incomeSource,
+                        incorporationcert}, this.FnewAgricultureCorpOnboadingRequestsOperationCompleted, userState);
+        }
+        
+        private void OnFnewAgricultureCorpOnboadingRequestsOperationCompleted(object arg) {
+            if ((this.FnewAgricultureCorpOnboadingRequestsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnewAgricultureCorpOnboadingRequestsCompleted(this, new FnewAgricultureCorpOnboadingRequestsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGetServiceContractsAgriculture", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGetServiceContractsAgriculture_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGetServiceContractsAgriculture(string branchName, string profileType) {
+            object[] results = this.Invoke("FnGetServiceContractsAgriculture", new object[] {
+                        branchName,
+                        profileType});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGetServiceContractsAgricultureAsync(string branchName, string profileType) {
+            this.FnGetServiceContractsAgricultureAsync(branchName, profileType, null);
+        }
+        
+        /// <remarks/>
+        public void FnGetServiceContractsAgricultureAsync(string branchName, string profileType, object userState) {
+            if ((this.FnGetServiceContractsAgricultureOperationCompleted == null)) {
+                this.FnGetServiceContractsAgricultureOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetServiceContractsAgricultureOperationCompleted);
+            }
+            this.InvokeAsync("FnGetServiceContractsAgriculture", new object[] {
+                        branchName,
+                        profileType}, this.FnGetServiceContractsAgricultureOperationCompleted, userState);
+        }
+        
+        private void OnFnGetServiceContractsAgricultureOperationCompleted(object arg) {
+            if ((this.FnGetServiceContractsAgricultureCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGetServiceContractsAgricultureCompleted(this, new FnGetServiceContractsAgricultureCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendmentsIndAgric", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendmentsIndAgric_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnNewPolicyAmmendmentsIndAgric(string contractNumber) {
+            object[] results = this.Invoke("FnNewPolicyAmmendmentsIndAgric", new object[] {
+                        contractNumber});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyAmmendmentsIndAgricAsync(string contractNumber) {
+            this.FnNewPolicyAmmendmentsIndAgricAsync(contractNumber, null);
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyAmmendmentsIndAgricAsync(string contractNumber, object userState) {
+            if ((this.FnNewPolicyAmmendmentsIndAgricOperationCompleted == null)) {
+                this.FnNewPolicyAmmendmentsIndAgricOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyAmmendmentsIndAgricOperationCompleted);
+            }
+            this.InvokeAsync("FnNewPolicyAmmendmentsIndAgric", new object[] {
+                        contractNumber}, this.FnNewPolicyAmmendmentsIndAgricOperationCompleted, userState);
+        }
+        
+        private void OnFnNewPolicyAmmendmentsIndAgricOperationCompleted(object arg) {
+            if ((this.FnNewPolicyAmmendmentsIndAgricCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnNewPolicyAmmendmentsIndAgricCompleted(this, new FnNewPolicyAmmendmentsIndAgricCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -8523,6 +8780,162 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnIndividualupdateAgriculturePolicyDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsterAgricultureDetailsCompletedEventHandler(object sender, FnInsterAgricultureDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsterAgricultureDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsterAgricultureDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateReportCompletedEventHandler(object sender, FnGenerateReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void SendIndividualAgricultureApplicationApprovalCompletedEventHandler(object sender, SendIndividualAgricultureApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendIndividualAgricultureApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendIndividualAgricultureApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnewAgricultureCorpOnboadingRequestsCompletedEventHandler(object sender, FnewAgricultureCorpOnboadingRequestsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnewAgricultureCorpOnboadingRequestsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnewAgricultureCorpOnboadingRequestsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGetServiceContractsAgricultureCompletedEventHandler(object sender, FnGetServiceContractsAgricultureCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGetServiceContractsAgricultureCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGetServiceContractsAgricultureCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnNewPolicyAmmendmentsIndAgricCompletedEventHandler(object sender, FnNewPolicyAmmendmentsIndAgricCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnNewPolicyAmmendmentsIndAgricCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnNewPolicyAmmendmentsIndAgricCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
