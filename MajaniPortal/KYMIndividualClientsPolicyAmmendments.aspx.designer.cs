@@ -139,13 +139,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox txtfinanciers;
         
         /// <summary>
-        /// idtype control.
+        /// idtypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idtype;
+        protected global::System.Web.UI.WebControls.DropDownList idtypes;
         
         /// <summary>
         /// txtIdNumber control.
@@ -166,13 +166,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl idNumberPassport;
         
         /// <summary>
-        /// lbltitle control.
+        /// lbltitles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lbltitle;
+        protected global::System.Web.UI.WebControls.DropDownList lbltitles;
         
         /// <summary>
         /// txtfirstname control.
@@ -202,13 +202,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox txtlastname;
         
         /// <summary>
-        /// lblgender control.
+        /// lblgenders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblgender;
+        protected global::System.Web.UI.WebControls.DropDownList lblgenders;
         
         /// <summary>
         /// txtDOB control.
@@ -238,13 +238,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
         
         /// <summary>
-        /// ttxtoccupations control.
+        /// ttxtoccupation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ttxtoccupations;
+        protected global::System.Web.UI.WebControls.DropDownList ttxtoccupation;
         
         /// <summary>
         /// krapinNumber control.
@@ -256,22 +256,22 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox krapinNumber;
         
         /// <summary>
-        /// lblcountyCode control.
+        /// lblcountyCodes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblcountyCode;
+        protected global::System.Web.UI.WebControls.DropDownList lblcountyCodes;
         
         /// <summary>
-        /// lblmaritalstatus control.
+        /// lblmaritalstatuss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblmaritalstatus;
+        protected global::System.Web.UI.WebControls.DropDownList lblmaritalstatuss;
         
         /// <summary>
         /// txtHudumaNo control.
@@ -346,22 +346,22 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox txtaddress;
         
         /// <summary>
-        /// postcodesdetails control.
+        /// postcodes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox postcodesdetails;
+        protected global::System.Web.UI.WebControls.DropDownList postcodes;
         
         /// <summary>
-        /// lblcities control.
+        /// lblcity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lblcities;
+        protected global::System.Web.UI.WebControls.DropDownList lblcity;
         
         /// <summary>
         /// txtgoogle control.

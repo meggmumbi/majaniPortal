@@ -98,13 +98,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Id Type</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="idtype" ReadOnly="true"></asp:TextBox>
+                          <asp:DropDownList CssClass="form-control" runat="server" ID="idtypes" Placeholder="Select Departments"></asp:DropDownList>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>ID No/Passport</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtIdNumber" ReadOnly="true"></asp:TextBox></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtIdNumber"></asp:TextBox></asp:TextBox>
                         <asp:RegularExpressionValidator runat="server" Display="dynamic" ValidationExpression="^([\S\s]{6,8})$" ControlToValidate="txtIdNumber" ErrorMessage="Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8" BackColor="Red" />
                      <span class="error" id="idNumberPassport" runat="server" style="background-color: red"></span>
                     </div>
@@ -115,7 +115,7 @@
                  <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Title </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="lbltitle" ReadOnly="true"></asp:TextBox>
+                        <asp:DropdownList CssClass="form-control" runat="server" ID="lbltitles"></asp:DropdownList>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -144,13 +144,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Gender</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="lblgender" ReadOnly="true"></asp:TextBox>
+                        <asp:DropdownList CssClass="form-control" runat="server" ID="lblgenders"></asp:DropdownList>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Date Of Birth</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control datepicker" runat="server" ID="txtDOB" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control datepicker" TextMode="Date" runat="server" ID="txtDOB" ></asp:TextBox>
                         <span class="error" id="datevalidator" runat="server" style="background-color: red"></span>
                         <asp:CustomValidator ID="CustomValidator1" runat="server" EnableClientScript="true" ErrorMessage="The age is below 18 Years. This is not allowed for Applicants below 18 Years" ClientValidationFunction="checkDate" ControlToValidate="txtDOB" BackColor="Red"></asp:CustomValidator>
                         
@@ -161,7 +161,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Occupation</label><span class="text-danger" style="font-size:25px">*</span>
-                         <asp:TextBox CssClass="form-control" runat="server" ID="ttxtoccupations" ReadOnly="true"></asp:TextBox>
+                         <asp:DropdownList CssClass="form-control" runat="server" ID="ttxtoccupation" ></asp:DropdownList>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -176,13 +176,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>County Code</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control select2" runat="server" ID="lblcountyCode" ReadOnly="true"></asp:TextBox>
+                        <asp:DropdownList CssClass="form-control select2" runat="server" ID="lblcountyCodes" ></asp:DropdownList>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Marital status </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="lblmaritalstatus" ReadOnly="true"></asp:TextBox>
+                        <asp:DropdownList CssClass="form-control" runat="server" ID="lblmaritalstatuss"></asp:DropdownList>
                     </div>
                 </div>                
             </div>
@@ -223,7 +223,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Tel/Mobile No. </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="telnumber1" TextMode="Number" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="telnumber1" TextMode="Number" ></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -239,13 +239,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Email </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtemail" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtemail"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Address </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtaddress" TextMode="Number" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtaddress" TextMode="Number"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -253,13 +253,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Postal Code </label><span class="text-danger" style="font-size:25px" >*</span>
-                        <asp:TextBox CssClass="form-control select2" runat="server" ID="postcodesdetails" ReadOnly="true"></asp:TextBox>
+                        <asp:DropdownList CssClass="form-control select2" runat="server" ID="postcodes" OnSelectedIndexChanged="PostCodes_OnClick" AutoPostBack="true" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>City</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="lblcities"  required="true" readOnly="true"></asp:TextBox>
+                        <asp:DropDownList CssClass="form-control" runat="server" ID="lblcity"  required="true" readOnly="true"></asp:DropDownList>
                     </div>
                 </div>
 
@@ -1140,18 +1140,19 @@
     <script type="text/javascript">
         function checkDate() {
             var enteredDate = document.getElementById('<%=txtDOB.ClientID%>').value;
-        var dateValues = enteredDate.split("/");
-        var dateToCheck = new Date(dateValues[2], dateValues[1] - 1, dateValues[0]);
-        var today = new Date();
-        var dateValid = new Date(today.getFullYear() - 18, today.getMonth() - 1, today.getDate());
-        if (dateToCheck < dateValid) {
-            //args.IsValid = false;
+            var dateValues = enteredDate.split("/");
+            var dateToCheck = new Date(dateValues[2], dateValues[1] - 1, dateValues[0]);
+            var today = new Date();
+            var dateValid = new Date(today.getFullYear() - 18, today.getMonth() - 1, today.getDate());
+            if (dateToCheck < dateValid) {
+                args.IsValid = false;
+            }
+            else {
+                args.IsValid = true;
+            }
         }
-        else {
-           // args.IsValid = true;
-        }
-    }
     </script>
+
     <script>
         function editOptionalBenefit(rirskNumber) {            
             //document.getElementById("MainContent_txtpll").value = rirskNumber;

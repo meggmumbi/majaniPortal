@@ -18,8 +18,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Product</th>
-                                    <th>Id Number</th>
-                                    <th>Name</th>
+                                    <th>Id Number</th>                                   
                                     <th>Phone Number</th>
                                     <th>Insurer</th>
                                     <th>Claim</th>

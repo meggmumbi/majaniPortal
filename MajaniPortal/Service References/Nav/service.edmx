@@ -1156,6 +1156,7 @@
         <Property Name="ScannedCopy" Type="Edm.Boolean" />
         <Property Name="DepedantPhoto" Type="Edm.Boolean" />
         <Property Name="Evaluation_Amount_Total" Type="Edm.Decimal" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
       </EntityType>
       <EntityType Name="ClientPreExistingConditons">
         <Key>
@@ -3249,6 +3250,13 @@
         <Property Name="Professional_Accomplishment" Type="Edm.String" />
         <Property Name="Closed_Application" Type="Edm.String" />
         <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="NatureBusiness">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
       </EntityType>
       <EntityType Name="NatureofBusiness">
         <Key>
@@ -5518,6 +5526,7 @@
         <NavigationProperty Name="MemberPolicies" Relationship="NAV.Company_MemberPolicies" ToRole="MemberPolicies" FromRole="Company" />
         <NavigationProperty Name="MotorRisksDetails" Relationship="NAV.Company_MotorRisksDetails" ToRole="MotorRisksDetails" FromRole="Company" />
         <NavigationProperty Name="MyJobApplications" Relationship="NAV.Company_MyJobApplications" ToRole="MyJobApplications" FromRole="Company" />
+        <NavigationProperty Name="NatureBusiness" Relationship="NAV.Company_NatureBusiness" ToRole="NatureBusiness" FromRole="Company" />
         <NavigationProperty Name="NatureofBusiness" Relationship="NAV.Company_NatureofBusiness" ToRole="NatureofBusiness" FromRole="Company" />
         <NavigationProperty Name="Occupations" Relationship="NAV.Company_Occupations" ToRole="Occupations" FromRole="Company" />
         <NavigationProperty Name="OtherCosts" Relationship="NAV.Company_OtherCosts" ToRole="OtherCosts" FromRole="Company" />
@@ -6118,6 +6127,10 @@
         <End Type="NAV.MyJobApplications" Role="MyJobApplications" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_NatureBusiness">
+        <End Type="NAV.NatureBusiness" Role="NatureBusiness" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_NatureofBusiness">
         <End Type="NAV.NatureofBusiness" Role="NatureofBusiness" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -6463,6 +6476,7 @@
         <EntitySet Name="MemberPolicies" EntityType="NAV.MemberPolicies" />
         <EntitySet Name="MotorRisksDetails" EntityType="NAV.MotorRisksDetails" />
         <EntitySet Name="MyJobApplications" EntityType="NAV.MyJobApplications" />
+        <EntitySet Name="NatureBusiness" EntityType="NAV.NatureBusiness" />
         <EntitySet Name="NatureofBusiness" EntityType="NAV.NatureofBusiness" />
         <EntitySet Name="Occupations" EntityType="NAV.Occupations" />
         <EntitySet Name="OtherCosts" EntityType="NAV.OtherCosts" />
@@ -7062,6 +7076,10 @@
         <AssociationSet Name="Company_MyJobApplications_MyJobApplications" Association="NAV.Company_MyJobApplications">
           <End Role="Company" EntitySet="Company" />
           <End Role="MyJobApplications" EntitySet="MyJobApplications" />
+        </AssociationSet>
+        <AssociationSet Name="Company_NatureBusiness_NatureBusiness" Association="NAV.Company_NatureBusiness">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="NatureBusiness" EntitySet="NatureBusiness" />
         </AssociationSet>
         <AssociationSet Name="Company_NatureofBusiness_NatureofBusiness" Association="NAV.Company_NatureofBusiness">
           <End Role="Company" EntitySet="Company" />

@@ -1320,10 +1320,30 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnNewPolicyAmmendmentscorporate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="contractNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewPolicyAmmendmentscorporate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="FnNewPolicyAmmendments">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="contractNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="idnumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="gender" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="dob" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="occupation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="county" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -2124,6 +2144,89 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnAmmendCommunicationDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="contractNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="telephone1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="city" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="address" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="poscode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAmmendCommunicationDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateAgentsRegReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="documentDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateAgentsRegReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateKYMNewApkReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateKYMNewApkReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateUpgradeReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateUpgradeReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGeneratClaimReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGeneratClaimReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="NewClientOnboadingRequests">
@@ -2492,6 +2595,12 @@
   <message name="FnCreateClaimValidation_Result">
     <part name="parameters" element="tns:FnCreateClaimValidation_Result" />
   </message>
+  <message name="FnNewPolicyAmmendmentscorporate">
+    <part name="parameters" element="tns:FnNewPolicyAmmendmentscorporate" />
+  </message>
+  <message name="FnNewPolicyAmmendmentscorporate_Result">
+    <part name="parameters" element="tns:FnNewPolicyAmmendmentscorporate_Result" />
+  </message>
   <message name="FnNewPolicyAmmendments">
     <part name="parameters" element="tns:FnNewPolicyAmmendments" />
   </message>
@@ -2750,6 +2859,36 @@
   <message name="FnNewPolicyAmmendmentsIndAgric_Result">
     <part name="parameters" element="tns:FnNewPolicyAmmendmentsIndAgric_Result" />
   </message>
+  <message name="FnAmmendCommunicationDetails">
+    <part name="parameters" element="tns:FnAmmendCommunicationDetails" />
+  </message>
+  <message name="FnAmmendCommunicationDetails_Result">
+    <part name="parameters" element="tns:FnAmmendCommunicationDetails_Result" />
+  </message>
+  <message name="FnGenerateAgentsRegReport">
+    <part name="parameters" element="tns:FnGenerateAgentsRegReport" />
+  </message>
+  <message name="FnGenerateAgentsRegReport_Result">
+    <part name="parameters" element="tns:FnGenerateAgentsRegReport_Result" />
+  </message>
+  <message name="FnGenerateKYMNewApkReport">
+    <part name="parameters" element="tns:FnGenerateKYMNewApkReport" />
+  </message>
+  <message name="FnGenerateKYMNewApkReport_Result">
+    <part name="parameters" element="tns:FnGenerateKYMNewApkReport_Result" />
+  </message>
+  <message name="FnGenerateUpgradeReport">
+    <part name="parameters" element="tns:FnGenerateUpgradeReport" />
+  </message>
+  <message name="FnGenerateUpgradeReport_Result">
+    <part name="parameters" element="tns:FnGenerateUpgradeReport_Result" />
+  </message>
+  <message name="FnGeneratClaimReport">
+    <part name="parameters" element="tns:FnGeneratClaimReport" />
+  </message>
+  <message name="FnGeneratClaimReport_Result">
+    <part name="parameters" element="tns:FnGeneratClaimReport_Result" />
+  </message>
   <portType name="KYM_Port">
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
@@ -2995,6 +3134,10 @@
       <input name="FnCreateClaimValidation" message="tns:FnCreateClaimValidation" />
       <output name="FnCreateClaimValidation_Result" message="tns:FnCreateClaimValidation_Result" />
     </operation>
+    <operation name="FnNewPolicyAmmendmentscorporate">
+      <input name="FnNewPolicyAmmendmentscorporate" message="tns:FnNewPolicyAmmendmentscorporate" />
+      <output name="FnNewPolicyAmmendmentscorporate_Result" message="tns:FnNewPolicyAmmendmentscorporate_Result" />
+    </operation>
     <operation name="FnNewPolicyAmmendments">
       <input name="FnNewPolicyAmmendments" message="tns:FnNewPolicyAmmendments" />
       <output name="FnNewPolicyAmmendments_Result" message="tns:FnNewPolicyAmmendments_Result" />
@@ -3166,6 +3309,26 @@
     <operation name="FnNewPolicyAmmendmentsIndAgric">
       <input name="FnNewPolicyAmmendmentsIndAgric" message="tns:FnNewPolicyAmmendmentsIndAgric" />
       <output name="FnNewPolicyAmmendmentsIndAgric_Result" message="tns:FnNewPolicyAmmendmentsIndAgric_Result" />
+    </operation>
+    <operation name="FnAmmendCommunicationDetails">
+      <input name="FnAmmendCommunicationDetails" message="tns:FnAmmendCommunicationDetails" />
+      <output name="FnAmmendCommunicationDetails_Result" message="tns:FnAmmendCommunicationDetails_Result" />
+    </operation>
+    <operation name="FnGenerateAgentsRegReport">
+      <input name="FnGenerateAgentsRegReport" message="tns:FnGenerateAgentsRegReport" />
+      <output name="FnGenerateAgentsRegReport_Result" message="tns:FnGenerateAgentsRegReport_Result" />
+    </operation>
+    <operation name="FnGenerateKYMNewApkReport">
+      <input name="FnGenerateKYMNewApkReport" message="tns:FnGenerateKYMNewApkReport" />
+      <output name="FnGenerateKYMNewApkReport_Result" message="tns:FnGenerateKYMNewApkReport_Result" />
+    </operation>
+    <operation name="FnGenerateUpgradeReport">
+      <input name="FnGenerateUpgradeReport" message="tns:FnGenerateUpgradeReport" />
+      <output name="FnGenerateUpgradeReport_Result" message="tns:FnGenerateUpgradeReport_Result" />
+    </operation>
+    <operation name="FnGeneratClaimReport">
+      <input name="FnGeneratClaimReport" message="tns:FnGeneratClaimReport" />
+      <output name="FnGeneratClaimReport_Result" message="tns:FnGeneratClaimReport_Result" />
     </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
@@ -3719,6 +3882,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="FnNewPolicyAmmendmentscorporate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendmentscorporate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnNewPolicyAmmendmentscorporate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnNewPolicyAmmendmentscorporate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="FnNewPolicyAmmendments">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="FnNewPolicyAmmendments">
@@ -4103,6 +4275,51 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnNewPolicyAmmendmentsIndAgric_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAmmendCommunicationDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnAmmendCommunicationDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAmmendCommunicationDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAmmendCommunicationDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateAgentsRegReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateAgentsRegReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateAgentsRegReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateAgentsRegReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateKYMNewApkReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateKYMNewApkReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateKYMNewApkReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateKYMNewApkReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateUpgradeReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateUpgradeReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateUpgradeReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateUpgradeReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGeneratClaimReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGeneratClaimReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGeneratClaimReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGeneratClaimReport_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

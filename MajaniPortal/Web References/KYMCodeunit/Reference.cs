@@ -151,6 +151,8 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnCreateClaimValidationOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnNewPolicyAmmendmentscorporateOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FnNewPolicyAmmendmentsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnDocumentsValidationsOperationCompleted;
@@ -236,6 +238,16 @@ namespace MajaniPortal.KYMCodeunit {
         private System.Threading.SendOrPostCallback FnGetServiceContractsAgricultureOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnNewPolicyAmmendmentsIndAgricOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnAmmendCommunicationDetailsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGenerateAgentsRegReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGenerateKYMNewApkReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGenerateUpgradeReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGeneratClaimReportOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -459,6 +471,9 @@ namespace MajaniPortal.KYMCodeunit {
         public event FnCreateClaimValidationCompletedEventHandler FnCreateClaimValidationCompleted;
         
         /// <remarks/>
+        public event FnNewPolicyAmmendmentscorporateCompletedEventHandler FnNewPolicyAmmendmentscorporateCompleted;
+        
+        /// <remarks/>
         public event FnNewPolicyAmmendmentsCompletedEventHandler FnNewPolicyAmmendmentsCompleted;
         
         /// <remarks/>
@@ -586,6 +601,21 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnNewPolicyAmmendmentsIndAgricCompletedEventHandler FnNewPolicyAmmendmentsIndAgricCompleted;
+        
+        /// <remarks/>
+        public event FnAmmendCommunicationDetailsCompletedEventHandler FnAmmendCommunicationDetailsCompleted;
+        
+        /// <remarks/>
+        public event FnGenerateAgentsRegReportCompletedEventHandler FnGenerateAgentsRegReportCompleted;
+        
+        /// <remarks/>
+        public event FnGenerateKYMNewApkReportCompletedEventHandler FnGenerateKYMNewApkReportCompleted;
+        
+        /// <remarks/>
+        public event FnGenerateUpgradeReportCompletedEventHandler FnGenerateUpgradeReportCompleted;
+        
+        /// <remarks/>
+        public event FnGeneratClaimReportCompletedEventHandler FnGeneratClaimReportCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -4181,26 +4211,68 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendmentscorporate", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendmentscorporate_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnNewPolicyAmmendments(string contractNumber) {
-            object[] results = this.Invoke("FnNewPolicyAmmendments", new object[] {
+        public string FnNewPolicyAmmendmentscorporate(string contractNumber) {
+            object[] results = this.Invoke("FnNewPolicyAmmendmentscorporate", new object[] {
                         contractNumber});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber) {
-            this.FnNewPolicyAmmendmentsAsync(contractNumber, null);
+        public void FnNewPolicyAmmendmentscorporateAsync(string contractNumber) {
+            this.FnNewPolicyAmmendmentscorporateAsync(contractNumber, null);
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber, object userState) {
+        public void FnNewPolicyAmmendmentscorporateAsync(string contractNumber, object userState) {
+            if ((this.FnNewPolicyAmmendmentscorporateOperationCompleted == null)) {
+                this.FnNewPolicyAmmendmentscorporateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyAmmendmentscorporateOperationCompleted);
+            }
+            this.InvokeAsync("FnNewPolicyAmmendmentscorporate", new object[] {
+                        contractNumber}, this.FnNewPolicyAmmendmentscorporateOperationCompleted, userState);
+        }
+        
+        private void OnFnNewPolicyAmmendmentscorporateOperationCompleted(object arg) {
+            if ((this.FnNewPolicyAmmendmentscorporateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnNewPolicyAmmendmentscorporateCompleted(this, new FnNewPolicyAmmendmentscorporateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnNewPolicyAmmendments(string contractNumber, string idnumber, int gender, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dob, string occupation, int maritalstatus, string county) {
+            object[] results = this.Invoke("FnNewPolicyAmmendments", new object[] {
+                        contractNumber,
+                        idnumber,
+                        gender,
+                        dob,
+                        occupation,
+                        maritalstatus,
+                        county});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county) {
+            this.FnNewPolicyAmmendmentsAsync(contractNumber, idnumber, gender, dob, occupation, maritalstatus, county, null);
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, object userState) {
             if ((this.FnNewPolicyAmmendmentsOperationCompleted == null)) {
                 this.FnNewPolicyAmmendmentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyAmmendmentsOperationCompleted);
             }
             this.InvokeAsync("FnNewPolicyAmmendments", new object[] {
-                        contractNumber}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
+                        contractNumber,
+                        idnumber,
+                        gender,
+                        dob,
+                        occupation,
+                        maritalstatus,
+                        county}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
         }
         
         private void OnFnNewPolicyAmmendmentsOperationCompleted(object arg) {
@@ -6227,6 +6299,182 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnAmmendCommunicationDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnAmmendCommunicationDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnAmmendCommunicationDetails(string contractNumber, string telephone1, string city, string address, string poscode, string email) {
+            object[] results = this.Invoke("FnAmmendCommunicationDetails", new object[] {
+                        contractNumber,
+                        telephone1,
+                        city,
+                        address,
+                        poscode,
+                        email});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnAmmendCommunicationDetailsAsync(string contractNumber, string telephone1, string city, string address, string poscode, string email) {
+            this.FnAmmendCommunicationDetailsAsync(contractNumber, telephone1, city, address, poscode, email, null);
+        }
+        
+        /// <remarks/>
+        public void FnAmmendCommunicationDetailsAsync(string contractNumber, string telephone1, string city, string address, string poscode, string email, object userState) {
+            if ((this.FnAmmendCommunicationDetailsOperationCompleted == null)) {
+                this.FnAmmendCommunicationDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAmmendCommunicationDetailsOperationCompleted);
+            }
+            this.InvokeAsync("FnAmmendCommunicationDetails", new object[] {
+                        contractNumber,
+                        telephone1,
+                        city,
+                        address,
+                        poscode,
+                        email}, this.FnAmmendCommunicationDetailsOperationCompleted, userState);
+        }
+        
+        private void OnFnAmmendCommunicationDetailsOperationCompleted(object arg) {
+            if ((this.FnAmmendCommunicationDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnAmmendCommunicationDetailsCompleted(this, new FnAmmendCommunicationDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateAgentsRegReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateAgentsRegReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateAgentsRegReport(string empNo, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime documentDate, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime endDate) {
+            object[] results = this.Invoke("FnGenerateAgentsRegReport", new object[] {
+                        empNo,
+                        documentDate,
+                        endDate});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateAgentsRegReportAsync(string empNo, System.DateTime documentDate, System.DateTime endDate) {
+            this.FnGenerateAgentsRegReportAsync(empNo, documentDate, endDate, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateAgentsRegReportAsync(string empNo, System.DateTime documentDate, System.DateTime endDate, object userState) {
+            if ((this.FnGenerateAgentsRegReportOperationCompleted == null)) {
+                this.FnGenerateAgentsRegReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateAgentsRegReportOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateAgentsRegReport", new object[] {
+                        empNo,
+                        documentDate,
+                        endDate}, this.FnGenerateAgentsRegReportOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateAgentsRegReportOperationCompleted(object arg) {
+            if ((this.FnGenerateAgentsRegReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateAgentsRegReportCompleted(this, new FnGenerateAgentsRegReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateKYMNewApkReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateKYMNewApkReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateKYMNewApkReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime documentDate, string factoryName, string agentCode) {
+            object[] results = this.Invoke("FnGenerateKYMNewApkReport", new object[] {
+                        documentDate,
+                        factoryName,
+                        agentCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode) {
+            this.FnGenerateKYMNewApkReportAsync(documentDate, factoryName, agentCode, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode, object userState) {
+            if ((this.FnGenerateKYMNewApkReportOperationCompleted == null)) {
+                this.FnGenerateKYMNewApkReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateKYMNewApkReportOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateKYMNewApkReport", new object[] {
+                        documentDate,
+                        factoryName,
+                        agentCode}, this.FnGenerateKYMNewApkReportOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateKYMNewApkReportOperationCompleted(object arg) {
+            if ((this.FnGenerateKYMNewApkReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateKYMNewApkReportCompleted(this, new FnGenerateKYMNewApkReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateUpgradeReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateUpgradeReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateUpgradeReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode) {
+            object[] results = this.Invoke("FnGenerateUpgradeReport", new object[] {
+                        startDate,
+                        factoryName,
+                        agentCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode) {
+            this.FnGenerateUpgradeReportAsync(startDate, factoryName, agentCode, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode, object userState) {
+            if ((this.FnGenerateUpgradeReportOperationCompleted == null)) {
+                this.FnGenerateUpgradeReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateUpgradeReportOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateUpgradeReport", new object[] {
+                        startDate,
+                        factoryName,
+                        agentCode}, this.FnGenerateUpgradeReportOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateUpgradeReportOperationCompleted(object arg) {
+            if ((this.FnGenerateUpgradeReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateUpgradeReportCompleted(this, new FnGenerateUpgradeReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGeneratClaimReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGeneratClaimReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGeneratClaimReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode) {
+            object[] results = this.Invoke("FnGeneratClaimReport", new object[] {
+                        startDate,
+                        factoryName,
+                        agentCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode) {
+            this.FnGeneratClaimReportAsync(startDate, factoryName, agentCode, null);
+        }
+        
+        /// <remarks/>
+        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode, object userState) {
+            if ((this.FnGeneratClaimReportOperationCompleted == null)) {
+                this.FnGeneratClaimReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGeneratClaimReportOperationCompleted);
+            }
+            this.InvokeAsync("FnGeneratClaimReport", new object[] {
+                        startDate,
+                        factoryName,
+                        agentCode}, this.FnGeneratClaimReportOperationCompleted, userState);
+        }
+        
+        private void OnFnGeneratClaimReportOperationCompleted(object arg) {
+            if ((this.FnGeneratClaimReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGeneratClaimReportCompleted(this, new FnGeneratClaimReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -7833,6 +8081,32 @@ namespace MajaniPortal.KYMCodeunit {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnNewPolicyAmmendmentscorporateCompletedEventHandler(object sender, FnNewPolicyAmmendmentscorporateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnNewPolicyAmmendmentscorporateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnNewPolicyAmmendmentscorporateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void FnNewPolicyAmmendmentsCompletedEventHandler(object sender, FnNewPolicyAmmendmentsCompletedEventArgs e);
     
     /// <remarks/>
@@ -8936,6 +9210,136 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnNewPolicyAmmendmentsIndAgricCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnAmmendCommunicationDetailsCompletedEventHandler(object sender, FnAmmendCommunicationDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnAmmendCommunicationDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnAmmendCommunicationDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateAgentsRegReportCompletedEventHandler(object sender, FnGenerateAgentsRegReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateAgentsRegReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateAgentsRegReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateKYMNewApkReportCompletedEventHandler(object sender, FnGenerateKYMNewApkReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateKYMNewApkReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateKYMNewApkReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateUpgradeReportCompletedEventHandler(object sender, FnGenerateUpgradeReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateUpgradeReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateUpgradeReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGeneratClaimReportCompletedEventHandler(object sender, FnGeneratClaimReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGeneratClaimReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGeneratClaimReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

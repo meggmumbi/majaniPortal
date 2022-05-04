@@ -44,6 +44,21 @@ namespace MajaniPortal
                     //txtConditionName.DataBind();
                     //txtConditionName.Items.Insert(0, "--Select Pre Existing Conditions--");
 
+                    var tttxtoccupations = nav.Occupations.ToList();
+                    List<DropDownList> ttxtoccupationslist = new List<DropDownList>();
+                    foreach (var item in tttxtoccupations)
+                    {
+                        DropDownList itemcodelist = new DropDownList();
+                        itemcodelist.Code = item.Code;
+                        itemcodelist.Name = item.Name;
+                        ttxtoccupationslist.Add(itemcodelist);
+                    }
+                    ttxtoccupation.DataSource = ttxtoccupationslist;
+                    ttxtoccupation.DataValueField = "Code";
+                    ttxtoccupation.DataTextField = "Name";
+                    ttxtoccupation.DataBind();
+                    ttxtoccupation.Items.Insert(0, "--Select Occupation--");
+
 
 
                     List<string> tlblpolicybusinessType = new List<string>();
@@ -90,6 +105,22 @@ namespace MajaniPortal
                     modeofpaymentss.DataSource = tmodeofpayments;
                     modeofpaymentss.DataBind();
 
+                    var countiesCodes = nav.DimensionValueList.Where(x => x.Dimension_Code == "COUNTIES").ToList();
+                    List<DropDownList> countiesCodeslist = new List<DropDownList>();
+                    foreach (var item in countiesCodes)
+                    {
+                        DropDownList code = new DropDownList();
+                        code.Code = item.Code;
+                        code.Name = item.Name;
+                        countiesCodeslist.Add(code);
+                    }
+                    lblcountyCodes.DataSource = countiesCodeslist;
+                    lblcountyCodes.DataValueField = "Code";
+                    lblcountyCodes.DataTextField = "Name";
+                    lblcountyCodes.DataBind();
+                    lblcountyCodes.Items.Insert(0, "--Select County Codes--");
+
+
                     List<string> tdependantconditions = new List<string>();
                     tdependantconditions.Add("-----Select------");
                     tdependantconditions.Add("Yes");
@@ -127,7 +158,60 @@ namespace MajaniPortal
                     bentxtrelationships.DataSource = benttxtrelationships;
                     bentxtrelationships.DataBind();
 
-                  
+                    List<string> ttxtgend = new List<string>();
+                    ttxtgend.Add("-----Select Gender-------");
+                    ttxtgend.Add("Male");
+                    ttxtgend.Add("Female");
+                    txtgenders.DataSource = ttxtgend;
+                    txtgenders.DataBind();
+
+                    lblgenders.DataSource = ttxtgend;
+                    lblgenders.DataBind();
+
+                    List<string> tlblmaritalstatus = new List<string>();
+                    tlblmaritalstatus.Add("-----Select Marital Status-------");
+                    tlblmaritalstatus.Add("Married");
+                    tlblmaritalstatus.Add("Single");
+                    lblmaritalstatuss.DataSource = tlblmaritalstatus;
+                    lblmaritalstatuss.DataBind();
+
+                    List<string> identity = new List<string>();
+                    identity.Add("-----Select Identity Type-------");
+                    identity.Add("ID");
+                    identity.Add("Passport");
+                    idtypes.DataSource = identity;
+                    idtypes.DataBind();
+
+                    List<string> txtrelation = new List<string>();
+                    txtrelation.Add("-----Select Title------");
+                    txtrelation.Add("Mr");
+                    txtrelation.Add("Major");
+                    txtrelation.Add("Captain");
+                    txtrelation.Add("Sir");
+                    txtrelation.Add("Madam");
+                    txtrelation.Add("Doctor");
+                    txtrelation.Add("Prof");
+                    txtrelation.Add("Pastor");
+                    txtrelation.Add("Mrs");
+                    txtrelation.Add("Miss");
+                    lbltitles.DataSource = txtrelation;
+                    lbltitles.DataBind();
+
+                    var tpostcodes = nav.postcodes.ToList();
+                    List<DropDownList> postcodeslist = new List<DropDownList>();
+                    foreach (var item in tpostcodes)
+                    {
+                        DropDownList itemcodelist = new DropDownList();
+                        itemcodelist.Code = item.Code;
+                        itemcodelist.Name = item.Code + " " + item.City;
+                        postcodeslist.Add(itemcodelist);
+                    }
+                    postcodes.DataSource = postcodeslist;
+                    postcodes.DataValueField = "Code";
+                    postcodes.DataTextField = "Name";
+                    postcodes.DataBind();
+                    postcodes.Items.Insert(0, "--Select Post Codes--");
+
 
                     var ApplicationNumber = Convert.ToString(Request.QueryString["ContractNo"]);
                     if (ApplicationNumber != null)
@@ -148,27 +232,32 @@ namespace MajaniPortal
                                 growerNumber.Text = item.Grower_No_Client_ID;
                                 txtFactoryCode.Text = item.Factory_Code_Branch_Code;
                                 ttxtFactoryName.Text = item.Factory_Name_Branch_Name;
-                                idtype.Text = itemCustomer.ID_Type;
+
+                               idtypes.SelectedValue = itemCustomer.ID_Type;
+                               
+
+
+                               
                                 txtIdNumber.Text = itemCustomer.ID_No_Passport_No;
                                 growerapplicanttypedetails.Text = itemCustomer.Grower_Type_of_Applicant;
-                                lblgender.Text = item.Gender;
-                                lbltitle.Text = item.Title;
+                                lblgenders.SelectedValue = item.Gender;
+                                lbltitles.SelectedValue = item.Title;
                                 countyofresidence.Text = item.Country_Region_Code;
-                                lblcountyCode.Text = item.County;
+                                lblcountyCodes.Text = item.Bill_to_County;
                                 krapinNumber.Text = item.KRA_Pin_No;
-                                ttxtoccupations.Text = item.Occupation;
+                                ttxtoccupation.SelectedValue = item.Occupation;
                                 txtDOB.Text = Convert.ToDateTime(item.Date_of_Birth).ToString("MM/dd/yyyy");
                                 telnumber1.Text = item.Tel_Mobile_No;
                                 telnumber2.Text = itemCustomer.Tel_Mobile_No_2;
                                 txtaddress.Text = item.Address;
-                                postcodesdetails.Text = item.Post_Code;
-                                lblcities.Text = item.City;
+                                postcodes.SelectedValue = item.Post_Code;
+                                lblcity.Text = item.City;
                                 txtgoogle.Text = itemCustomer.Google;
                                 txttwitter.Text = itemCustomer.Twitter;
                                 txtfcebook.Text = itemCustomer.Facebook;
                                 txtlinkedin.Text = itemCustomer.LinkedIn;
-                                lblmaritalstatus.Text = item.Marital_Status;
-                                lbltitle.Text = item.Title;
+                                lblmaritalstatuss.SelectedValue = item.Marital_Status;
+                                lbltitles.SelectedValue = item.Title;
                                 lbldepartmentdetails.Text = item.Business_Type;
                                 lblpolicyTypedetails.Text = item.Policy_Type;
                                 lblproduct.Text = item.Product;
@@ -198,12 +287,8 @@ namespace MajaniPortal
                         dailyhealthbenefits.Items.Insert(0, "--Select DHB--");
                     }
 
-                    List<string> ttxtgend = new List<string>();
-                    ttxtgend.Add("-----Select Gender-------");
-                    ttxtgend.Add("Male");
-                    ttxtgend.Add("Female");
-                    txtgenders.DataSource = ttxtgend;
-                    txtgenders.DataBind();
+                   
+                    
 
                     financier.Visible = false;
                     growerdetails.Visible = true;
@@ -237,9 +322,59 @@ namespace MajaniPortal
         {
             string str = "";
             bool flag = false;
+            int kgender = 0;
+            int kmaritalStatus = 0;
             string docNo = Request.QueryString["ContractNo"].Trim();
             string GrowerNo = Request.QueryString["GrowerNo"].Trim();
-            string CustomerNo = Request.QueryString["CustomerNo"].Trim();
+            string CustomerNo = Request.QueryString["CustomerNo"].Trim();          
+            string tIdtype = idtypes.SelectedValue;
+            string ttxtIdNumber = txtIdNumber.Text;
+            string tlblgenders = lblgenders.SelectedValue;
+            string s = this.txtDOB.Text.Trim();
+            string tttxtoccupation = ttxtoccupation.SelectedValue;
+            string tlblmaritalstatuss = lblmaritalstatuss.SelectedValue;
+            string tlblcountyCodes = lblcountyCodes.SelectedValue;
+
+            if(tIdtype.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields). Id type cannot be empty";
+            }
+
+           
+            if (ttxtIdNumber.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields). Id/Passport cannot be empty";
+            }
+            if (tlblgenders.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields). Id/Passport cannot be empty";
+            }
+          
+            if (s.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields. Date of birth cannot be empty)";
+            }
+            if (tttxtoccupation.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields. Occupation cannot be empty)";
+            }
+            if (tlblmaritalstatuss.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields. Marital Status cannot be empty)";
+            }
+            if (tlblcountyCodes.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields. County cannot be empty)";
+            }
+            
+
             try
             {
                 if (flag)
@@ -248,8 +383,28 @@ namespace MajaniPortal
                 }
                 else
                 {
+
+                    if (tlblgenders == "Male")
+                    {
+                        kgender = 1;
+                    }
+                    if (tlblgenders == "Female")
+                    {
+                         kgender = 2;
+                    }
+                    if (tlblmaritalstatuss == "Married")
+                    {
+                        kmaritalStatus = 1;
+                    }
+                    if (tlblmaritalstatuss == "Single")
+                    {
+                        kmaritalStatus = 2;
+                    }
+
+                    DateTime dateTime = new DateTime();
+                    DateTime exact = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     string empNo = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo);
+                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo, ttxtIdNumber, kgender, exact, tttxtoccupation, kmaritalStatus, tlblcountyCodes);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
@@ -751,13 +906,18 @@ namespace MajaniPortal
             string CustomerNo = Request.QueryString["CustomerNo"].Trim();
             string QuoteNo = Request.QueryString["QuoteNo"].Trim();
 
-            //string ttelnumber1 = telnumber1.Text.Trim();
-            //if (ttelnumber1.Length < 1)
-            //{
-            //    flag = true;
-            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            //}
-
+            string ttelnumber1 = telnumber1.Text.Trim();
+            if (ttelnumber1.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
+            string txtcity = lblcity.SelectedValue.Trim();
+            if (txtcity.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            }
             string ttelnumber2 = telnumber2.Text.Trim();
             //if (ttelnumber2.Length < 1)
             //{
@@ -776,12 +936,12 @@ namespace MajaniPortal
             //    flag = true;
             //    str = "Please Enter a Valid Value for Email Addresss";
             //}
-            string ttxttwitter = txttwitter.Text.Trim();
-            //if (ttxttwitter.Length < 1)
-            //{
-            //    flag = true;
-            //    str = "Please Enter a Valid Value for Twitter Account";
-            //}
+            string ttxtpostcodes = postcodes.SelectedValue.Trim();
+            if (ttxtpostcodes.Length < 1)
+            {
+                flag = true;
+                str = "Please Enter a Valid Value for postcode";
+            }
             string ttxtaddress = txtaddress.Text.Trim();
             //if (ttxtaddress.Length < 1)
             //{
@@ -805,7 +965,23 @@ namespace MajaniPortal
                 }
                 else
                 {
-                    Response.Redirect("KYMIndividualClientsPolicyAmmendments.aspx?GrowerNo=" + GrowerNo + "&&ContractNo=" + docNo + "&&CustomerNo=" + CustomerNo + "&&QuoteNo=" + QuoteNo + "&step=3");
+                  
+                    var Applicant = Session["empNo"].ToString();
+                    var status = new Config().ObjNav().FnAmmendCommunicationDetails(QuoteNo, ttelnumber1, txtcity, ttxtaddress, ttxtpostcodes, ttxtemail);
+                    var res = status.Split('*');
+                    if (res[0] == "success")
+                    {
+                        Response.Redirect("KYMIndividualClientsPolicyAmmendments.aspx?GrowerNo=" + GrowerNo + "&&ContractNo=" + docNo + "&&CustomerNo=" + CustomerNo + "&&QuoteNo=" + QuoteNo + "&step=3");
+
+                    }
+                    else
+                    {
+                        communicationfeedbackDetails.InnerHtml = "<div class='alert alert-danger'>Th New Client Application Details Could not be Submitted.Kindly Try Again" + res[1] + "</div>";
+
+                    }
+
+
+                   
 
                 }
             }
@@ -814,7 +990,24 @@ namespace MajaniPortal
                 communicationfeedbackDetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
             }
         }
-
+        protected void PostCodes_OnClick(object sender, EventArgs e)
+        {
+            NAV nav = Config.ReturnNav();
+            string tpostcodes = postcodes.SelectedValue.Trim();
+            var allpostcodes = nav.postcodes.Where(x => x.Code == tpostcodes);
+            List<DropDownList> allpostcodesList = new List<DropDownList>();
+            foreach (var item in allpostcodes)
+            {
+                DropDownList code = new DropDownList();
+                code.Code = item.City;
+                code.Name = item.City;
+                allpostcodesList.Add(code);
+            }
+            lblcity.DataSource = allpostcodesList;
+            lblcity.DataTextField = "Code";
+            lblcity.DataValueField = "Code";
+            lblcity.DataBind();
+        }
         protected void upload_Click(object sender, EventArgs e)
         {
             string path1 = ConfigurationManager.AppSettings["FilesLocation"] + "Existing Policy/";
@@ -1230,10 +1423,7 @@ namespace MajaniPortal
         //     }
 
 
-        protected void PostCodes_OnClick(object sender, EventArgs e)
-        {
-
-        }
+  
 
         protected void nextstep_Click(object sender, EventArgs e)
         {

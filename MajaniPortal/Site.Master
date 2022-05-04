@@ -163,10 +163,24 @@
                                         <li><a href="KYMIndividualClientApplication.aspx"><i class="fa fa-circle-o"></i>Individual Client Application</a></li>
                                         <li><a href="KYMCorporateClientApplication.aspx"><i class="fa fa-circle-o"></i>Corporate Client Application</a></li>
                                         <li><a href="KYMOpenClientApplications.aspx"><i class="fa fa-circle-o"></i>Open Client Application</a></li>
-                                        <li><a href="MicroInsurancePolicies.aspx"><i class="fa fa-circle-o"></i>Micro-Insurance Policies</a></li>
-                                   
+                                        <li><a href="MicroInsurancePolicies.aspx"><i class="fa fa-circle-o"></i>Micro-Insurance Policies</a></li>                                   
                                     </ul>
                                 </li>
+                                   <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Micro-insurance Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                     <ul class="treeview-menu">
+                                        <li><a href="InsuranceClainMReport.aspx"><i class="fa fa-circle-o"></i>KYM Claims Report</a></li>
+                                        <li><a href="KymNewApp.aspx"><i class="fa fa-circle-o"></i>KYM Application Report</a></li>
+                                        <li><a href="KymUpgradeReport.aspx"><i class="fa fa-circle-o"></i>KYM Upgrade/Downgrade Report</a></li>
+                                    </ul>
+                                </li>
+                                    
                                 <li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-laptop"></i>
@@ -371,7 +385,10 @@
                             <ul class="treeview-menu">
                                 <li><a href="RiskNotesList.aspx"><i class="fa fa-circle-o"></i>Motor UnderWriting Reports</a></li>
                             </ul>
-                        </li>
+                                   
+                                    
+                            
+                             </li>
                        
                     </ul>
                 </section>

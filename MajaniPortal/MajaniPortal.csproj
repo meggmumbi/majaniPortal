@@ -188,6 +188,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AgentRegReport.aspx" />
     <Content Include="AgentsLists.aspx" />
     <Content Include="AgriculturalPolicies.aspx" />
     <Content Include="AgricultureCorporatePolicyAmmendments.aspx" />
@@ -386,6 +387,7 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="GeneralOpenClientApplications.aspx" />
+    <Content Include="InsuranceClainMReport.aspx" />
     <Content Include="KYMClaimsRequests.aspx" />
     <Content Include="KYMCorporateClientApplication.aspx" />
     <Content Include="KYMCorporateExistingBusiness.aspx" />
@@ -393,8 +395,10 @@
     <Content Include="KYMIndividualClientApplication.aspx" />
     <Content Include="KYMIndividualClientsPolicyAmmendments.aspx" />
     <Content Include="KYMIndividualExistingBusiness.aspx" />
+    <Content Include="KymNewApp.aspx" />
     <Content Include="KYMOpenClientApplications.aspx" />
     <Content Include="KYMPolicyAmendments.aspx" />
+    <Content Include="KymUpgradeReport.aspx" />
     <Content Include="KYMWithdrawalForm.aspx" />
     <Content Include="LifePolicies.aspx" />
     <Content Include="Login.aspx" />
@@ -685,6 +689,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgentRegReport.aspx.cs">
+      <DependentUpon>AgentRegReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgentRegReport.aspx.designer.cs">
+      <DependentUpon>AgentRegReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgentsLists.aspx.cs">
       <DependentUpon>AgentsLists.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -813,6 +824,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InsuranceClainMReport.aspx.cs">
+      <DependentUpon>InsuranceClainMReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsuranceClainMReport.aspx.designer.cs">
+      <DependentUpon>InsuranceClainMReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KYMClaimsRequests.aspx.cs">
       <DependentUpon>KYMClaimsRequests.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -862,6 +880,13 @@
     <Compile Include="KYMIndividualExistingBusiness.aspx.designer.cs">
       <DependentUpon>KYMIndividualExistingBusiness.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KymNewApp.aspx.cs">
+      <DependentUpon>KymNewApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KymNewApp.aspx.designer.cs">
+      <DependentUpon>KymNewApp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KYMOpenClientApplications.aspx.cs">
       <DependentUpon>KYMOpenClientApplications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -875,6 +900,13 @@
     </Compile>
     <Compile Include="KYMPolicyAmendments.aspx.designer.cs">
       <DependentUpon>KYMPolicyAmendments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KymUpgradeReport.aspx.cs">
+      <DependentUpon>KymUpgradeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KymUpgradeReport.aspx.designer.cs">
+      <DependentUpon>KymUpgradeReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="KYMWithdrawalForm.aspx.cs">
       <DependentUpon>KYMWithdrawalForm.aspx</DependentUpon>

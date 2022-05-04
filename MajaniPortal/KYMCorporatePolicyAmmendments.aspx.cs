@@ -235,7 +235,7 @@ namespace MajaniPortal
                 else
                 {
                     string empNo = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo);
+                    var status = new Config().ObjNav().FnNewPolicyAmmendmentscorporate(docNo);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
