@@ -11,12 +11,13 @@
                 <div runat="server" id="opencommunicationsdetails"></div>
                 <div class="tab-content">
                     <div class="box-body">
+                        <div class="table-responsive">
                         <table id="example1" class="table table-bordered table-striped datatable">
                             <thead>
                                 <tr>
                                     <th>Client ID/Grower No</th>
-                                    <th>Contract No</th>
-                                    <th>Customer No</th>
+                                  <%--  <th>Contract No</th>
+                                    <th>Customer No</th>--%>
                                     <th>Name</th>
                                     <th>Policy Start Date</th>
                                     <th>Policy End Date</th>
@@ -68,8 +69,8 @@
                                             %>
                                             <tr>
                                                 <td><% =arr[0] %></td>
-                                                <td><% =arr[1] %></td>
-                                                <td><% =arr[2] %></td>
+                                              <%--  <td><% =arr[1] %></td>
+                                                <td><% =arr[2] %></td>--%>
                                                 <td><% =arr[3] %></td>
                                                 <td><% =arr[4] %></td>
                                                 <td><% =arr[5] %></td>
@@ -101,6 +102,7 @@
                                 %>
                             </tbody>
                         </table>
+                            </div>
                     </div>
                 </div>
             </div>

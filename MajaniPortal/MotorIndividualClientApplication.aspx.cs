@@ -563,7 +563,7 @@ namespace MajaniPortal
             }
             catch (Exception ex)
             {
-                feedbackdetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
+                feedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "</div>";
             }
         }
         protected void SubmitRiskDetails_Click(object sender, EventArgs e)
@@ -798,6 +798,7 @@ namespace MajaniPortal
                             File.Delete(folderName + filename);
                         }
                         uploadLogbook.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Motor Underwriting", ApplicationNumber, filename, "");
                         //}
                         //else
                         //{
@@ -838,6 +839,7 @@ namespace MajaniPortal
                             File.Delete(folderName + filename);
                         }
                         uploadIDCertificate.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Motor Underwriting", ApplicationNumber, filename, "");
                         //}
                         //else
                         //{
@@ -878,6 +880,7 @@ namespace MajaniPortal
                             File.Delete(folderName + filename);
                         }
                         uploadKRAPinCertificate.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Motor Underwriting", ApplicationNumber, filename, "");
                         //}
                         //else
                         //{
@@ -918,6 +921,7 @@ namespace MajaniPortal
                             File.Delete(folderName + filename);
                         }
                         uploadApplicationForm.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Motor Underwriting", ApplicationNumber, filename, "");
                         //}
                         //else
                         //{
@@ -958,6 +962,7 @@ namespace MajaniPortal
                             File.Delete(folderName + filename);
                         }
                         otherdocuments.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Motor Underwriting", ApplicationNumber, filename, "");
                     }
 
                 }
@@ -1259,18 +1264,24 @@ namespace MajaniPortal
                 str = "Please fill all highlighted fields with *(Mandatory Fields)";
             }
             string dhb = "";
-            tcommissionRate = Convert.ToDecimal(commissionRate.Text.Trim());
-            if (tcommissionRate < 1)
+
+            if (ttcommissionRate.Length < 1)
             {
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields)";
             }
-            tbinderfeerate = Convert.ToDecimal(binderfeerate.Text.Trim());
-            if (tbinderfeerate < 1)
+            string Dbinderfeerate = binderfeerate.Text.Trim();
+           
+            if (Dbinderfeerate.Length < 1)
             {
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields)";
             }
+            else
+            {
+                tbinderfeerate = Convert.ToDecimal(Dbinderfeerate);
+                    
+                    }
             string tbinderCodes = binderCodes.Text.Trim();
             if (tbinderCodes.Length < 1)
             {

@@ -12,14 +12,15 @@
                 <div class="tab-content">
                     <div class="tab-pane active in" id="tab_1_1">
                         <div class="box-body">
+                              <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped datatable">
                                 <thead>
                                     <tr>
                                         <th>Document No</th>
-                                        <th>Business Type</th>
-                                        <th>First Name</th>
-                                        <th>Middle Name</th>
-                                        <th>Last Name</th>
+                                        <%--<th>Business Type</th>--%>
+                                        <th>Name</th>
+                                       <%-- <th>Middle Name</th>
+                                        <th>Last Name</th>--%>
                                         <th>Id/Passport</th>
                                         <th>Status</th>
                                         <th>Send For Approval</th>
@@ -35,10 +36,10 @@
                                     %>
                                     <tr>
                                         <td><%= application.No %></td>
-                                        <td><%= application.Business_Type %></td>
-                                        <td><%= application.First_Name %></td>
-                                        <td><%= application.Middle_Name %></td>
-                                        <td><%= application.Last_Name %></td>
+                                      <%--  <td><%= application.Business_Type %></td>--%>
+                                        <td><%= application.First_Name +" "+ application.Middle_Name +" "+ application.Last_Name %></td>
+                                       <%-- <td><%= application.Middle_Name %></td>
+                                        <td><%= application.Last_Name %></td>--%>
                                         <td><%= application.ID_No_Passport_No %></td>
                                         <td><%= application.Status %></td>
                                         <td>
@@ -54,7 +55,7 @@
                                                 {
                                             %>
                                             <label class="btn btn-success" onclick="sendApprovalRequest('<%=application.No %>');"><i class="fa fa-check"></i>Send Approval Request</label>
-                                            <% 
+                                              <% 
                                                 }
                                             %>
                                         </td>
@@ -80,6 +81,7 @@
                                     %>
                                 </tbody>
                             </table>
+                                  </div>
                         </div>
                     </div>
                 </div>

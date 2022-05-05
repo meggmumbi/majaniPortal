@@ -168,19 +168,6 @@
 
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label>Source of Wealth</label><span class="text-danger" style="font-size: 25px">*</span>
-                        <asp:DropDownList CssClass="form-control" runat="server" ID="wealthSource" Placeholder="Select Source of Wealth">
-                            <asp:ListItem Value="0">-- Select Source of Wealth --</asp:ListItem>
-                            <asp:ListItem Value="1">Salary</asp:ListItem>
-                            <asp:ListItem Value="2">Businesss Proceed</asp:ListItem>
-                            <asp:ListItem Value="3">Pension</asp:ListItem>
-                            <asp:ListItem Value="4">Rent</asp:ListItem>
-                            <asp:ListItem Value="5">Non-Income Generating Dependent</asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
                         <label>Source of Income</label>
                         <span class="text-danger" style="font-size: 25px">*</span>
                         <asp:DropDownList CssClass="form-control" runat="server" ID="sourceIncome">
@@ -201,7 +188,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label>Mpesa Number</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <label>Mpesa Number</label>
                         <asp:TextBox CssClass="form-control" runat="server" ID="mpesaNo"></asp:TextBox>
                     </div>
                 </div>
@@ -209,6 +196,20 @@
                     <div class="form-group">
                         <label>Huduma No</label>
                         <asp:TextBox CssClass="form-control" runat="server" ID="txtHudumaNo"></asp:TextBox>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-6" style="display:none">
+                    <div class="form-group">
+                        <label>Source of Wealth</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:DropDownList CssClass="form-control" runat="server" ID="wealthSource" Placeholder="Select Source of Wealth">
+                            <asp:ListItem Value="0">-- Select Source of Wealth --</asp:ListItem>
+                            <asp:ListItem Value="1">Salary</asp:ListItem>
+                            <asp:ListItem Value="2">Businesss Proceed</asp:ListItem>
+                            <asp:ListItem Value="3">Pension</asp:ListItem>
+                            <asp:ListItem Value="4">Rent</asp:ListItem>
+                            <asp:ListItem Value="5">Non-Income Generating Dependent</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
             </div>

@@ -120,7 +120,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="http://192.168.101.252:8086">
+                            <a href="http://192.168.101.252:8086/Dashboard.aspx">
                                 <i class="fa fa-th"></i><span>Employees Self Service</span>
                             </a>
                         </li>

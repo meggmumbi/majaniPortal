@@ -355,17 +355,17 @@ namespace MajaniPortal
                 str = "Please fill all highlighted fields with *(Mandatory Fields)";
             }
             var tMpesaNo = mpesaNo.Text.Trim();
-            if (tMpesaNo.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
+            //if (tMpesaNo.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            //}
             int twealthSource = Convert.ToInt32(wealthSource.SelectedValue.Trim());
-            if (twealthSource == 0)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
+            //if (twealthSource == 0)
+            //{
+            //    flag = true;mpesaNo
+            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            //}
             int tincomeSource = Convert.ToInt32(sourceIncome.SelectedValue.Trim());
             if (tincomeSource == 0)
             {
