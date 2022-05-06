@@ -14,14 +14,10 @@ namespace MajaniPortal
             if (!IsPostBack)
             {
 
-                var nav = Config.ReturnNav();
-                var Tcontact = nav.ClientApplicationQuery.Where(r => r.Agent_Salespersons_Code == Convert.ToString(Session["empNo"]));
+                //var nav = Config.ReturnNav();
+                //var Tcontact = nav.ClientApplicationQuery.Where(r => r.Agent_Salespersons_Code == Convert.ToString(Session["empNo"]));
 
-                txtDates.DataSource = Tcontact;
-                txtDates.DataValueField = "Document_Date";
-                txtDates.DataTextField = "Document_Date";
-                txtDates.DataBind();
-                txtDates.Items.Insert(0, "--Select start Date--");
+              
 
 
                
@@ -36,18 +32,23 @@ namespace MajaniPortal
 
             Boolean Error = false;
 
-            string s = txtDates.SelectedValue;
+            string s = txtDate.Text;
           
             if (s.Length < 1)
             {
                 Error = true;
                 feedback.InnerHtml = "<div class='alert alert-danger'>Please provide a  valid start date<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
-            //if (sendDate.Length < 1)
-            //{
-            //    Error = true;
-            //    feedback.InnerHtml = "<div class='alert alert-danger'>Please provide a valid end date<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            //}
+            DateTime dateTime = new DateTime();
+            DateTime exact = Convert.ToDateTime(s);
+          
+            var nav = Config.ReturnNav();
+            var Tcontact = nav.ClientApplicationQuery.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Document_Date == exact).ToList();
+            if (Tcontact.Count < 1)
+            {
+                Error = true;
+                feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exact + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
             string tfactoryName = factoryName.Text;
             if (tfactoryName.Length < 1)
             {
@@ -60,9 +61,7 @@ namespace MajaniPortal
             {
                 try
                 {
-                    DateTime dateTime = new DateTime();
-                    DateTime exact = Convert.ToDateTime(s);
-                  
+                    
                     string agentNo = Convert.ToString(Session["empNo"]);
 
                     String status = new Config().ObjNav().FnGenerateKYMNewApkReport(exact, tfactoryName, agentNo);

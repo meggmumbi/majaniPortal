@@ -21,7 +21,7 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
                             <label>Start Date</label>
-                            <asp:DropdownList CssClass="form-control" runat="server" ID="txtDates"></asp:DropdownList>
+                            <asp:TextBox CssClass="form-control" runat="server" TextMode="Date" ID="txtDate"></asp:TextBox>
                         </div>
                     </div>
                          

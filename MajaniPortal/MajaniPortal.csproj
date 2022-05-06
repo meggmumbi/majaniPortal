@@ -424,6 +424,7 @@
     <Content Include="MotorNewPolicyQuote.aspx" />
     <Content Include="MotorPolicies.aspx" />
     <Content Include="MotorPolicyAmmendments.aspx" />
+    <Content Include="MotorVehicleDets.aspx" />
     <Content Include="MyPolicies.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="NewAgentOnboarding.aspx" />
@@ -1076,6 +1077,13 @@
     </Compile>
     <Compile Include="MotorPolicyAmmendments.aspx.designer.cs">
       <DependentUpon>MotorPolicyAmmendments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MotorVehicleDets.aspx.cs">
+      <DependentUpon>MotorVehicleDets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MotorVehicleDets.aspx.designer.cs">
+      <DependentUpon>MotorVehicleDets.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyPolicies.aspx.cs">
       <DependentUpon>MyPolicies.aspx</DependentUpon>

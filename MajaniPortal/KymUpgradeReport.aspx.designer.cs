@@ -22,13 +22,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl feedback;
         
         /// <summary>
-        /// txtDates control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtDates;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
         /// factoryName control.

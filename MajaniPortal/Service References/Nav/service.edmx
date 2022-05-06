@@ -141,6 +141,47 @@
         <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
         <NavigationProperty Name="Product_Code_Link" Relationship="NAV.MedicalSchedules_Product_Code_Link" ToRole="Product_Code_Link" FromRole="MedicalSchedules" />
       </EntityType>
+      <EntityType Name="MotorVehicleDetails">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Contract_No" />
+          <PropertyRef Name="Customer_No" />
+          <PropertyRef Name="Licensed_to_carry" />
+          <PropertyRef Name="Policy_Type" />
+          <PropertyRef Name="Product" />
+          <PropertyRef Name="Valuation_Amount" />
+        </Key>
+        <Property Name="Licensed_to_carry" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Valuation_Amount" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Contract_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Product" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Policy_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Customer_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Registration_No" Type="Edm.String" />
+        <Property Name="Make" Type="Edm.String" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="Category" Type="Edm.String" />
+        <Property Name="Cover_Type" Type="Edm.String" />
+        <Property Name="CC" Type="Edm.String" />
+        <Property Name="Chassis_no" Type="Edm.String" />
+        <Property Name="engine_No" Type="Edm.String" />
+        <Property Name="Year_of_manufacture" Type="Edm.String" />
+        <Property Name="Body_Type" Type="Edm.String" />
+        <Property Name="PLL" Type="Edm.Decimal" />
+        <Property Name="Windscreen" Type="Edm.Decimal" />
+        <Property Name="Radio_Cassette" Type="Edm.Decimal" />
+        <Property Name="SI" Type="Edm.String" />
+        <Property Name="Tonnage" Type="Edm.Decimal" />
+        <Property Name="Certificate_No" Type="Edm.String" />
+        <Property Name="Value_Sum_Insured" Type="Edm.Decimal" />
+        <Property Name="Rate" Type="Edm.Decimal" />
+        <Property Name="Premium" Type="Edm.Decimal" />
+        <Property Name="Total_Line_Premiums" Type="Edm.Decimal" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+        <NavigationProperty Name="Contract_No_Link" Relationship="NAV.MotorVehicleDetails_Contract_No_Link" ToRole="Contract_No_Link" FromRole="MotorVehicleDetails" />
+        <NavigationProperty Name="Product_Link" Relationship="NAV.MotorVehicleDetails_Product_Link" ToRole="Product_Link" FromRole="MotorVehicleDetails" />
+      </EntityType>
       <EntityType Name="MyHeldeskRequests">
         <Key>
           <PropertyRef Name="Job_No" />
@@ -5426,6 +5467,7 @@
         <NavigationProperty Name="DimensionValueList" Relationship="NAV.Company_DimensionValueList" ToRole="DimensionValueList" FromRole="Company" />
         <NavigationProperty Name="EscalateTo" Relationship="NAV.Company_EscalateTo" ToRole="EscalateTo" FromRole="Company" />
         <NavigationProperty Name="MedicalSchedules" Relationship="NAV.Company_MedicalSchedules" ToRole="MedicalSchedules" FromRole="Company" />
+        <NavigationProperty Name="MotorVehicleDetails" Relationship="NAV.Company_MotorVehicleDetails" ToRole="MotorVehicleDetails" FromRole="Company" />
         <NavigationProperty Name="MyHeldeskRequests" Relationship="NAV.Company_MyHeldeskRequests" ToRole="MyHeldeskRequests" FromRole="Company" />
         <NavigationProperty Name="PolicyList" Relationship="NAV.Company_PolicyList" ToRole="PolicyList" FromRole="Company" />
         <NavigationProperty Name="PostCodes" Relationship="NAV.Company_PostCodes" ToRole="PostCodes" FromRole="Company" />
@@ -5607,6 +5649,14 @@
         <End Type="NAV.ProductList" Role="Product_Code_Link" Multiplicity="0..1" />
         <End Type="NAV.MedicalSchedules" Role="MedicalSchedules" Multiplicity="*" />
       </Association>
+      <Association Name="MotorVehicleDetails_Contract_No_Link">
+        <End Type="NAV.PolicyList" Role="Contract_No_Link" Multiplicity="0..1" />
+        <End Type="NAV.MotorVehicleDetails" Role="MotorVehicleDetails" Multiplicity="*" />
+      </Association>
+      <Association Name="MotorVehicleDetails_Product_Link">
+        <End Type="NAV.ProductList" Role="Product_Link" Multiplicity="0..1" />
+        <End Type="NAV.MotorVehicleDetails" Role="MotorVehicleDetails" Multiplicity="*" />
+      </Association>
       <Association Name="MyHeldeskRequests_Department_Link">
         <End Type="NAV.ResponsibilityCenters" Role="Department_Link" Multiplicity="0..1" />
         <End Type="NAV.MyHeldeskRequests" Role="MyHeldeskRequests" Multiplicity="*" />
@@ -5725,6 +5775,10 @@
       </Association>
       <Association Name="Company_MedicalSchedules">
         <End Type="NAV.MedicalSchedules" Role="MedicalSchedules" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_MotorVehicleDetails">
+        <End Type="NAV.MotorVehicleDetails" Role="MotorVehicleDetails" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_MyHeldeskRequests">
@@ -6376,6 +6430,7 @@
         <EntitySet Name="DimensionValueList" EntityType="NAV.DimensionValueList" />
         <EntitySet Name="EscalateTo" EntityType="NAV.EscalateTo" />
         <EntitySet Name="MedicalSchedules" EntityType="NAV.MedicalSchedules" />
+        <EntitySet Name="MotorVehicleDetails" EntityType="NAV.MotorVehicleDetails" />
         <EntitySet Name="MyHeldeskRequests" EntityType="NAV.MyHeldeskRequests" />
         <EntitySet Name="PolicyList" EntityType="NAV.PolicyList" />
         <EntitySet Name="PostCodes" EntityType="NAV.PostCodes" />
@@ -6557,6 +6612,14 @@
           <End Role="MedicalSchedules" EntitySet="MedicalSchedules" />
           <End Role="Product_Code_Link" EntitySet="ProductList" />
         </AssociationSet>
+        <AssociationSet Name="MotorVehicleDetails_Contract_No_Link_PolicyList" Association="NAV.MotorVehicleDetails_Contract_No_Link">
+          <End Role="MotorVehicleDetails" EntitySet="MotorVehicleDetails" />
+          <End Role="Contract_No_Link" EntitySet="PolicyList" />
+        </AssociationSet>
+        <AssociationSet Name="MotorVehicleDetails_Product_Link_ProductList" Association="NAV.MotorVehicleDetails_Product_Link">
+          <End Role="MotorVehicleDetails" EntitySet="MotorVehicleDetails" />
+          <End Role="Product_Link" EntitySet="ProductList" />
+        </AssociationSet>
         <AssociationSet Name="MyHeldeskRequests_Department_Link_ResponsibilityCenters" Association="NAV.MyHeldeskRequests_Department_Link">
           <End Role="MyHeldeskRequests" EntitySet="MyHeldeskRequests" />
           <End Role="Department_Link" EntitySet="ResponsibilityCenters" />
@@ -6676,6 +6739,10 @@
         <AssociationSet Name="Company_MedicalSchedules_MedicalSchedules" Association="NAV.Company_MedicalSchedules">
           <End Role="Company" EntitySet="Company" />
           <End Role="MedicalSchedules" EntitySet="MedicalSchedules" />
+        </AssociationSet>
+        <AssociationSet Name="Company_MotorVehicleDetails_MotorVehicleDetails" Association="NAV.Company_MotorVehicleDetails">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="MotorVehicleDetails" EntitySet="MotorVehicleDetails" />
         </AssociationSet>
         <AssociationSet Name="Company_MyHeldeskRequests_MyHeldeskRequests" Association="NAV.Company_MyHeldeskRequests">
           <End Role="Company" EntitySet="Company" />

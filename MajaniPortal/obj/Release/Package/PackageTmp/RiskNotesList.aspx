@@ -20,12 +20,14 @@
                                     <th>Total Premium</th>
                                     <th>Print Risk Note</th>
                                     <th>Print Debit Note</th>
+                                    <th>Motor Vehicle Details</th>
                                 </tr>
                             </thead>
                             <tbody>
                                   <%
+                                       string agentNo = Convert.ToString(Session["empNo"]);
                                       var nav = Config.ReturnNav();
-                                      var applications = nav.DebitNoteHeader.Where(x => x.Status == "Released" && x.Posted==true).ToList();
+                                      var applications = nav.DebitNoteHeader.Where(x =>x.Salesperson_Code==agentNo).ToList();
                                       foreach (var application in applications)
                                       {
                                    %>
@@ -42,6 +44,7 @@
                                     <td>
                                     <a href="DebitNotePrintOut.aspx?ReportNumber=<%=application.No %>" class="btn btn-success"><i class="fa fa-pdf"></i>Print Debit Note</a>
                                     </td>
+                                      <td>  <a href="MotorVehicleDets.aspx?customerNo=<%=application.Sell_to_Customer_No%>&&contractNo=<%=application.Policy_No%>&&No=<%application.No %>" class="btn btn-success"><i class="fa fa-pdf"></i>View</a></td>
                                 </tr>
                                 <%
                                     }
