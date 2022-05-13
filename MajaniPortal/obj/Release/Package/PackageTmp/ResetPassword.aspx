@@ -34,10 +34,12 @@
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Email Address</span>
                          <asp:TextBox CssClass="input100" runat="server" ID="txtemailaddress" Placeholder="Please Enter Valid Email Address" TextMode="Email" required Style="height: 42px;" />
+                           <span class="error" id="erroremail" runat="server" style="background-color: red"></span>
+                           <asp:RequiredFieldValidator Display="Dynamic" runat="server" id="validateemail" controltovalidate="txtemailaddress" errormessage="Please enter email address, it cannot be empty!" ForeColor="Red"/>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="container-login100-form-btn">
-                        <asp:Button runat="server" CssClass="login100-form-btn" ID="login" Text="Reset Password" OnClick="" />
+                        <asp:Button runat="server" CssClass="login100-form-btn" ID="login" Text="Reset Password" OnClick="resetpassword_Click" />
 					</div>
 				</div>
 			</div>

@@ -2242,6 +2242,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnGenerateClientCertificate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="clientNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateClientCertificate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="NewClientOnboadingRequests">
@@ -2910,6 +2924,12 @@
   <message name="FnGenerateCertificate_Result">
     <part name="parameters" element="tns:FnGenerateCertificate_Result" />
   </message>
+  <message name="FnGenerateClientCertificate">
+    <part name="parameters" element="tns:FnGenerateClientCertificate" />
+  </message>
+  <message name="FnGenerateClientCertificate_Result">
+    <part name="parameters" element="tns:FnGenerateClientCertificate_Result" />
+  </message>
   <portType name="KYM_Port">
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
@@ -3354,6 +3374,10 @@
     <operation name="FnGenerateCertificate">
       <input name="FnGenerateCertificate" message="tns:FnGenerateCertificate" />
       <output name="FnGenerateCertificate_Result" message="tns:FnGenerateCertificate_Result" />
+    </operation>
+    <operation name="FnGenerateClientCertificate">
+      <input name="FnGenerateClientCertificate" message="tns:FnGenerateClientCertificate" />
+      <output name="FnGenerateClientCertificate_Result" message="tns:FnGenerateClientCertificate_Result" />
     </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
@@ -4354,6 +4378,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGenerateCertificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGenerateClientCertificate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateClientCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateClientCertificate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateClientCertificate_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

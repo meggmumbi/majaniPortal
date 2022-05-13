@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,15 +14,30 @@ namespace MajaniPortal
         {
 
         }
-        protected void Next_Click(object sender, EventArgs e)
+        protected void resetpassword_Click(object sender, EventArgs e)
         {
-            try
+            string txtEmail = txtemailaddress.Text;
+            bool isValid = IsValidEmail(txtEmail);
+            if (isValid == true)
             {
+                erroremail.Visible = false;
+
+
+
             }
-            catch (Exception ex)
+            else
             {
-                this.feedback.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "</div>";
+                erroremail.Visible = true;
+                erroremail.InnerText = "Please enter a valid email address! It should be like test@gmail.com";
             }
+
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+            var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            return regex.IsMatch(email);
         }
     }
 }

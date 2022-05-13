@@ -436,6 +436,7 @@
     <Content Include="OpenClientApplications.aspx" />
     <Content Include="OpenMemberClaimNotifications.aspx" />
     <Content Include="OurProducts.aspx" />
+    <Content Include="PrintCustStatement.aspx" />
     <Content Include="ProductCategories.aspx" />
     <Content Include="RiskNoteProforma.aspx" />
     <Content Include="RiskNoteProformaCorp.aspx" />
@@ -1161,6 +1162,13 @@
     </Compile>
     <Compile Include="OurProducts.aspx.designer.cs">
       <DependentUpon>OurProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintCustStatement.aspx.cs">
+      <DependentUpon>PrintCustStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintCustStatement.aspx.designer.cs">
+      <DependentUpon>PrintCustStatement.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductCategories.aspx.cs">
       <DependentUpon>ProductCategories.aspx</DependentUpon>

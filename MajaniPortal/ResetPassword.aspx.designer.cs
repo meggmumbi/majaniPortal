@@ -40,6 +40,24 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox txtemailaddress;
         
         /// <summary>
+        /// erroremail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl erroremail;
+        
+        /// <summary>
+        /// validateemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validateemail;
+        
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>

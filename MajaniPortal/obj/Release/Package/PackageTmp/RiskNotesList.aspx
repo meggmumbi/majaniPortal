@@ -9,11 +9,11 @@
                 <div runat="server" id="opencommunicationsdetails"></div>
                 <div class="tab-content">
                     <div class="box-body">
+                        <div class="table-responsive">
                         <table id="example1" class="table table-bordered table-striped datatable">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Customer No</th>
+                                  
                                     <th>Customer Name</th>
                                     <th>Insurance Policy No</th>
                                     <th>Policy Type</th>
@@ -32,8 +32,7 @@
                                       {
                                    %>
                                   <tr>
-                                    <td><%= application.No %></td>
-                                    <td><%= application.Sell_to_Customer_No %></td>
+                                   
                                     <td><%= application.Sell_to_Customer_Name %></td>
                                     <td><%= application.Insurance_Policy_No %></td>
                                     <td><%= application.Policy_Type %></td>
@@ -44,13 +43,14 @@
                                     <td>
                                     <a href="DebitNotePrintOut.aspx?ReportNumber=<%=application.No %>" class="btn btn-success"><i class="fa fa-pdf"></i>Print Debit Note</a>
                                     </td>
-                                      <td>  <a href="MotorVehicleDets.aspx?customerNo=<%=application.Sell_to_Customer_No%>&&contractNo=<%=application.Policy_No%>&&No=<%application.No %>" class="btn btn-success"><i class="fa fa-pdf"></i>View</a></td>
+                                      <td><a href="MotorVehicleDets.aspx?customerNo=<%=application.Sell_to_Customer_No%>&&contractNo=<%=application.Policy_No%>&&No=<%=application.No%>" class="btn btn-success"><i class="fa fa-pdf"></i>View</a></td>
                                 </tr>
                                 <%
                                     }
                                 %>
                             </tbody>
                         </table>
+                            </div>
                     </div>
                 </div>
             </div>

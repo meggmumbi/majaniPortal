@@ -175,10 +175,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:32:03</publishTime>
     </File>
     <File Include="bin/MajaniPortal.dll">
-      <publishTime>05/06/2022 14:06:15</publishTime>
+      <publishTime>05/13/2022 13:33:00</publishTime>
     </File>
     <File Include="bin/MajaniPortal.XmlSerializers.dll">
-      <publishTime>05/06/2022 14:06:22</publishTime>
+      <publishTime>05/13/2022 13:33:03</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>02/16/2022 15:32:01</publishTime>
@@ -844,7 +844,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>02/16/2022 15:31:51</publishTime>
+      <publishTime>05/12/2022 09:46:40</publishTime>
     </File>
     <File Include="DependantConditons.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -961,7 +961,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="MicroInsurancePolicies.aspx">
-      <publishTime>05/05/2022 12:25:46</publishTime>
+      <publishTime>05/13/2022 13:31:51</publishTime>
     </File>
     <File Include="MotorClaimNotifications.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -1012,7 +1012,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="MotorVehicleDets.aspx">
-      <publishTime>05/06/2022 13:56:42</publishTime>
+      <publishTime>05/06/2022 14:48:18</publishTime>
     </File>
     <File Include="MyPolicies.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -1056,11 +1056,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="packages.config">
       <publishTime>02/16/2022 15:32:01</publishTime>
     </File>
+    <File Include="PrintCustStatement.aspx">
+      <publishTime>05/12/2022 10:01:06</publishTime>
+    </File>
     <File Include="ProductCategories.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="ResetPassword.aspx">
-      <publishTime>02/16/2022 15:31:51</publishTime>
+      <publishTime>05/12/2022 15:46:25</publishTime>
     </File>
     <File Include="RiskNoteProforma.aspx">
       <publishTime>04/22/2022 15:37:52</publishTime>
@@ -1072,7 +1075,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="RiskNotesList.aspx">
-      <publishTime>05/06/2022 13:54:50</publishTime>
+      <publishTime>05/06/2022 14:37:26</publishTime>
     </File>
     <File Include="RiskReportsPrintOut.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>

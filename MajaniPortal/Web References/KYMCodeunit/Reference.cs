@@ -251,6 +251,8 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnGenerateCertificateOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnGenerateClientCertificateOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -621,6 +623,9 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnGenerateCertificateCompletedEventHandler FnGenerateCertificateCompleted;
+        
+        /// <remarks/>
+        public event FnGenerateClientCertificateCompletedEventHandler FnGenerateClientCertificateCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -6512,6 +6517,36 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateClientCertificate", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateClientCertificate_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateClientCertificate(string clientNo) {
+            object[] results = this.Invoke("FnGenerateClientCertificate", new object[] {
+                        clientNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateClientCertificateAsync(string clientNo) {
+            this.FnGenerateClientCertificateAsync(clientNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateClientCertificateAsync(string clientNo, object userState) {
+            if ((this.FnGenerateClientCertificateOperationCompleted == null)) {
+                this.FnGenerateClientCertificateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateClientCertificateOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateClientCertificate", new object[] {
+                        clientNo}, this.FnGenerateClientCertificateOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateClientCertificateOperationCompleted(object arg) {
+            if ((this.FnGenerateClientCertificateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateClientCertificateCompleted(this, new FnGenerateClientCertificateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -9403,6 +9438,32 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnGenerateCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateClientCertificateCompletedEventHandler(object sender, FnGenerateClientCertificateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateClientCertificateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateClientCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

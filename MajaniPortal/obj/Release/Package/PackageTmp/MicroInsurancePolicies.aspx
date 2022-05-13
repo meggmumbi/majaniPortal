@@ -21,6 +21,7 @@
                                     <th>Name</th>
                                     <th>Policy Start Date</th>
                                     <th>Policy End Date</th>
+                                    <th>Total Premiums</th>
                                     <th>Claim</th>
                                     <th>Ammend</th>
                                 </tr>
@@ -74,6 +75,7 @@
                                                 <td><% =arr[3] %></td>
                                                 <td><% =arr[4] %></td>
                                                 <td><% =arr[5] %></td>
+                                                <td><% =arr[7] %></td>
                                                 <td>
                                                     <a href="NewClaimNotification.aspx?GrowerNo=<%=arr[0] %>&&ContractNo=<%=arr[1] %>&&CustomerNo=<%=arr[2] %>" class="btn btn-success"><i class="fa fa-share"></i>Claim</a>
                                                 </td>
