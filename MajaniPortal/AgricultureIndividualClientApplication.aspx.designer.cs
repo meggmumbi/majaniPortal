@@ -445,6 +445,42 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox ttxtFactoryName;
         
         /// <summary>
+        /// subcounty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox subcounty;
+        
+        /// <summary>
+        /// Div4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
+        
+        /// <summary>
+        /// ward control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ward;
+        
+        /// <summary>
+        /// NearSchool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NearSchool;
+        
+        /// <summary>
         /// lblproduct control.
         /// </summary>
         /// <remarks>
@@ -724,6 +760,24 @@ namespace MajaniPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
         
         /// <summary>
+        /// Hrit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Hrit;
+        
+        /// <summary>
+        /// uap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uap;
+        
+        /// <summary>
         /// totalPremiums control.
         /// </summary>
         /// <remarks>
@@ -733,15 +787,6 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox totalPremiums;
         
         /// <summary>
-        /// evalAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox evalAmount;
-        
-        /// <summary>
         /// premPayable control.
         /// </summary>
         /// <remarks>
@@ -749,6 +794,24 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox premPayable;
+        
+        /// <summary>
+        /// evalAm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl evalAm;
+        
+        /// <summary>
+        /// evalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox evalAmount;
         
         /// <summary>
         /// nextBtn control.
@@ -794,6 +857,15 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload principalmemberphoto;
+        
+        /// <summary>
+        /// uploadKRAPinCertificate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uploadKRAPinCertificate;
         
         /// <summary>
         /// guardianshipletter control.

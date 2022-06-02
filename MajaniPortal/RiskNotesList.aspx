@@ -27,7 +27,7 @@
                                   <%
                                        string agentNo = Convert.ToString(Session["empNo"]);
                                       var nav = Config.ReturnNav();
-                                      var applications = nav.DebitNoteHeader.Where(x =>x.Salesperson_Code==agentNo).ToList();
+                                      var applications = nav.DebitNoteHeader.Where(x =>x.Agent_Salespersons_Code==agentNo).ToList();
                                       foreach (var application in applications)
                                       {
                                    %>

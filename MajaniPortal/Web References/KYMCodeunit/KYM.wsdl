@@ -2,6 +2,21 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/KYM" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="FnGenerateCertificate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="debitNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateCertificate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -2227,21 +2242,6 @@
           </sequence>
         </complexType>
       </element>
-      <element name="FnGenerateCertificate">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="debitNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="FnGenerateCertificate_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="FnGenerateClientCertificate">
         <complexType>
           <sequence>
@@ -2256,8 +2256,29 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnGetMotorPolicies">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="branchName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="profileType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetMotorPolicies_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
+  <message name="FnGenerateCertificate">
+    <part name="parameters" element="tns:FnGenerateCertificate" />
+  </message>
+  <message name="FnGenerateCertificate_Result">
+    <part name="parameters" element="tns:FnGenerateCertificate_Result" />
+  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -2918,19 +2939,23 @@
   <message name="FnGeneratClaimReport_Result">
     <part name="parameters" element="tns:FnGeneratClaimReport_Result" />
   </message>
-  <message name="FnGenerateCertificate">
-    <part name="parameters" element="tns:FnGenerateCertificate" />
-  </message>
-  <message name="FnGenerateCertificate_Result">
-    <part name="parameters" element="tns:FnGenerateCertificate_Result" />
-  </message>
   <message name="FnGenerateClientCertificate">
     <part name="parameters" element="tns:FnGenerateClientCertificate" />
   </message>
   <message name="FnGenerateClientCertificate_Result">
     <part name="parameters" element="tns:FnGenerateClientCertificate_Result" />
   </message>
+  <message name="FnGetMotorPolicies">
+    <part name="parameters" element="tns:FnGetMotorPolicies" />
+  </message>
+  <message name="FnGetMotorPolicies_Result">
+    <part name="parameters" element="tns:FnGetMotorPolicies_Result" />
+  </message>
   <portType name="KYM_Port">
+    <operation name="FnGenerateCertificate">
+      <input name="FnGenerateCertificate" message="tns:FnGenerateCertificate" />
+      <output name="FnGenerateCertificate_Result" message="tns:FnGenerateCertificate_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3371,17 +3396,26 @@
       <input name="FnGeneratClaimReport" message="tns:FnGeneratClaimReport" />
       <output name="FnGeneratClaimReport_Result" message="tns:FnGeneratClaimReport_Result" />
     </operation>
-    <operation name="FnGenerateCertificate">
-      <input name="FnGenerateCertificate" message="tns:FnGenerateCertificate" />
-      <output name="FnGenerateCertificate_Result" message="tns:FnGenerateCertificate_Result" />
-    </operation>
     <operation name="FnGenerateClientCertificate">
       <input name="FnGenerateClientCertificate" message="tns:FnGenerateClientCertificate" />
       <output name="FnGenerateClientCertificate_Result" message="tns:FnGenerateClientCertificate_Result" />
     </operation>
+    <operation name="FnGetMotorPolicies">
+      <input name="FnGetMotorPolicies" message="tns:FnGetMotorPolicies" />
+      <output name="FnGetMotorPolicies_Result" message="tns:FnGetMotorPolicies_Result" />
+    </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="FnGenerateCertificate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateCertificate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateCertificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="NewClientOnboadingRequests">
@@ -4372,21 +4406,21 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
-    <operation name="FnGenerateCertificate">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="FnGenerateCertificate">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="FnGenerateCertificate_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="FnGenerateClientCertificate">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateClientCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="FnGenerateClientCertificate">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGenerateClientCertificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetMotorPolicies">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGetMotorPolicies" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetMotorPolicies">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetMotorPolicies_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -208,6 +208,22 @@ namespace MajaniPortal
                             lblmaritalstatus.Text = item.Marital_Status;
                             lbltitle.Text = item.Title;
                             insurer.Text = item.Insurer;
+
+                            if(item.Insurer == "INSUR-042")
+                            {
+                                uap.Visible = true;
+                                evalAm.Visible = false;
+                                Hrit.Visible = false;
+
+                            }
+                            else
+                            {
+                                Hrit.Visible = true;
+                                evalAm.Visible = true;
+                                uap.Visible = false;
+
+                            }
+
                            
                             modeofpayments.Text = item.Mode_of_Payment;
                             //agentDetail.Text = item.Agent_Detail;
@@ -1002,6 +1018,27 @@ namespace MajaniPortal
                 flag = true;
                 str = "Please enter your payment reference Code";
             }
+            string tsubcounty = subcounty.Text.Trim();
+
+            if (tsubcounty.Length < 1)
+            {
+                flag = true;
+                str = "Please enter your sub county details";
+            }
+            string tward = ward.Text.Trim();
+
+            if (tward.Length < 1)
+            {
+                flag = true;
+                str = "Please enter your Ward details";
+            }
+            string tNearSchool = NearSchool.Text.Trim();
+
+            if (tNearSchool.Length < 1)
+            {
+                flag = true;
+                str = "Please enter the nearest school to you";
+            }
             string ttxtfinancier = txtfinancier.SelectedValue.Trim();
          
             bool thasgrowerNo = false;
@@ -1425,7 +1462,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = "VetEvaluationReport " + extension;
+                            string filename = "idpassport " + extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -1453,10 +1490,51 @@ namespace MajaniPortal
                 {
                     error = true;
                     message += message.Length > 0 ? "<br>" : "";
-                    message += "Kindly Upload the Vet Evaluation Report before you proceed" + ex;
+                    message += "Kindly Upload the Id/Passport before you proceed" + ex;
 
                 }
-                if (error)
+                try
+                {
+                    if (uploadKRAPinCertificate.HasFile == true)
+                    {
+                        string extension = System.IO.Path.GetExtension(uploadKRAPinCertificate.FileName);
+                        //if (new Config().IsAllowedExtension(extension))
+                        //{
+                        string filename = ApplicationNumber + "_KRACertificate" + extension;
+                        if (!Directory.Exists(folderName))
+                        {
+                            Directory.CreateDirectory(folderName);
+                        }
+                        if (File.Exists(folderName + filename))
+                        {
+                            File.Delete(folderName + filename);
+                        }
+                        uploadKRAPinCertificate.SaveAs(folderName + filename);
+                        Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, filename, "");
+                        //}
+                        //else
+                        //{
+                        //    error = true;
+                        //    message += message.Length > 0 ? "<br>" : "";
+                        //    message += "The file extension of the KRA Certificate is not allowed,Kindly upload PDF files";
+                        //}
+
+                    }
+                    else
+                    {
+                        error = true;
+                        message += message.Length > 0 ? "<br>" : "";
+                        message += "Kindly Upload the KRA Certificate before you proceed";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    error = true;
+                    message += message.Length > 0 ? "<br>" : "";
+                    message += "Kindly Upload the Birth/Death certificate before you proceed" + ex;
+
+                }
+            if (error)
                 {
                     documentsfeedback.InnerHtml = Config.GetAlert("danger", message);
                 }

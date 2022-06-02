@@ -145,12 +145,13 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label>Date Of Birth</label><span class="text-danger" style="font-size:25px">*</span>
+                        <div class="form-group">
+                        <label>Date Of Birth</label>
+                        <span class="text-danger" style="font-size: 25px">*</span>
                         <asp:TextBox CssClass="form-control datepicker" runat="server" ID="txtDOB" TextMode="Date" AutoPostBack="true" OnTextChanged="PrincipalValidateDate_Text"></asp:TextBox>
                         <span class="error" id="datevalidator" runat="server" style="background-color: red"></span>
-                        <asp:CustomValidator ID="CustomValidator1" runat="server" EnableClientScript="true" ErrorMessage="The age is below 18 Years. This is not allowed for Applicants below 18 Years" ClientValidationFunction="checkDate" ControlToValidate="txtDOB" BackColor="Red"></asp:CustomValidator>
-                        
+                       
+
                     </div>
                 </div>        
             </div>

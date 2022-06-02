@@ -363,8 +363,30 @@
                             <asp:TextBox CssClass="form-control" runat="server" ID="ttxtFactoryName" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>                  
-                </div>  
-                </div>        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Sub County</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="subcounty"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6" runat="server" id="Div4">
+                    <div class="form-group">
+                        <label>Ward</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control select2" runat="server" ID="ward"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Nearest School</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="NearSchool"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md-6 col-lg-6">
@@ -460,6 +482,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div runat="server" id="generalformcheckoffs" visible="false">
                     <div class="col-md-6 col-lg-6">
@@ -478,11 +501,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
 
             </ContentTemplate>
         </asp:UpdatePanel>
@@ -584,6 +602,7 @@
     <div class="panel-body">
         <div runat="server" id="Div3"></div>
         <div class="table-responsive">
+            <div id="Hrit" runat="server" visible="true">
             <table id="example1" class="table table-striped table-bordered">
                 <thead>
                     <tr>
@@ -633,6 +652,56 @@
                     </tr>
                 </tbody>
             </table>
+                </div>
+              <div id="uap" runat="server" visible="false">
+            <table id="example4" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Name of Animal</th>
+                        <th>Breed</th>
+                        <th>Value/Sum Insured</th>
+                        <th>Rate</th>                       
+                        <th>Premium</th>
+                        <th>Total Line Premiums</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                         var nav = Config.ReturnNav();
+                        string docNo = Request.QueryString["requisitionNo"];
+                         string tproduct = Request.QueryString["product"];
+                        var data = nav.AgricultureRiskDetails.Where(x => x.Client_App_No == docNo && x.Product==tproduct && x.Policy_Type=="AGRICULTURAL INSURANCE").ToList();
+                        int counter = 0;
+                        if (data.Count > 0)
+                        {
+                            nextBtn.Visible = true;
+                            foreach (var item in data)
+                            {
+                                counter++;
+                    %>
+                    <tr>
+                        <td><%=counter %></td>
+                          <td><% =item.Code%></td>
+                        <td><% =item.Name_of_Animal%></td>
+                        <td><% =item.Breed %></td>
+                        <td><% =item.Value_Sum_Insured %></td>
+                        <td><% =item.Rate %></td>                     
+                        <td><% =item.Premium %></td>      
+                         <td><% =item.Total_Line_Premiums %></td>                    
+                        <td>
+                              <label class="btn btn-danger" onclick="remove('<%=item.Name_of_Animal %>','<%=item.Code %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
+                           
+                        <%
+                                }
+                            }
+                        %>
+                    </tr>
+                </tbody>
+            </table>
+                </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6">
@@ -641,16 +710,21 @@
                     <asp:TextBox CssClass="form-control" runat="server" ID="totalPremiums" ReadOnly="true"></asp:TextBox>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label>Evaluation Amount Total</label><span class="text-danger" style="font-size: 25px">*</span>
-                    <asp:TextBox CssClass="form-control" runat="server" ID="evalAmount" ReadOnly="true"></asp:TextBox>
-                </div>
+     
+        <div class="col-md-6 col-lg-6">
+            <div class="form-group">
+                <label>Total Premiums Payable</label><span class="text-danger" style="font-size: 25px">*</span>
+                <asp:TextBox CssClass="form-control" runat="server" ID="premPayable" ReadOnly="true"></asp:TextBox>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label>Total Premiums Payable</label><span class="text-danger" style="font-size: 25px">*</span>
-                    <asp:TextBox CssClass="form-control" runat="server" ID="premPayable" ReadOnly="true"></asp:TextBox>
+        </div>
+        </div>
+        <div runat="server" id="evalAm" visible="true">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Evaluation Amount Total</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="evalAmount" ReadOnly="true"></asp:TextBox>
+                    </div>
                 </div>
             </div>
         </div>
@@ -680,12 +754,17 @@
             </div>
             <br />
             <div class="form-group">
-                <strong>Vet Evaluation Report:<i>(Please Upload pdf)</i></strong><span class="text-danger" style="font-size:25px">*</span>
+                <strong>ID/Passport:<i>(Please Upload pdf)</i></strong><span class="text-danger" style="font-size:25px">*</span>
                 <asp:FileUpload runat="server" CssClass="form-control" ID="principalmemberphoto" />
+            </div>
+            <br />               
+            <div class="form-group">
+                <strong>Upload KRA PIN Certificate:</strong><span class="text-danger" style="font-size:25px">*</span>
+                <asp:FileUpload runat="server" CssClass="form-control" ID="uploadKRAPinCertificate" />
             </div>
             <br />
             <div class="form-group">
-                <strong>Other:<i>(Please Upload Pdf files)</i></strong><span class="text-danger" style="font-size:25px">*</span>
+                <strong>Other:<i>(Please Upload Pdf files)</i></strong>
                 <asp:FileUpload runat="server" CssClass="form-control" ID="guardianshipletter" />
             </div>
             <br />

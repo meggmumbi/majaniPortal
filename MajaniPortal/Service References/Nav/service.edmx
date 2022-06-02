@@ -1569,6 +1569,7 @@
         <Property Name="Comesa_Total_Premium_Payable" Type="Edm.Decimal" />
         <Property Name="Descrption" Type="Edm.String" />
         <Property Name="Commesa_Reff_Number" Type="Edm.String" />
+        <Property Name="Agent_Salespersons_Code" Type="Edm.String" />
         <Property Name="Recalculate_Invoice_Disc" Type="Edm.Boolean" />
         <Property Name="Amount" Type="Edm.Decimal" />
         <Property Name="Amount_Including_VAT" Type="Edm.Decimal" />
