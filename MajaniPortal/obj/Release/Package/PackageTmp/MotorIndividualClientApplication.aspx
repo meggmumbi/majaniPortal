@@ -793,7 +793,7 @@
                         <%
                             var nav = Config.ReturnNav();
                             var requisitionNo = Request.QueryString["requisitionNo"].Trim();
-                            var applications = nav.PolicyRiskDetails.Where(r => r.Client_App_No == requisitionNo);
+                            var applications = nav.PolicyRiskDetails.Where(r => r.Client_App_No == requisitionNo && r.added==true);
                             foreach (var application in applications)
                             {
                         %>

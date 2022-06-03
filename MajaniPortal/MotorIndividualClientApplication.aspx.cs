@@ -570,93 +570,18 @@ namespace MajaniPortal
         {
             string str = "";
             bool flag = false;
+   
+      
+            string ttonnage = tonnage.Text.Trim();      
+            bool nonRenewable = false;
+            decimal sumInsured = 0;
             string registrationNo = registrationnumber.Text.Trim();
             if (registrationNo.Length < 1)
             {
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields)";
             }
-            string tmake = make.SelectedValue.Trim();
-            if (tmake.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string tmodel = model.SelectedValue.Trim();
-            if (tmodel.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string tvehicletype = vehicletype.SelectedValue.Trim();
-            if (tvehicletype.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string tcovertype = covertype.SelectedValue.Trim();
-            if (tcovertype.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string cc = this.cc.Text.Trim();
-            if (cc.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string chasisNo = chasisnumber.Text.Trim();
-            if (chasisNo.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string engineNo = enginenumber.Text.Trim();
-            if (engineNo.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string yearofManufucture = yearofmanufucture.Text.Trim();
-            if (yearofManufucture.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string bodyType = txtdropdownlist.SelectedValue.Trim();
-            if (bodyType.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string s = policystratdate.Text.Trim();
-            if (s.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            DateTime dateTime = new DateTime();
-            DateTime exact = DateTime.ParseExact(s, "dd-MM-yyyy", CultureInfo.InvariantCulture);
-            string tduration = duration.Text.Trim();
-            if (tduration.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
-            string ttonnage = tonnage.Text.Trim();
-            //if (ttonnage.Length < 1)
-            //{
-            //    flag = true;
-            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            //}
-            bool nonRenewable = false;
-            decimal sumInsured = 0;
-            string tsumInsured = valuesuminsured.Text.Trim();
-            if (tsumInsured.Length > 1)
-            {
-                sumInsured = Convert.ToDecimal(valuesuminsured.Text.Trim());
-            }
+
             Decimal rate = Convert.ToDecimal(txtrate.Text.Trim());
             if (rate < 1)
             {
@@ -707,8 +632,7 @@ namespace MajaniPortal
                 }
                 else
                 {
-                    string docNo = Request.QueryString["requisitionNo"].Trim();
-                    string empNo = Session["empNo"].ToString();
+                    string docNo = Request.QueryString["requisitionNo"].Trim();                   
                     string ApplicationNumber = docNo;
                     ApplicationNumber = ApplicationNumber.Replace('/', '_');
                     ApplicationNumber = ApplicationNumber.Replace(':', '_');
@@ -735,7 +659,8 @@ namespace MajaniPortal
                         evaludationreport.SaveAs(folderName + filename);
                         //}
                     }
-                    var status = new Config().ObjNav().FnNewMotorIndividualPolicyRiskDetails(empNo, docNo, tttxtprotector, registrationNo, tmake, tmodel, tvehicletype, tcovertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, exact, tduration, tbolnonerenewable, Convert.ToDecimal(ttonnage), tcertificateNo, sumInsured, rate, tbolvalued, basicpremiums);
+                   
+                    var status = new Config().ObjNav().FnNewMotorIndividualPolicyRiskDetails(docNo ,tttxtprotector, registrationNo, tbolnonerenewable, rate, tbolvalued, basicpremiums);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
@@ -1841,9 +1766,133 @@ namespace MajaniPortal
 
 
                     }
+                    string str = "";
+                    bool flag = false;
+                    string registrationNo = registrationnumber.Text.Trim();
+                    if (registrationNo.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string tmake = make.SelectedValue.Trim();
+                    if (tmake.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string tmodel = model.SelectedValue.Trim();
+                    if (tmodel.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string tvehicletype = vehicletype.SelectedValue.Trim();
+                    if (tvehicletype.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+
+                    if (tcovertype.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string cc = this.cc.Text.Trim();
+                    if (cc.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string chasisNo = chasisnumber.Text.Trim();
+                    if (chasisNo.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string engineNo = enginenumber.Text.Trim();
+                    if (engineNo.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string yearofManufucture = yearofmanufucture.Text.Trim();
+                    if (yearofManufucture.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string bodyType = txtdropdownlist.SelectedValue.Trim();
+                    if (bodyType.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string s = policystratdate.Text.Trim();
+                    if (s.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    DateTime dateTime = new DateTime();
+                    DateTime exact = DateTime.ParseExact(s, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    string tduration = duration.Text.Trim();
+                    if (tduration.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    string ttonnage = tonnage.Text.Trim();
+
+                    decimal sumInsured = 0;
+                    string tsumInsured = valuesuminsured.Text.Trim();
+                    if (tsumInsured.Length > 1)
+                    {
+                        sumInsured = Convert.ToDecimal(valuesuminsured.Text.Trim());
+                    }
+
+                    string tcertificateNo = certificateNo.Text.Trim();
+                    if (tcertificateNo.Length < 1)
+                    {
+                        flag = true;
+                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    }
+                    try
+                    {
+                        if (flag)
+                        {
+                            risksfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + str + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+                        else
+                        {
+                            string docNo = Request.QueryString["requisitionNo"].Trim();
+                            string empNo = Session["empNo"].ToString();
+
+                            string AllCustomers = new Config().ObjNav().FnGetRisk(empNo, docNo, registrationNo, tmake, tmodel, tvehicletype, tcovertype, cc, chasisNo, engineNo, yearofManufucture, bodyType,
+                            exact, tduration, Convert.ToDecimal(ttonnage), tcertificateNo, sumInsured);
+
+                            String[] info = AllCustomers.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                            if (info != null)
+                            {
+                                foreach (var allInfo in info)
+                                {
+                                    String[] arr = allInfo.Split('*');
+                                    txtrate.Text = arr[0];
+
+                                }
+                            }
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
                 else
                 {
+
+
                     txtvalueinsureddetails.InnerText = "";
                 }
             }

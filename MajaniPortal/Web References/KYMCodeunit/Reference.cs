@@ -29,8 +29,6 @@ namespace MajaniPortal.KYMCodeunit {
     [System.Web.Services.WebServiceBindingAttribute(Name="KYM_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/KYM")]
     public partial class KYM : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback FnGenerateCertificateOperationCompleted;
-        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -251,9 +249,15 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnGeneratClaimReportOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnGenerateCertificateOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FnGenerateClientCertificateOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnGetMotorPoliciesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnGetRiskOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnMotorIndividualPolicyRiskDetailsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -292,9 +296,6 @@ namespace MajaniPortal.KYMCodeunit {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
-        
-        /// <remarks/>
-        public event FnGenerateCertificateCompletedEventHandler FnGenerateCertificateCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -627,42 +628,19 @@ namespace MajaniPortal.KYMCodeunit {
         public event FnGeneratClaimReportCompletedEventHandler FnGeneratClaimReportCompleted;
         
         /// <remarks/>
+        public event FnGenerateCertificateCompletedEventHandler FnGenerateCertificateCompleted;
+        
+        /// <remarks/>
         public event FnGenerateClientCertificateCompletedEventHandler FnGenerateClientCertificateCompleted;
         
         /// <remarks/>
         public event FnGetMotorPoliciesCompletedEventHandler FnGetMotorPoliciesCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateCertificate_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGenerateCertificate(string customerNo, string debitNo) {
-            object[] results = this.Invoke("FnGenerateCertificate", new object[] {
-                        customerNo,
-                        debitNo});
-            return ((string)(results[0]));
-        }
+        public event FnGetRiskCompletedEventHandler FnGetRiskCompleted;
         
         /// <remarks/>
-        public void FnGenerateCertificateAsync(string customerNo, string debitNo) {
-            this.FnGenerateCertificateAsync(customerNo, debitNo, null);
-        }
-        
-        /// <remarks/>
-        public void FnGenerateCertificateAsync(string customerNo, string debitNo, object userState) {
-            if ((this.FnGenerateCertificateOperationCompleted == null)) {
-                this.FnGenerateCertificateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateCertificateOperationCompleted);
-            }
-            this.InvokeAsync("FnGenerateCertificate", new object[] {
-                        customerNo,
-                        debitNo}, this.FnGenerateCertificateOperationCompleted, userState);
-        }
-        
-        private void OnFnGenerateCertificateOperationCompleted(object arg) {
-            if ((this.FnGenerateCertificateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.FnGenerateCertificateCompleted(this, new FnGenerateCertificateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+        public event FnMotorIndividualPolicyRiskDetailsCompletedEventHandler FnMotorIndividualPolicyRiskDetailsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -3105,49 +3083,12 @@ namespace MajaniPortal.KYMCodeunit {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewMotorIndividualPolicyRiskDetails" +
             "", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewMotorIndividualPolicyRiskDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnNewMotorIndividualPolicyRiskDetails(
-                    string empNo, 
-                    string docNo, 
-                    decimal texcesspotector, 
-                    string registrationNo, 
-                    string make, 
-                    string model, 
-                    string vehicletype, 
-                    string covertype, 
-                    string cc, 
-                    string chasisNo, 
-                    string engineNo, 
-                    string yearofManufucture, 
-                    string bodyType, 
-                    [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime policystartDate, 
-                    string duration, 
-                    bool nonRenewable, 
-                    decimal tonnage, 
-                    string certificateNo, 
-                    decimal sumInsured, 
-                    decimal rate, 
-                    bool txtvalued, 
-                    decimal basicpremium) {
+        public string FnNewMotorIndividualPolicyRiskDetails(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium) {
             object[] results = this.Invoke("FnNewMotorIndividualPolicyRiskDetails", new object[] {
-                        empNo,
                         docNo,
                         texcesspotector,
                         registrationNo,
-                        make,
-                        model,
-                        vehicletype,
-                        covertype,
-                        cc,
-                        chasisNo,
-                        engineNo,
-                        yearofManufucture,
-                        bodyType,
-                        policystartDate,
-                        duration,
                         nonRenewable,
-                        tonnage,
-                        certificateNo,
-                        sumInsured,
                         rate,
                         txtvalued,
                         basicpremium});
@@ -3155,80 +3096,20 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
-        public void FnNewMotorIndividualPolicyRiskDetailsAsync(
-                    string empNo, 
-                    string docNo, 
-                    decimal texcesspotector, 
-                    string registrationNo, 
-                    string make, 
-                    string model, 
-                    string vehicletype, 
-                    string covertype, 
-                    string cc, 
-                    string chasisNo, 
-                    string engineNo, 
-                    string yearofManufucture, 
-                    string bodyType, 
-                    System.DateTime policystartDate, 
-                    string duration, 
-                    bool nonRenewable, 
-                    decimal tonnage, 
-                    string certificateNo, 
-                    decimal sumInsured, 
-                    decimal rate, 
-                    bool txtvalued, 
-                    decimal basicpremium) {
-            this.FnNewMotorIndividualPolicyRiskDetailsAsync(empNo, docNo, texcesspotector, registrationNo, make, model, vehicletype, covertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, policystartDate, duration, nonRenewable, tonnage, certificateNo, sumInsured, rate, txtvalued, basicpremium, null);
+        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium) {
+            this.FnNewMotorIndividualPolicyRiskDetailsAsync(docNo, texcesspotector, registrationNo, nonRenewable, rate, txtvalued, basicpremium, null);
         }
         
         /// <remarks/>
-        public void FnNewMotorIndividualPolicyRiskDetailsAsync(
-                    string empNo, 
-                    string docNo, 
-                    decimal texcesspotector, 
-                    string registrationNo, 
-                    string make, 
-                    string model, 
-                    string vehicletype, 
-                    string covertype, 
-                    string cc, 
-                    string chasisNo, 
-                    string engineNo, 
-                    string yearofManufucture, 
-                    string bodyType, 
-                    System.DateTime policystartDate, 
-                    string duration, 
-                    bool nonRenewable, 
-                    decimal tonnage, 
-                    string certificateNo, 
-                    decimal sumInsured, 
-                    decimal rate, 
-                    bool txtvalued, 
-                    decimal basicpremium, 
-                    object userState) {
+        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium, object userState) {
             if ((this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted == null)) {
                 this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewMotorIndividualPolicyRiskDetailsOperationCompleted);
             }
             this.InvokeAsync("FnNewMotorIndividualPolicyRiskDetails", new object[] {
-                        empNo,
                         docNo,
                         texcesspotector,
                         registrationNo,
-                        make,
-                        model,
-                        vehicletype,
-                        covertype,
-                        cc,
-                        chasisNo,
-                        engineNo,
-                        yearofManufucture,
-                        bodyType,
-                        policystartDate,
-                        duration,
                         nonRenewable,
-                        tonnage,
-                        certificateNo,
-                        sumInsured,
                         rate,
                         txtvalued,
                         basicpremium}, this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted, userState);
@@ -6522,6 +6403,38 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateCertificate_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGenerateCertificate(string customerNo, string debitNo) {
+            object[] results = this.Invoke("FnGenerateCertificate", new object[] {
+                        customerNo,
+                        debitNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGenerateCertificateAsync(string customerNo, string debitNo) {
+            this.FnGenerateCertificateAsync(customerNo, debitNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnGenerateCertificateAsync(string customerNo, string debitNo, object userState) {
+            if ((this.FnGenerateCertificateOperationCompleted == null)) {
+                this.FnGenerateCertificateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateCertificateOperationCompleted);
+            }
+            this.InvokeAsync("FnGenerateCertificate", new object[] {
+                        customerNo,
+                        debitNo}, this.FnGenerateCertificateOperationCompleted, userState);
+        }
+        
+        private void OnFnGenerateCertificateOperationCompleted(object arg) {
+            if ((this.FnGenerateCertificateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGenerateCertificateCompleted(this, new FnGenerateCertificateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateClientCertificate", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateClientCertificate_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string FnGenerateClientCertificate(string clientNo) {
@@ -6584,6 +6497,259 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGetRisk", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGetRisk_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGetRisk(
+                    string empNo, 
+                    string docNo, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime policystartDate, 
+                    string duration, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured) {
+            object[] results = this.Invoke("FnGetRisk", new object[] {
+                        empNo,
+                        docNo,
+                        registrationNo,
+                        make,
+                        model,
+                        vehicletype,
+                        covertype,
+                        cc,
+                        chasisNo,
+                        engineNo,
+                        yearofManufucture,
+                        bodyType,
+                        policystartDate,
+                        duration,
+                        tonnage,
+                        certificateNo,
+                        sumInsured});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGetRiskAsync(
+                    string empNo, 
+                    string docNo, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    System.DateTime policystartDate, 
+                    string duration, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured) {
+            this.FnGetRiskAsync(empNo, docNo, registrationNo, make, model, vehicletype, covertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, policystartDate, duration, tonnage, certificateNo, sumInsured, null);
+        }
+        
+        /// <remarks/>
+        public void FnGetRiskAsync(
+                    string empNo, 
+                    string docNo, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    System.DateTime policystartDate, 
+                    string duration, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured, 
+                    object userState) {
+            if ((this.FnGetRiskOperationCompleted == null)) {
+                this.FnGetRiskOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGetRiskOperationCompleted);
+            }
+            this.InvokeAsync("FnGetRisk", new object[] {
+                        empNo,
+                        docNo,
+                        registrationNo,
+                        make,
+                        model,
+                        vehicletype,
+                        covertype,
+                        cc,
+                        chasisNo,
+                        engineNo,
+                        yearofManufucture,
+                        bodyType,
+                        policystartDate,
+                        duration,
+                        tonnage,
+                        certificateNo,
+                        sumInsured}, this.FnGetRiskOperationCompleted, userState);
+        }
+        
+        private void OnFnGetRiskOperationCompleted(object arg) {
+            if ((this.FnGetRiskCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGetRiskCompleted(this, new FnGetRiskCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnMotorIndividualPolicyRiskDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnMotorIndividualPolicyRiskDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnMotorIndividualPolicyRiskDetails(
+                    string empNo, 
+                    string docNo, 
+                    decimal texcesspotector, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime policystartDate, 
+                    string duration, 
+                    bool nonRenewable, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured, 
+                    decimal rate, 
+                    bool txtvalued, 
+                    decimal basicpremium) {
+            object[] results = this.Invoke("FnMotorIndividualPolicyRiskDetails", new object[] {
+                        empNo,
+                        docNo,
+                        texcesspotector,
+                        registrationNo,
+                        make,
+                        model,
+                        vehicletype,
+                        covertype,
+                        cc,
+                        chasisNo,
+                        engineNo,
+                        yearofManufucture,
+                        bodyType,
+                        policystartDate,
+                        duration,
+                        nonRenewable,
+                        tonnage,
+                        certificateNo,
+                        sumInsured,
+                        rate,
+                        txtvalued,
+                        basicpremium});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnMotorIndividualPolicyRiskDetailsAsync(
+                    string empNo, 
+                    string docNo, 
+                    decimal texcesspotector, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    System.DateTime policystartDate, 
+                    string duration, 
+                    bool nonRenewable, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured, 
+                    decimal rate, 
+                    bool txtvalued, 
+                    decimal basicpremium) {
+            this.FnMotorIndividualPolicyRiskDetailsAsync(empNo, docNo, texcesspotector, registrationNo, make, model, vehicletype, covertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, policystartDate, duration, nonRenewable, tonnage, certificateNo, sumInsured, rate, txtvalued, basicpremium, null);
+        }
+        
+        /// <remarks/>
+        public void FnMotorIndividualPolicyRiskDetailsAsync(
+                    string empNo, 
+                    string docNo, 
+                    decimal texcesspotector, 
+                    string registrationNo, 
+                    string make, 
+                    string model, 
+                    string vehicletype, 
+                    string covertype, 
+                    string cc, 
+                    string chasisNo, 
+                    string engineNo, 
+                    string yearofManufucture, 
+                    string bodyType, 
+                    System.DateTime policystartDate, 
+                    string duration, 
+                    bool nonRenewable, 
+                    decimal tonnage, 
+                    string certificateNo, 
+                    decimal sumInsured, 
+                    decimal rate, 
+                    bool txtvalued, 
+                    decimal basicpremium, 
+                    object userState) {
+            if ((this.FnMotorIndividualPolicyRiskDetailsOperationCompleted == null)) {
+                this.FnMotorIndividualPolicyRiskDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnMotorIndividualPolicyRiskDetailsOperationCompleted);
+            }
+            this.InvokeAsync("FnMotorIndividualPolicyRiskDetails", new object[] {
+                        empNo,
+                        docNo,
+                        texcesspotector,
+                        registrationNo,
+                        make,
+                        model,
+                        vehicletype,
+                        covertype,
+                        cc,
+                        chasisNo,
+                        engineNo,
+                        yearofManufucture,
+                        bodyType,
+                        policystartDate,
+                        duration,
+                        nonRenewable,
+                        tonnage,
+                        certificateNo,
+                        sumInsured,
+                        rate,
+                        txtvalued,
+                        basicpremium}, this.FnMotorIndividualPolicyRiskDetailsOperationCompleted, userState);
+        }
+        
+        private void OnFnMotorIndividualPolicyRiskDetailsOperationCompleted(object arg) {
+            if ((this.FnMotorIndividualPolicyRiskDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnMotorIndividualPolicyRiskDetailsCompleted(this, new FnMotorIndividualPolicyRiskDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -6599,32 +6765,6 @@ namespace MajaniPortal.KYMCodeunit {
                 return true;
             }
             return false;
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void FnGenerateCertificateCompletedEventHandler(object sender, FnGenerateCertificateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class FnGenerateCertificateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal FnGenerateCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
         }
     }
     
@@ -9490,6 +9630,32 @@ namespace MajaniPortal.KYMCodeunit {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGenerateCertificateCompletedEventHandler(object sender, FnGenerateCertificateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGenerateCertificateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGenerateCertificateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void FnGenerateClientCertificateCompletedEventHandler(object sender, FnGenerateClientCertificateCompletedEventArgs e);
     
     /// <remarks/>
@@ -9527,6 +9693,58 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnGetMotorPoliciesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGetRiskCompletedEventHandler(object sender, FnGetRiskCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGetRiskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGetRiskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnMotorIndividualPolicyRiskDetailsCompletedEventHandler(object sender, FnMotorIndividualPolicyRiskDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnMotorIndividualPolicyRiskDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnMotorIndividualPolicyRiskDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

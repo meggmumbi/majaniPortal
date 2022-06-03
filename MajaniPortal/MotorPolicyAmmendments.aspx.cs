@@ -217,7 +217,8 @@ namespace MajaniPortal
                 {
                     string docNo = Request.QueryString["requisitionNo"].Trim();
                     string empNo = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnNewMotorIndividualPolicyRiskDetails(empNo, docNo, tttxtprotector, registrationNo, tmake, tmodel, tvehicletype, tcovertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, exact, tduration, tbolnonerenewable,Convert.ToDecimal(ttonnage), tcertificateNo, sumInsured, rate, tbolvalued, basicpremiums);
+                    var status = new Config().ObjNav().FnMotorIndividualPolicyRiskDetails(empNo, docNo, tttxtprotector, registrationNo, tmake, tmodel, tvehicletype, tcovertype, cc, chasisNo, engineNo, yearofManufucture, bodyType, exact, tduration,
+                        tbolnonerenewable,Convert.ToDecimal(ttonnage), tcertificateNo, sumInsured, rate, tbolvalued, basicpremiums);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {

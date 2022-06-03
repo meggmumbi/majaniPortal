@@ -3681,6 +3681,7 @@
         <Property Name="Age_Limit" Type="Edm.Decimal" />
         <Property Name="Minimum_Value" Type="Edm.Decimal" />
         <Property Name="Minimum_Premium" Type="Edm.Decimal" />
+        <Property Name="added" Type="Edm.Boolean" />
       </EntityType>
       <EntityType Name="PolicyTypes">
         <Key>

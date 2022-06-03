@@ -2,21 +2,6 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/KYM" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://www.w3.org/2001/XMLSchema">
-      <element name="FnGenerateCertificate">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="debitNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="FnGenerateCertificate_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -827,25 +812,10 @@
       <element name="FnNewMotorIndividualPolicyRiskDetails">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="texcesspotector" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="registrationNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="make" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="model" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="vehicletype" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="covertype" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="cc" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="chasisNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="engineNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="yearofManufucture" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="bodyType" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="policystartDate" type="date" />
-            <element minOccurs="1" maxOccurs="1" name="duration" type="string" />
             <element minOccurs="1" maxOccurs="1" name="nonRenewable" type="boolean" />
-            <element minOccurs="1" maxOccurs="1" name="tonnage" type="decimal" />
-            <element minOccurs="1" maxOccurs="1" name="certificateNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="sumInsured" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="txtvalued" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="basicpremium" type="decimal" />
@@ -2242,6 +2212,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnGenerateCertificate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="debitNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGenerateCertificate_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="FnGenerateClientCertificate">
         <complexType>
           <sequence>
@@ -2271,14 +2256,73 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnGetRisk">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="registrationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="make" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="model" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vehicletype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="covertype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="chasisNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="engineNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="yearofManufucture" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bodyType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="policystartDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tonnage" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="certificateNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sumInsured" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGetRisk_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMotorIndividualPolicyRiskDetails">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="texcesspotector" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="registrationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="make" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="model" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vehicletype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="covertype" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cc" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="chasisNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="engineNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="yearofManufucture" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="bodyType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="policystartDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="duration" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="nonRenewable" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="tonnage" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="certificateNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sumInsured" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="txtvalued" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="basicpremium" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnMotorIndividualPolicyRiskDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
-  <message name="FnGenerateCertificate">
-    <part name="parameters" element="tns:FnGenerateCertificate" />
-  </message>
-  <message name="FnGenerateCertificate_Result">
-    <part name="parameters" element="tns:FnGenerateCertificate_Result" />
-  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -2939,6 +2983,12 @@
   <message name="FnGeneratClaimReport_Result">
     <part name="parameters" element="tns:FnGeneratClaimReport_Result" />
   </message>
+  <message name="FnGenerateCertificate">
+    <part name="parameters" element="tns:FnGenerateCertificate" />
+  </message>
+  <message name="FnGenerateCertificate_Result">
+    <part name="parameters" element="tns:FnGenerateCertificate_Result" />
+  </message>
   <message name="FnGenerateClientCertificate">
     <part name="parameters" element="tns:FnGenerateClientCertificate" />
   </message>
@@ -2951,11 +3001,19 @@
   <message name="FnGetMotorPolicies_Result">
     <part name="parameters" element="tns:FnGetMotorPolicies_Result" />
   </message>
+  <message name="FnGetRisk">
+    <part name="parameters" element="tns:FnGetRisk" />
+  </message>
+  <message name="FnGetRisk_Result">
+    <part name="parameters" element="tns:FnGetRisk_Result" />
+  </message>
+  <message name="FnMotorIndividualPolicyRiskDetails">
+    <part name="parameters" element="tns:FnMotorIndividualPolicyRiskDetails" />
+  </message>
+  <message name="FnMotorIndividualPolicyRiskDetails_Result">
+    <part name="parameters" element="tns:FnMotorIndividualPolicyRiskDetails_Result" />
+  </message>
   <portType name="KYM_Port">
-    <operation name="FnGenerateCertificate">
-      <input name="FnGenerateCertificate" message="tns:FnGenerateCertificate" />
-      <output name="FnGenerateCertificate_Result" message="tns:FnGenerateCertificate_Result" />
-    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3396,6 +3454,10 @@
       <input name="FnGeneratClaimReport" message="tns:FnGeneratClaimReport" />
       <output name="FnGeneratClaimReport_Result" message="tns:FnGeneratClaimReport_Result" />
     </operation>
+    <operation name="FnGenerateCertificate">
+      <input name="FnGenerateCertificate" message="tns:FnGenerateCertificate" />
+      <output name="FnGenerateCertificate_Result" message="tns:FnGenerateCertificate_Result" />
+    </operation>
     <operation name="FnGenerateClientCertificate">
       <input name="FnGenerateClientCertificate" message="tns:FnGenerateClientCertificate" />
       <output name="FnGenerateClientCertificate_Result" message="tns:FnGenerateClientCertificate_Result" />
@@ -3404,18 +3466,17 @@
       <input name="FnGetMotorPolicies" message="tns:FnGetMotorPolicies" />
       <output name="FnGetMotorPolicies_Result" message="tns:FnGetMotorPolicies_Result" />
     </operation>
+    <operation name="FnGetRisk">
+      <input name="FnGetRisk" message="tns:FnGetRisk" />
+      <output name="FnGetRisk_Result" message="tns:FnGetRisk_Result" />
+    </operation>
+    <operation name="FnMotorIndividualPolicyRiskDetails">
+      <input name="FnMotorIndividualPolicyRiskDetails" message="tns:FnMotorIndividualPolicyRiskDetails" />
+      <output name="FnMotorIndividualPolicyRiskDetails_Result" message="tns:FnMotorIndividualPolicyRiskDetails_Result" />
+    </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-    <operation name="FnGenerateCertificate">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="FnGenerateCertificate">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="FnGenerateCertificate_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="NewClientOnboadingRequests">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="NewClientOnboadingRequests">
@@ -4406,6 +4467,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="FnGenerateCertificate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGenerateCertificate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGenerateCertificate_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="FnGenerateClientCertificate">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateClientCertificate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="FnGenerateClientCertificate">
@@ -4421,6 +4491,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGetMotorPolicies_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGetRisk">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGetRisk" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGetRisk">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGetRisk_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnMotorIndividualPolicyRiskDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnMotorIndividualPolicyRiskDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnMotorIndividualPolicyRiskDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnMotorIndividualPolicyRiskDetails_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

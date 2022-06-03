@@ -710,16 +710,21 @@
                     <asp:TextBox CssClass="form-control" runat="server" ID="totalPremiums" ReadOnly="true"></asp:TextBox>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label>Evaluation Amount Total</label><span class="text-danger" style="font-size: 25px">*</span>
-                    <asp:TextBox CssClass="form-control" runat="server" ID="evalAmount" ReadOnly="true" Visible="true"></asp:TextBox>
-                </div>
+     
+        <div class="col-md-6 col-lg-6">
+            <div class="form-group">
+                <label>Total Premiums Payable</label><span class="text-danger" style="font-size: 25px">*</span>
+                <asp:TextBox CssClass="form-control" runat="server" ID="premPayable" ReadOnly="true"></asp:TextBox>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label>Total Premiums Payable</label><span class="text-danger" style="font-size: 25px">*</span>
-                    <asp:TextBox CssClass="form-control" runat="server" ID="premPayable" ReadOnly="true"></asp:TextBox>
+        </div>
+        </div>
+        <div runat="server" id="evalAm" visible="true">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Evaluation Amount Total</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="evalAmount" ReadOnly="true"></asp:TextBox>
+                    </div>
                 </div>
             </div>
         </div>
