@@ -1549,6 +1549,24 @@ namespace MajaniPortal
                 documentsfeedback.InnerHtml = Config.GetAlert("danger", y.Message);
             }
         }
+        protected void DeleteCondition_Click(object sender, EventArgs e)
+        {
+            var tConditioncodetoRemove = RisktoRemove.Text.Trim();
+            string docNo = Request.QueryString["requisitionNo"].Trim();
+            var Applicant = Session["empNo"].ToString();
+            var status = new Config().ObjNav().FnRemoveRisk(tConditioncodetoRemove, docNo);
+            var res = status.Split('*');
+            if (res[0] == "success")
+            {
+                physicalLocations.InnerHtml = "<div class='alert alert-success'>" + res[1] + "</div>";
+
+            }
+            else
+            {
+                physicalLocations.InnerHtml = "<div class='alert alert-danger'>" + res[1] + "</div>";
+
+            }
+        }
         protected void SubmitApplication_Click(object sender, EventArgs e)
         {
             try

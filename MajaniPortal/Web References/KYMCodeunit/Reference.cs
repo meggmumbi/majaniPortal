@@ -259,6 +259,8 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnMotorIndividualPolicyRiskDetailsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnRemoveRiskOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -641,6 +643,9 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnMotorIndividualPolicyRiskDetailsCompletedEventHandler FnMotorIndividualPolicyRiskDetailsCompleted;
+        
+        /// <remarks/>
+        public event FnRemoveRiskCompletedEventHandler FnRemoveRiskCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -6750,6 +6755,38 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnRemoveRisk", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnRemoveRisk_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnRemoveRisk(string riskCode, string docNumber) {
+            object[] results = this.Invoke("FnRemoveRisk", new object[] {
+                        riskCode,
+                        docNumber});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnRemoveRiskAsync(string riskCode, string docNumber) {
+            this.FnRemoveRiskAsync(riskCode, docNumber, null);
+        }
+        
+        /// <remarks/>
+        public void FnRemoveRiskAsync(string riskCode, string docNumber, object userState) {
+            if ((this.FnRemoveRiskOperationCompleted == null)) {
+                this.FnRemoveRiskOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnRemoveRiskOperationCompleted);
+            }
+            this.InvokeAsync("FnRemoveRisk", new object[] {
+                        riskCode,
+                        docNumber}, this.FnRemoveRiskOperationCompleted, userState);
+        }
+        
+        private void OnFnRemoveRiskOperationCompleted(object arg) {
+            if ((this.FnRemoveRiskCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnRemoveRiskCompleted(this, new FnRemoveRiskCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -9745,6 +9782,32 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnMotorIndividualPolicyRiskDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnRemoveRiskCompletedEventHandler(object sender, FnRemoveRiskCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnRemoveRiskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnRemoveRiskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

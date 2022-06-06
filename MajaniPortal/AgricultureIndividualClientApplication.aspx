@@ -643,7 +643,7 @@
                         <td><% =item.Premium %></td>      
                          <td><% =item.Total_Line_Premiums %></td>                    
                         <td>
-                              <label class="btn btn-danger" onclick="remove('<%=item.Name_of_Animal %>','<%=item.Code %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
+                              <label class="btn btn-danger" onclick="removeRisk('<%=item.Name_of_Animal %>','<%=item.Code %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
                            
                         <%
                                 }
@@ -692,7 +692,7 @@
                         <td><% =item.Premium %></td>      
                          <td><% =item.Total_Line_Premiums %></td>                    
                         <td>
-                              <label class="btn btn-danger" onclick="remove('<%=item.Name_of_Animal %>','<%=item.Code %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
+                              <label class="btn btn-danger" onclick="removeRisk('<%=item.Name_of_Animal %>','<%=item.Code %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
                            
                         <%
                                 }
@@ -915,6 +915,13 @@
               $("#deleteConditionModal").modal();
           }
     </script>
+          <script type="text/javascript">
+              function removeRisk(riskName,riskCode) {
+              document.getElementById("RiskToDelete").innerText = riskName;
+              document.getElementById("MainBody_RisktoRemove").value = riskCode;
+              $("#deleteRiskModal").modal();
+          }
+    </script>
     <script type="text/javascript">
         function removeDependant(dependantNumber) {
             document.getElementById("depedantToDelete").innerText = dependantNumber;
@@ -1123,4 +1130,22 @@
             }
         }
     </script>
+             <div id="deleteRiskModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirm Removing Risk</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to remove Risk <strong id="RiskToDelete"></strong>?</p>
+                        <asp:TextBox runat="server" ID="RisktoRemove" type="hidden" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <asp:Button runat="server" CssClass="btn btn-danger" Text="Remove Risk" OnClick="DeleteCondition_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
 </asp:Content>
