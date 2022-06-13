@@ -163,7 +163,8 @@
                                         <li><a href="KYMIndividualClientApplication.aspx"><i class="fa fa-circle-o"></i>Individual Client Application</a></li>
                                         <li><a href="KYMCorporateClientApplication.aspx"><i class="fa fa-circle-o"></i>Corporate Client Application</a></li>
                                         <li><a href="KYMOpenClientApplications.aspx"><i class="fa fa-circle-o"></i>Open Client Application</a></li>
-                                        <li><a href="MicroInsurancePolicies.aspx"><i class="fa fa-circle-o"></i>Micro-Insurance Policies</a></li>                                   
+                                        <li><a href="MicroInsurancePolicies.aspx"><i class="fa fa-circle-o"></i>Micro-Insurance Policies</a></li>   
+                                         <li><a href="SubmittedAmmendments.aspx"><i class="fa fa-circle-o"></i>Submitted Amendments</a></li>                                                   
                                     </ul>
                                 </li>
                                    <li class="treeview">
@@ -349,6 +350,7 @@
                                 <li><a href="NewPolicyQuote.aspx"><i class="fa fa-circle-o"></i>Existing  Clients(New Business)</a></li>
                                  <li><a href="KYMWithdrawalForm.aspx"><i class="fa fa-circle-o"></i>KYM Withdrawal Form</a></li>
                                 <li><a href="KYMClaimsRequests.aspx"><i class="fa fa-circle-o"></i>KYM Claims</a></li>
+                                <li><a href="FarmersFinancier.aspx"><i class="fa fa-circle-o"></i>Farmers Financier</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -475,12 +477,18 @@
     <script src="dist/js/adminlte.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
+    <script src="CustomJs/CustomJs.js"></script>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
         $(document).ready(function () {

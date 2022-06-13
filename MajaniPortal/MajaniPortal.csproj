@@ -361,12 +361,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="CorporateAgricultureUnd.aspx" />
     <Content Include="CorporateDependantConditions.aspx" />
-    <Content Include="Custom Js\CustomJs.js" />
+    <Content Include="CustomJs\CustomJs.js" />
     <Content Include="DebitNotePrintOut.aspx" />
     <Content Include="DependantConditons.aspx" />
     <Content Include="Error\css\font-awesome.min.css" />
     <Content Include="Error\css\style.css" />
     <Content Include="Error\fonts\fontawesome-webfont.svg" />
+    <Content Include="FarmersFinancier.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -557,6 +558,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
+    <Content Include="SubmittedAmmendments.aspx" />
     <Content Include="UserErrorPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -816,6 +818,13 @@
       <DependentUpon>DependantConditons.aspx</DependentUpon>
     </Compile>
     <Compile Include="DropDownList.cs" />
+    <Compile Include="FarmersFinancier.aspx.cs">
+      <DependentUpon>FarmersFinancier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FarmersFinancier.aspx.designer.cs">
+      <DependentUpon>FarmersFinancier.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GeneralOpenClientApplications.aspx.cs">
       <DependentUpon>GeneralOpenClientApplications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1245,6 +1254,14 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="SubmittedAmmendments.aspx.cs">
+      <DependentUpon>SubmittedAmmendments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmittedAmmendments.aspx.designer.cs">
+      <DependentUpon>SubmittedAmmendments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Targets.cs" />
     <Compile Include="UserErrorPage.aspx.cs">
       <DependentUpon>UserErrorPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

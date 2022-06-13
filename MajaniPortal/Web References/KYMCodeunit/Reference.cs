@@ -29,6 +29,8 @@ namespace MajaniPortal.KYMCodeunit {
     [System.Web.Services.WebServiceBindingAttribute(Name="KYM_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/KYM")]
     public partial class KYM : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback PushAgricultureClaimNotificationForValidationOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -261,6 +263,12 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnRemoveRiskOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnCreateFinancierOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FncreateClaimNotificationAgriOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnInsertResponsesOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -298,6 +306,9 @@ namespace MajaniPortal.KYMCodeunit {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event PushAgricultureClaimNotificationForValidationCompletedEventHandler PushAgricultureClaimNotificationForValidationCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -646,6 +657,46 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnRemoveRiskCompletedEventHandler FnRemoveRiskCompleted;
+        
+        /// <remarks/>
+        public event FnCreateFinancierCompletedEventHandler FnCreateFinancierCompleted;
+        
+        /// <remarks/>
+        public event FncreateClaimNotificationAgriCompletedEventHandler FncreateClaimNotificationAgriCompleted;
+        
+        /// <remarks/>
+        public event FnInsertResponsesCompletedEventHandler FnInsertResponsesCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:PushAgricultureClaimNotificationForVa" +
+            "lidation", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="PushAgricultureClaimNotificationForValidation_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string PushAgricultureClaimNotificationForValidation(string docNo) {
+            object[] results = this.Invoke("PushAgricultureClaimNotificationForValidation", new object[] {
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PushAgricultureClaimNotificationForValidationAsync(string docNo) {
+            this.PushAgricultureClaimNotificationForValidationAsync(docNo, null);
+        }
+        
+        /// <remarks/>
+        public void PushAgricultureClaimNotificationForValidationAsync(string docNo, object userState) {
+            if ((this.PushAgricultureClaimNotificationForValidationOperationCompleted == null)) {
+                this.PushAgricultureClaimNotificationForValidationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPushAgricultureClaimNotificationForValidationOperationCompleted);
+            }
+            this.InvokeAsync("PushAgricultureClaimNotificationForValidation", new object[] {
+                        docNo}, this.PushAgricultureClaimNotificationForValidationOperationCompleted, userState);
+        }
+        
+        private void OnPushAgricultureClaimNotificationForValidationOperationCompleted(object arg) {
+            if ((this.PushAgricultureClaimNotificationForValidationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PushAgricultureClaimNotificationForValidationCompleted(this, new PushAgricultureClaimNotificationForValidationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="NewClientOnboadingRequests_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -4176,7 +4227,7 @@ namespace MajaniPortal.KYMCodeunit {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnNewPolicyAmmendments(string contractNumber, string idnumber, int gender, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dob, string occupation, int maritalstatus, string county) {
+        public string FnNewPolicyAmmendments(string contractNumber, string idnumber, int gender, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dob, string occupation, int maritalstatus, string county, string empNo) {
             object[] results = this.Invoke("FnNewPolicyAmmendments", new object[] {
                         contractNumber,
                         idnumber,
@@ -4184,17 +4235,18 @@ namespace MajaniPortal.KYMCodeunit {
                         dob,
                         occupation,
                         maritalstatus,
-                        county});
+                        county,
+                        empNo});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county) {
-            this.FnNewPolicyAmmendmentsAsync(contractNumber, idnumber, gender, dob, occupation, maritalstatus, county, null);
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo) {
+            this.FnNewPolicyAmmendmentsAsync(contractNumber, idnumber, gender, dob, occupation, maritalstatus, county, empNo, null);
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, object userState) {
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo, object userState) {
             if ((this.FnNewPolicyAmmendmentsOperationCompleted == null)) {
                 this.FnNewPolicyAmmendmentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyAmmendmentsOperationCompleted);
             }
@@ -4205,7 +4257,8 @@ namespace MajaniPortal.KYMCodeunit {
                         dob,
                         occupation,
                         maritalstatus,
-                        county}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
+                        county,
+                        empNo}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
         }
         
         private void OnFnNewPolicyAmmendmentsOperationCompleted(object arg) {
@@ -6787,6 +6840,132 @@ namespace MajaniPortal.KYMCodeunit {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnCreateFinancier", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnCreateFinancier_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnCreateFinancier(string growerNumber, string name, string factorycode, string factoryName, string idNumber, string mobileNumber, int businessType) {
+            object[] results = this.Invoke("FnCreateFinancier", new object[] {
+                        growerNumber,
+                        name,
+                        factorycode,
+                        factoryName,
+                        idNumber,
+                        mobileNumber,
+                        businessType});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnCreateFinancierAsync(string growerNumber, string name, string factorycode, string factoryName, string idNumber, string mobileNumber, int businessType) {
+            this.FnCreateFinancierAsync(growerNumber, name, factorycode, factoryName, idNumber, mobileNumber, businessType, null);
+        }
+        
+        /// <remarks/>
+        public void FnCreateFinancierAsync(string growerNumber, string name, string factorycode, string factoryName, string idNumber, string mobileNumber, int businessType, object userState) {
+            if ((this.FnCreateFinancierOperationCompleted == null)) {
+                this.FnCreateFinancierOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnCreateFinancierOperationCompleted);
+            }
+            this.InvokeAsync("FnCreateFinancier", new object[] {
+                        growerNumber,
+                        name,
+                        factorycode,
+                        factoryName,
+                        idNumber,
+                        mobileNumber,
+                        businessType}, this.FnCreateFinancierOperationCompleted, userState);
+        }
+        
+        private void OnFnCreateFinancierOperationCompleted(object arg) {
+            if ((this.FnCreateFinancierCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnCreateFinancierCompleted(this, new FnCreateFinancierCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FncreateClaimNotificationAgri", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FncreateClaimNotificationAgri_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FncreateClaimNotificationAgri(string docNo, string custNo, string requestor, string policyNo, string placeOfOccurence, string patientName, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime date, [System.Xml.Serialization.XmlElementAttribute(DataType="time")] System.DateTime time, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateP, decimal pricePaid, string riskCode) {
+            object[] results = this.Invoke("FncreateClaimNotificationAgri", new object[] {
+                        docNo,
+                        custNo,
+                        requestor,
+                        policyNo,
+                        placeOfOccurence,
+                        patientName,
+                        date,
+                        time,
+                        dateP,
+                        pricePaid,
+                        riskCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FncreateClaimNotificationAgriAsync(string docNo, string custNo, string requestor, string policyNo, string placeOfOccurence, string patientName, System.DateTime date, System.DateTime time, System.DateTime dateP, decimal pricePaid, string riskCode) {
+            this.FncreateClaimNotificationAgriAsync(docNo, custNo, requestor, policyNo, placeOfOccurence, patientName, date, time, dateP, pricePaid, riskCode, null);
+        }
+        
+        /// <remarks/>
+        public void FncreateClaimNotificationAgriAsync(string docNo, string custNo, string requestor, string policyNo, string placeOfOccurence, string patientName, System.DateTime date, System.DateTime time, System.DateTime dateP, decimal pricePaid, string riskCode, object userState) {
+            if ((this.FncreateClaimNotificationAgriOperationCompleted == null)) {
+                this.FncreateClaimNotificationAgriOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFncreateClaimNotificationAgriOperationCompleted);
+            }
+            this.InvokeAsync("FncreateClaimNotificationAgri", new object[] {
+                        docNo,
+                        custNo,
+                        requestor,
+                        policyNo,
+                        placeOfOccurence,
+                        patientName,
+                        date,
+                        time,
+                        dateP,
+                        pricePaid,
+                        riskCode}, this.FncreateClaimNotificationAgriOperationCompleted, userState);
+        }
+        
+        private void OnFncreateClaimNotificationAgriOperationCompleted(object arg) {
+            if ((this.FncreateClaimNotificationAgriCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FncreateClaimNotificationAgriCompleted(this, new FncreateClaimNotificationAgriCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsertResponses", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnInsertResponses_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsertResponses(string applicationNo, string questionId, string description) {
+            object[] results = this.Invoke("FnInsertResponses", new object[] {
+                        applicationNo,
+                        questionId,
+                        description});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsertResponsesAsync(string applicationNo, string questionId, string description) {
+            this.FnInsertResponsesAsync(applicationNo, questionId, description, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsertResponsesAsync(string applicationNo, string questionId, string description, object userState) {
+            if ((this.FnInsertResponsesOperationCompleted == null)) {
+                this.FnInsertResponsesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsertResponsesOperationCompleted);
+            }
+            this.InvokeAsync("FnInsertResponses", new object[] {
+                        applicationNo,
+                        questionId,
+                        description}, this.FnInsertResponsesOperationCompleted, userState);
+        }
+        
+        private void OnFnInsertResponsesOperationCompleted(object arg) {
+            if ((this.FnInsertResponsesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsertResponsesCompleted(this, new FnInsertResponsesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -6802,6 +6981,32 @@ namespace MajaniPortal.KYMCodeunit {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void PushAgricultureClaimNotificationForValidationCompletedEventHandler(object sender, PushAgricultureClaimNotificationForValidationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PushAgricultureClaimNotificationForValidationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PushAgricultureClaimNotificationForValidationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
         }
     }
     
@@ -9808,6 +10013,84 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnRemoveRiskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnCreateFinancierCompletedEventHandler(object sender, FnCreateFinancierCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnCreateFinancierCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnCreateFinancierCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FncreateClaimNotificationAgriCompletedEventHandler(object sender, FncreateClaimNotificationAgriCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FncreateClaimNotificationAgriCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FncreateClaimNotificationAgriCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsertResponsesCompletedEventHandler(object sender, FnInsertResponsesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsertResponsesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsertResponsesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

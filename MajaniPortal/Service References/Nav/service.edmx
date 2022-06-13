@@ -80,6 +80,23 @@
         <NavigationProperty Name="Global_Dimension_1_Code_Link" Relationship="NAV.ApprovedWelfareBenefits_Global_Dimension_1_Code_Link" ToRole="Global_Dimension_1_Code_Link" FromRole="ApprovedWelfareBenefits" />
         <NavigationProperty Name="Global_Dimension_2_Code_Link" Relationship="NAV.ApprovedWelfareBenefits_Global_Dimension_2_Code_Link" ToRole="Global_Dimension_2_Code_Link" FromRole="ApprovedWelfareBenefits" />
       </EntityType>
+      <EntityType Name="claimQnResponse">
+        <Key>
+          <PropertyRef Name="Claim_No" />
+          <PropertyRef Name="Question_ID" />
+          <PropertyRef Name="Question_Type" />
+        </Key>
+        <Property Name="Claim_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Question_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Question_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Category_Question" Type="Edm.String" />
+        <Property Name="Category_Description" Type="Edm.String" />
+        <Property Name="Question_Description" Type="Edm.String" />
+        <Property Name="Closed_ended_Question_Sub_Type" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Numeric" Type="Edm.Int32" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
       <EntityType Name="CurrentProcurementPlan">
         <Key>
           <PropertyRef Name="Code" />
@@ -1077,6 +1094,23 @@
         <Property Name="Requestor" Type="Edm.String" />
         <Property Name="ResourceNo" Type="Edm.String" Nullable="false" />
         <Property Name="ResourceName" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="ClaimRespQns">
+        <Key>
+          <PropertyRef Name="Claim_No" />
+          <PropertyRef Name="Question_ID" />
+          <PropertyRef Name="Question_Type" />
+        </Key>
+        <Property Name="Claim_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Product_Code" Type="Edm.String" />
+        <Property Name="Question_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Category_Question" Type="Edm.String" />
+        <Property Name="Category_Description" Type="Edm.String" />
+        <Property Name="Question_Description" Type="Edm.String" />
+        <Property Name="Question_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Closed_ended_Question_Sub_Type" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Numeric" Type="Edm.Int32" />
       </EntityType>
       <EntityType Name="ClientApplicationQuery">
         <Key>
@@ -3683,6 +3717,142 @@
         <Property Name="Minimum_Premium" Type="Edm.Decimal" />
         <Property Name="added" Type="Edm.Boolean" />
       </EntityType>
+      <EntityType Name="policyRiskDetailsGen">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Contract_No" />
+          <PropertyRef Name="Customer_No" />
+          <PropertyRef Name="Policy_Type" />
+          <PropertyRef Name="Product" />
+        </Key>
+        <Property Name="Contract_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Product" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Has_Category" Type="Edm.Boolean" />
+        <Property Name="Category" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Centres" Type="Edm.String" />
+        <Property Name="Value_Sum_Insured" Type="Edm.Decimal" />
+        <Property Name="Rate" Type="Edm.Decimal" />
+        <Property Name="Premium" Type="Edm.Decimal" />
+        <Property Name="Basic_Loading" Type="Edm.Decimal" />
+        <Property Name="Basic_Loading_Amt" Type="Edm.Decimal" />
+        <Property Name="Premium_Inc_Wiba_Loading" Type="Edm.Decimal" />
+        <Property Name="Premium_Inc_Wiba_Loading_Amt" Type="Edm.Decimal" />
+        <Property Name="Policy_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Total_Line_Premiums" Type="Edm.Decimal" />
+        <Property Name="Per_Mile" Type="Edm.Boolean" />
+        <Property Name="Reference_No" Type="Edm.String" />
+        <Property Name="Sub_Category" Type="Edm.String" />
+        <Property Name="Identification_Types" Type="Edm.String" />
+        <Property Name="Factory" Type="Edm.String" />
+        <Property Name="Net_weight" Type="Edm.Decimal" />
+        <Property Name="Method_of_transit" Type="Edm.String" />
+        <Property Name="Transporter" Type="Edm.String" />
+        <Property Name="dispatch_No" Type="Edm.String" />
+        <Property Name="Name_of_vessel" Type="Edm.String" />
+        <Property Name="Conveyence" Type="Edm.String" />
+        <Property Name="Origin" Type="Edm.String" />
+        <Property Name="Destination" Type="Edm.String" />
+        <Property Name="Transhipment" Type="Edm.String" />
+        <Property Name="Invoice_no" Type="Edm.String" />
+        <Property Name="Year_of_manufacture" Type="Edm.String" />
+        <Property Name="Registration_No" Type="Edm.String" />
+        <Property Name="Make" Type="Edm.String" />
+        <Property Name="Chassis_no" Type="Edm.String" />
+        <Property Name="engine_No" Type="Edm.String" />
+        <Property Name="Model" Type="Edm.String" />
+        <Property Name="Limit_of_liability" Type="Edm.String" />
+        <Property Name="Bulgary_Category" Type="Edm.String" />
+        <Property Name="No" Type="Edm.Decimal" />
+        <Property Name="Gross_revenue_limit" Type="Edm.Decimal" />
+        <Property Name="increase_cost_of_working" Type="Edm.Decimal" />
+        <Property Name="indemnity_period" Type="Edm.Decimal" />
+        <Property Name="Audit_fee_payment" Type="Edm.Decimal" />
+        <Property Name="Actual_dates_of_travel" Type="Edm.DateTime" />
+        <Property Name="Next_of_kin" Type="Edm.String" />
+        <Property Name="next_of_kin_Contact" Type="Edm.String" />
+        <Property Name="validity_period" Type="Edm.String" />
+        <Property Name="Tender_No" Type="Edm.String" />
+        <Property Name="Tenderer" Type="Edm.String" />
+        <Property Name="Ear_tag_no" Type="Edm.String" />
+        <Property Name="Breed" Type="Edm.String" />
+        <Property Name="Sex" Type="Edm.String" />
+        <Property Name="Age" Type="Edm.String" />
+        <Property Name="Type_of_crop" Type="Edm.String" />
+        <Property Name="No_of_Employees" Type="Edm.String" />
+        <Property Name="Occupation" Type="Edm.String" />
+        <Property Name="Customer_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Cover_Type" Type="Edm.String" />
+        <Property Name="CC" Type="Edm.String" />
+        <Property Name="PLL" Type="Edm.Decimal" />
+        <Property Name="Windscreen" Type="Edm.Decimal" />
+        <Property Name="Radio_Cassette" Type="Edm.Decimal" />
+        <Property Name="SI" Type="Edm.String" />
+        <Property Name="Certificate_No" Type="Edm.String" />
+        <Property Name="Body_Type" Type="Edm.String" />
+        <Property Name="Tonnage" Type="Edm.Decimal" />
+        <Property Name="LRNumber" Type="Edm.String" />
+        <Property Name="Location" Type="Edm.String" />
+        <Property Name="Domestis_servants" Type="Edm.Decimal" />
+        <Property Name="Profit_Loss_Rev_Limit" Type="Edm.Decimal" />
+        <Property Name="Increased_cost_Limit" Type="Edm.Decimal" />
+        <Property Name="Loss_of_wages_Limits" Type="Edm.Decimal" />
+        <Property Name="Material_under_process_Limit" Type="Edm.Decimal" />
+        <Property Name="Deposit_Stock" Type="Edm.Decimal" />
+        <Property Name="Deposit_Stock_Amount" Type="Edm.Decimal" />
+        <Property Name="Date_of_travel" Type="Edm.DateTime" />
+        <Property Name="Mode_of_payment" Type="Edm.String" />
+        <Property Name="Currency" Type="Edm.String" />
+        <Property Name="Principal" Type="Edm.Decimal" />
+        <Property Name="Closure_date" Type="Edm.DateTime" />
+        <Property Name="Bid_Amount" Type="Edm.Decimal" />
+        <Property Name="Gross_fees_Last_Financial_YR" Type="Edm.Decimal" />
+        <Property Name="Current_YR_next_YR" Type="Edm.Decimal" />
+        <Property Name="Provision_for_Extensions" Type="Edm.String" />
+        <Property Name="IDF_No" Type="Edm.String" />
+        <Property Name="owner_Names" Type="Edm.String" />
+        <Property Name="Marine_Rates_Category" Type="Edm.String" />
+        <Property Name="Marine_Risk" Type="Edm.Decimal" />
+        <Property Name="Marine_Risk_Amount" Type="Edm.Decimal" />
+        <Property Name="War_Risk" Type="Edm.Decimal" />
+        <Property Name="War_Risk_Amount" Type="Edm.Decimal" />
+        <Property Name="Policy_End_Date" Type="Edm.DateTime" />
+        <Property Name="Policy_start_date" Type="Edm.DateTime" />
+        <Property Name="Non_Renewable" Type="Edm.Boolean" />
+        <Property Name="Expected_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Expected_End_Date" Type="Edm.DateTime" />
+        <Property Name="Duration" Type="Edm.String" />
+        <Property Name="Carriers_Liability" Type="Edm.Decimal" />
+        <Property Name="Political_Violence_Terrorism" Type="Edm.Decimal" />
+        <Property Name="Excess_Protector" Type="Edm.Decimal" />
+        <Property Name="Road_Rescue_Services" Type="Edm.Decimal" />
+        <Property Name="Wiba_Cover" Type="Edm.Decimal" />
+        <Property Name="Fidelity_Guarantee" Type="Edm.Decimal" />
+        <Property Name="Refundable_Days" Type="Edm.Decimal" />
+        <Property Name="Calender_Days" Type="Edm.Decimal" />
+        <Property Name="Entry_No" Type="Edm.Int32" />
+        <Property Name="Age_Limit" Type="Edm.Decimal" />
+        <Property Name="Minimum_Value" Type="Edm.Decimal" />
+        <Property Name="Minimum_Premium" Type="Edm.Decimal" />
+        <Property Name="Valued" Type="Edm.Boolean" />
+        <Property Name="Excess_Protect_Min_Value" Type="Edm.Decimal" />
+        <Property Name="Excess_Rate" Type="Edm.Decimal" />
+        <Property Name="Override_Age_Limit" Type="Edm.Boolean" />
+        <Property Name="Vehicle_Status" Type="Edm.String" />
+        <Property Name="Has_Binder" Type="Edm.String" />
+        <Property Name="Reasons_For_De_activation" Type="Edm.String" />
+        <Property Name="Licensed_to_carry" Type="Edm.Int32" />
+        <Property Name="Valuation_Amount" Type="Edm.Int32" />
+        <Property Name="Milk_Production_Per_Day" Type="Edm.String" />
+        <Property Name="Name_of_Animal" Type="Edm.String" />
+        <Property Name="Min_Age" Type="Edm.Decimal" />
+        <Property Name="Max_Animal_Age" Type="Edm.Decimal" />
+        <Property Name="Age_In_Years" Type="Edm.Decimal" />
+        <Property Name="Insurance_Policies" Type="Edm.String" />
+        <Property Name="Computation_Based_On" Type="Edm.String" />
+        <Property Name="Total_Options_Amount" Type="Edm.Decimal" />
+      </EntityType>
       <EntityType Name="PolicyTypes">
         <Key>
           <PropertyRef Name="Policy_Type_Code" />
@@ -4752,6 +4922,7 @@
         <Property Name="Date_Paid" Type="Edm.DateTime" />
         <Property Name="Excess_Protect_Min_Value" Type="Edm.Decimal" />
         <Property Name="Excess_Rate" Type="Edm.Decimal" />
+        <Property Name="Salesperson_Code" Type="Edm.String" />
       </EntityType>
       <EntityType Name="SalesPersons">
         <Key>
@@ -5465,6 +5636,7 @@
         <NavigationProperty Name="ApplicantAccomplishment" Relationship="NAV.Company_ApplicantAccomplishment" ToRole="ApplicantAccomplishment" FromRole="Company" />
         <NavigationProperty Name="ApplicantEmployeeHistory" Relationship="NAV.Company_ApplicantEmployeeHistory" ToRole="ApplicantEmployeeHistory" FromRole="Company" />
         <NavigationProperty Name="ApprovedWelfareBenefits" Relationship="NAV.Company_ApprovedWelfareBenefits" ToRole="ApprovedWelfareBenefits" FromRole="Company" />
+        <NavigationProperty Name="claimQnResponse" Relationship="NAV.Company_claimQnResponse" ToRole="claimQnResponse" FromRole="Company" />
         <NavigationProperty Name="CurrentProcurementPlan" Relationship="NAV.Company_CurrentProcurementPlan" ToRole="CurrentProcurementPlan" FromRole="Company" />
         <NavigationProperty Name="DimensionValueList" Relationship="NAV.Company_DimensionValueList" ToRole="DimensionValueList" FromRole="Company" />
         <NavigationProperty Name="EscalateTo" Relationship="NAV.Company_EscalateTo" ToRole="EscalateTo" FromRole="Company" />
@@ -5504,6 +5676,7 @@
         <NavigationProperty Name="businessTypes" Relationship="NAV.Company_businessTypes" ToRole="businessTypes" FromRole="Company" />
         <NavigationProperty Name="CalenderYearCodesList" Relationship="NAV.Company_CalenderYearCodesList" ToRole="CalenderYearCodesList" FromRole="Company" />
         <NavigationProperty Name="Casuals" Relationship="NAV.Company_Casuals" ToRole="Casuals" FromRole="Company" />
+        <NavigationProperty Name="ClaimRespQns" Relationship="NAV.Company_ClaimRespQns" ToRole="ClaimRespQns" FromRole="Company" />
         <NavigationProperty Name="ClientApplicationQuery" Relationship="NAV.Company_ClientApplicationQuery" ToRole="ClientApplicationQuery" FromRole="Company" />
         <NavigationProperty Name="ClientPreExistingConditons" Relationship="NAV.Company_ClientPreExistingConditons" ToRole="ClientPreExistingConditons" FromRole="Company" />
         <NavigationProperty Name="CommissionGroup" Relationship="NAV.Company_CommissionGroup" ToRole="CommissionGroup" FromRole="Company" />
@@ -5579,6 +5752,7 @@
         <NavigationProperty Name="PolicyBeneficiaries" Relationship="NAV.Company_PolicyBeneficiaries" ToRole="PolicyBeneficiaries" FromRole="Company" />
         <NavigationProperty Name="PolicyDependants" Relationship="NAV.Company_PolicyDependants" ToRole="PolicyDependants" FromRole="Company" />
         <NavigationProperty Name="PolicyRiskDetails" Relationship="NAV.Company_PolicyRiskDetails" ToRole="PolicyRiskDetails" FromRole="Company" />
+        <NavigationProperty Name="policyRiskDetailsGen" Relationship="NAV.Company_policyRiskDetailsGen" ToRole="policyRiskDetailsGen" FromRole="Company" />
         <NavigationProperty Name="PolicyTypes" Relationship="NAV.Company_PolicyTypes" ToRole="PolicyTypes" FromRole="Company" />
         <NavigationProperty Name="portalusers" Relationship="NAV.Company_portalusers" ToRole="portalusers" FromRole="Company" />
         <NavigationProperty Name="PortalUsers" Relationship="NAV.Company_PortalUsers" ToRole="PortalUsers" FromRole="Company" />
@@ -5763,6 +5937,10 @@
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
         <End Type="NAV.ApprovedWelfareBenefits" Role="ApprovedWelfareBenefits" Multiplicity="*" />
       </Association>
+      <Association Name="Company_claimQnResponse">
+        <End Type="NAV.claimQnResponse" Role="claimQnResponse" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_CurrentProcurementPlan">
         <End Type="NAV.CurrentProcurementPlan" Role="CurrentProcurementPlan" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -5918,6 +6096,10 @@
       <Association Name="Company_Casuals">
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
         <End Type="NAV.Casuals" Role="Casuals" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ClaimRespQns">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.ClaimRespQns" Role="ClaimRespQns" Multiplicity="*" />
       </Association>
       <Association Name="Company_ClientApplicationQuery">
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -6219,6 +6401,10 @@
         <End Type="NAV.PolicyRiskDetails" Role="PolicyRiskDetails" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_policyRiskDetailsGen">
+        <End Type="NAV.policyRiskDetailsGen" Role="policyRiskDetailsGen" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_PolicyTypes">
         <End Type="NAV.PolicyTypes" Role="PolicyTypes" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -6428,6 +6614,7 @@
         <EntitySet Name="ApplicantAccomplishment" EntityType="NAV.ApplicantAccomplishment" />
         <EntitySet Name="ApplicantEmployeeHistory" EntityType="NAV.ApplicantEmployeeHistory" />
         <EntitySet Name="ApprovedWelfareBenefits" EntityType="NAV.ApprovedWelfareBenefits" />
+        <EntitySet Name="claimQnResponse" EntityType="NAV.claimQnResponse" />
         <EntitySet Name="CurrentProcurementPlan" EntityType="NAV.CurrentProcurementPlan" />
         <EntitySet Name="DimensionValueList" EntityType="NAV.DimensionValueList" />
         <EntitySet Name="EscalateTo" EntityType="NAV.EscalateTo" />
@@ -6467,6 +6654,7 @@
         <EntitySet Name="businessTypes" EntityType="NAV.businessTypes" />
         <EntitySet Name="CalenderYearCodesList" EntityType="NAV.CalenderYearCodesList" />
         <EntitySet Name="Casuals" EntityType="NAV.Casuals" />
+        <EntitySet Name="ClaimRespQns" EntityType="NAV.ClaimRespQns" />
         <EntitySet Name="ClientApplicationQuery" EntityType="NAV.ClientApplicationQuery" />
         <EntitySet Name="ClientPreExistingConditons" EntityType="NAV.ClientPreExistingConditons" />
         <EntitySet Name="CommissionGroup" EntityType="NAV.CommissionGroup" />
@@ -6542,6 +6730,7 @@
         <EntitySet Name="PolicyBeneficiaries" EntityType="NAV.PolicyBeneficiaries" />
         <EntitySet Name="PolicyDependants" EntityType="NAV.PolicyDependants" />
         <EntitySet Name="PolicyRiskDetails" EntityType="NAV.PolicyRiskDetails" />
+        <EntitySet Name="policyRiskDetailsGen" EntityType="NAV.policyRiskDetailsGen" />
         <EntitySet Name="PolicyTypes" EntityType="NAV.PolicyTypes" />
         <EntitySet Name="portalusers" EntityType="NAV.portalusers" />
         <EntitySet Name="PortalUsers" EntityType="NAV.PortalUsers" />
@@ -6726,6 +6915,10 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="ApprovedWelfareBenefits" EntitySet="ApprovedWelfareBenefits" />
         </AssociationSet>
+        <AssociationSet Name="Company_claimQnResponse_claimQnResponse" Association="NAV.Company_claimQnResponse">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="claimQnResponse" EntitySet="claimQnResponse" />
+        </AssociationSet>
         <AssociationSet Name="Company_CurrentProcurementPlan_CurrentProcurementPlan" Association="NAV.Company_CurrentProcurementPlan">
           <End Role="Company" EntitySet="Company" />
           <End Role="CurrentProcurementPlan" EntitySet="CurrentProcurementPlan" />
@@ -6881,6 +7074,10 @@
         <AssociationSet Name="Company_Casuals_Casuals" Association="NAV.Company_Casuals">
           <End Role="Company" EntitySet="Company" />
           <End Role="Casuals" EntitySet="Casuals" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ClaimRespQns_ClaimRespQns" Association="NAV.Company_ClaimRespQns">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ClaimRespQns" EntitySet="ClaimRespQns" />
         </AssociationSet>
         <AssociationSet Name="Company_ClientApplicationQuery_ClientApplicationQuery" Association="NAV.Company_ClientApplicationQuery">
           <End Role="Company" EntitySet="Company" />
@@ -7181,6 +7378,10 @@
         <AssociationSet Name="Company_PolicyRiskDetails_PolicyRiskDetails" Association="NAV.Company_PolicyRiskDetails">
           <End Role="Company" EntitySet="Company" />
           <End Role="PolicyRiskDetails" EntitySet="PolicyRiskDetails" />
+        </AssociationSet>
+        <AssociationSet Name="Company_policyRiskDetailsGen_policyRiskDetailsGen" Association="NAV.Company_policyRiskDetailsGen">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="policyRiskDetailsGen" EntitySet="policyRiskDetailsGen" />
         </AssociationSet>
         <AssociationSet Name="Company_PolicyTypes_PolicyTypes" Association="NAV.Company_PolicyTypes">
           <End Role="Company" EntitySet="Company" />

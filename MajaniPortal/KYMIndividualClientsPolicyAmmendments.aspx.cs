@@ -404,7 +404,7 @@ namespace MajaniPortal
                     DateTime dateTime = new DateTime();
                     DateTime exact = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     string empNo = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo, ttxtIdNumber, kgender, exact, tttxtoccupation, kmaritalStatus, tlblcountyCodes);
+                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo, ttxtIdNumber, kgender, exact, tttxtoccupation, kmaritalStatus, tlblcountyCodes, empNo);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {

@@ -196,7 +196,7 @@ namespace MajaniPortal
             }
             catch (Exception ex)
             {
-               feedbackdetails.InnerHtml = "<div class='alert alert-danger'>We experienced an error while adding the Applications. Kindly Fill in all the Client Applications Details." + ex.Message + "</div>";
+               feedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + "</div>";
             }
         }
         protected void nextstep_Click(object sender, EventArgs e)

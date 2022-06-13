@@ -2,6 +2,20 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/KYM" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="PushAgricultureClaimNotificationForValidation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PushAgricultureClaimNotificationForValidation_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -1329,6 +1343,7 @@
             <element minOccurs="1" maxOccurs="1" name="occupation" type="string" />
             <element minOccurs="1" maxOccurs="1" name="maritalstatus" type="int" />
             <element minOccurs="1" maxOccurs="1" name="county" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -2336,8 +2351,74 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnCreateFinancier">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="growerNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="name" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="factorycode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="idNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="mobileNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="businessType" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnCreateFinancier_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FncreateClaimNotificationAgri">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="custNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requestor" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="policyNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="placeOfOccurence" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="patientName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="date" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="time" type="time" />
+            <element minOccurs="1" maxOccurs="1" name="dateP" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="pricePaid" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="riskCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FncreateClaimNotificationAgri_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertResponses">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="questionId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsertResponses_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
+  <message name="PushAgricultureClaimNotificationForValidation">
+    <part name="parameters" element="tns:PushAgricultureClaimNotificationForValidation" />
+  </message>
+  <message name="PushAgricultureClaimNotificationForValidation_Result">
+    <part name="parameters" element="tns:PushAgricultureClaimNotificationForValidation_Result" />
+  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -3034,7 +3115,29 @@
   <message name="FnRemoveRisk_Result">
     <part name="parameters" element="tns:FnRemoveRisk_Result" />
   </message>
+  <message name="FnCreateFinancier">
+    <part name="parameters" element="tns:FnCreateFinancier" />
+  </message>
+  <message name="FnCreateFinancier_Result">
+    <part name="parameters" element="tns:FnCreateFinancier_Result" />
+  </message>
+  <message name="FncreateClaimNotificationAgri">
+    <part name="parameters" element="tns:FncreateClaimNotificationAgri" />
+  </message>
+  <message name="FncreateClaimNotificationAgri_Result">
+    <part name="parameters" element="tns:FncreateClaimNotificationAgri_Result" />
+  </message>
+  <message name="FnInsertResponses">
+    <part name="parameters" element="tns:FnInsertResponses" />
+  </message>
+  <message name="FnInsertResponses_Result">
+    <part name="parameters" element="tns:FnInsertResponses_Result" />
+  </message>
   <portType name="KYM_Port">
+    <operation name="PushAgricultureClaimNotificationForValidation">
+      <input name="PushAgricultureClaimNotificationForValidation" message="tns:PushAgricultureClaimNotificationForValidation" />
+      <output name="PushAgricultureClaimNotificationForValidation_Result" message="tns:PushAgricultureClaimNotificationForValidation_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3499,9 +3602,30 @@
       <input name="FnRemoveRisk" message="tns:FnRemoveRisk" />
       <output name="FnRemoveRisk_Result" message="tns:FnRemoveRisk_Result" />
     </operation>
+    <operation name="FnCreateFinancier">
+      <input name="FnCreateFinancier" message="tns:FnCreateFinancier" />
+      <output name="FnCreateFinancier_Result" message="tns:FnCreateFinancier_Result" />
+    </operation>
+    <operation name="FncreateClaimNotificationAgri">
+      <input name="FncreateClaimNotificationAgri" message="tns:FncreateClaimNotificationAgri" />
+      <output name="FncreateClaimNotificationAgri_Result" message="tns:FncreateClaimNotificationAgri_Result" />
+    </operation>
+    <operation name="FnInsertResponses">
+      <input name="FnInsertResponses" message="tns:FnInsertResponses" />
+      <output name="FnInsertResponses_Result" message="tns:FnInsertResponses_Result" />
+    </operation>
   </portType>
   <binding name="KYM_Binding" type="tns:KYM_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="PushAgricultureClaimNotificationForValidation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:PushAgricultureClaimNotificationForValidation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PushAgricultureClaimNotificationForValidation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PushAgricultureClaimNotificationForValidation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:NewClientOnboadingRequests" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="NewClientOnboadingRequests">
@@ -4543,6 +4667,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnRemoveRisk_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnCreateFinancier">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnCreateFinancier" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnCreateFinancier">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnCreateFinancier_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FncreateClaimNotificationAgri">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FncreateClaimNotificationAgri" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FncreateClaimNotificationAgri">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FncreateClaimNotificationAgri_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsertResponses">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsertResponses" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsertResponses">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsertResponses_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
