@@ -995,7 +995,7 @@ namespace MajaniPortal
                 if (extension == ".Bmp" || extension == ".bmp" || extension == ".BMP" || extension == ".jpg" || extension == ".png" || extension == ".Jpeg" || extension == ".jpeg" || extension == ".Png" || extension == ".JPEG" || extension == ".PNG")
                 {
                     var imageCounter = 0;
-                    string filename = dependantCode + "_" + GrowerNumber + "_DependantPhoto" + extension;
+                    string filename = dependantCode + "_" + GrowerNumber + "_DependantPhoto_"+name + extension;
                     string fullfileName = folderName + filename;
                     if (!Directory.Exists(folderName))
                     {
@@ -2026,7 +2026,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(filetoupload.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = GrowerNumber + "_ScannedApplication" + extension;
+                            string filename = GrowerNumber + "_ScannedApplication_" +tprincipleName+ extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -2073,7 +2073,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = GrowerNumber + "_OtherDocument " + extension;
+                            string filename = GrowerNumber + "_OtherDocument_" +tprincipleName+ extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -2113,7 +2113,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(principalmemberphoto.FileName);
                         if (extension == ".jpg" || extension == ".JPEG" || extension == ".png" || extension == ".PNG" || extension == ".jpeg" || extension == ".gif")
                         {
-                            string filename = GrowerNumber + "_PrinciplePhoto" + extension;
+                            string filename = GrowerNumber + "_PrinciplePhoto_" +tprincipleName+ extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {

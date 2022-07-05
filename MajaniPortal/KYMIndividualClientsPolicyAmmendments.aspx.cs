@@ -324,6 +324,8 @@ namespace MajaniPortal
             bool flag = false;
             int kgender = 0;
             int kmaritalStatus = 0;
+
+            string tnewGrowerNumber = newGrowerNo.Text.Trim();
             string docNo = Request.QueryString["ContractNo"].Trim();
             string GrowerNo = Request.QueryString["GrowerNo"].Trim();
             string CustomerNo = Request.QueryString["CustomerNo"].Trim();          
@@ -334,8 +336,9 @@ namespace MajaniPortal
             string tttxtoccupation = ttxtoccupation.SelectedValue;
             string tlblmaritalstatuss = lblmaritalstatuss.SelectedValue;
             string tlblcountyCodes = lblcountyCodes.SelectedValue;
+            bool ischecked = newGrowerNumber.Checked;
 
-            if(tIdtype.Length < 1)
+            if (tIdtype.Length < 1)
             {
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields). Id type cannot be empty";
@@ -351,6 +354,16 @@ namespace MajaniPortal
             {
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields). Id/Passport cannot be empty";
+            }
+
+            if (newGrowerNumber.Checked == true)
+            {
+               
+                if (tnewGrowerNumber.Length < 1)
+                {
+                    flag = true;
+                    str = "Please fill all highlighted fields with *(Mandatory Fields). New Grower Number Cannot be empty.";
+                }
             }
           
             if (s.Length < 1)
@@ -404,7 +417,7 @@ namespace MajaniPortal
                     DateTime dateTime = new DateTime();
                     DateTime exact = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                     string empNo = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo, ttxtIdNumber, kgender, exact, tttxtoccupation, kmaritalStatus, tlblcountyCodes, empNo);
+                    var status = new Config().ObjNav().FnNewPolicyAmmendments(docNo, ttxtIdNumber, kgender, exact, tttxtoccupation, kmaritalStatus, tlblcountyCodes, empNo, ischecked, tnewGrowerNumber);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
@@ -426,7 +439,7 @@ namespace MajaniPortal
 
         protected void ValidateFactoryDetail_Click(object sender, EventArgs e)
         {
-            var tgrowerNumber = growerNumber.Text.Trim();
+            var tgrowerNumber = newGrowerNo.Text.Trim();
             var status = new Config().ObjNav().FnCheckifGrowerNoExist(tgrowerNumber);
             var res = status.Split('*');
             if (res[0] == "danger")
@@ -1013,6 +1026,9 @@ namespace MajaniPortal
             string path1 = ConfigurationManager.AppSettings["FilesLocation"] + "Existing Policy/";
             string str1 = Request.QueryString["requisitionNo"].Trim().Replace('/', '_').Replace(':', '_');
             string path2 = path1 + str1 + "/";
+
+
+
             if (filetoupload.HasFile)
             {
                 try
@@ -1492,15 +1508,35 @@ namespace MajaniPortal
         {
             try
             {
+                var name = "";
+                var firstName = "";
+                var lastname = "";
+                var nav = Config.ReturnNav();
+                var ApplicationNumber = Convert.ToString(Request.QueryString["ContractNo"]);
+                if (ApplicationNumber != null)
+                {
+                    var Application = nav.ServiceContracts.Where(x => x.Contract_No == ApplicationNumber).ToList();
+                    foreach (var item in Application)
+                    {
+                        var CustomerInfor = nav.Customer.Where(x => x.No == item.Customer_No).ToList();
+                        foreach (var itemCustomer in CustomerInfor)
+                        {
+                            firstName = itemCustomer.First_Name;
+                            lastname = itemCustomer.Last_Name;
+                            name = firstName + "_" + lastname;
+                        }
+                    }
+                }
 
-                string ApplicationNumber = Request.QueryString["ContractNo"].Trim();
+
+                
                 string GrowerNumber = Request.QueryString["GrowerNo"].Trim();
                 ApplicationNumber = ApplicationNumber.Replace('/', '_');
                 ApplicationNumber = ApplicationNumber.Replace(':', '_');
                 string path1 = Config.FilesLocation() + "MicroInsurance Amendement/";
                 string rQuisitionNo = Request.QueryString["QuoteNo"].Trim();
                 string str1 = Convert.ToString(ApplicationNumber);
-                string folderName = path1 + str1 + "/";
+                string folderName = path1 + str1 + GrowerNumber+"_"+ name+ "/";
                 bool error = false;
                 string message = "";
                 try
@@ -1511,7 +1547,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(filetoupload.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = GrowerNumber + "_ScannedApplication" + extension;
+                            string filename = GrowerNumber + "_ScannedApplication_"+name + extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -1553,7 +1589,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = GrowerNumber + "_OtherDocument " + extension;
+                            string filename = GrowerNumber + "_OtherDocument_"+name + extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -1776,6 +1812,38 @@ namespace MajaniPortal
                 productbillingcycles.Add("Year");
                 invoiceperiod.DataSource = productbillingcycles;
                 invoiceperiod.DataBind();
+            }
+        }
+
+        protected void newGrowerNumber_CheckedChanged(object sender, EventArgs e)
+        {
+            if (newGrowerNumber.Checked == true)
+            {
+                newGrowerNo.Enabled = true;
+            }
+            else
+            {
+                newGrowerNo.Enabled = false;
+            }
+        }
+
+        protected void convert_Click(object sender, EventArgs e)
+        {
+            var tclientCode = convertCode.Text.Trim();
+            var tProduct = product.Text.Trim();
+            string docNo = Request.QueryString["QuoteNo"].Trim();
+            var status = new Config().ObjNav().FnConvertDependant(docNo, tclientCode, tProduct);
+            var res = status.Split('*');
+            if (res[0] == "success")
+            {
+                txtdependantsfeedbackdetails.InnerHtml = "<div class='alert alert-success'>" + res[1] + "</div>";
+
+            }
+            else
+            {
+
+                txtdependantsfeedbackdetails.InnerHtml = "<div class='alert alert-danger'>" + res[1] + "</div>";
+
             }
         }
     }

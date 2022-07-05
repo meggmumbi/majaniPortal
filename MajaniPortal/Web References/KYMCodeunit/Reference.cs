@@ -31,6 +31,8 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback PushAgricultureClaimNotificationForValidationOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnConvertDependantOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -309,6 +311,9 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event PushAgricultureClaimNotificationForValidationCompletedEventHandler PushAgricultureClaimNotificationForValidationCompleted;
+        
+        /// <remarks/>
+        public event FnConvertDependantCompletedEventHandler FnConvertDependantCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -695,6 +700,40 @@ namespace MajaniPortal.KYMCodeunit {
             if ((this.PushAgricultureClaimNotificationForValidationCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PushAgricultureClaimNotificationForValidationCompleted(this, new PushAgricultureClaimNotificationForValidationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnConvertDependant", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnConvertDependant_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnConvertDependant(string policyQuoteNo, string clientNo, string products) {
+            object[] results = this.Invoke("FnConvertDependant", new object[] {
+                        policyQuoteNo,
+                        clientNo,
+                        products});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnConvertDependantAsync(string policyQuoteNo, string clientNo, string products) {
+            this.FnConvertDependantAsync(policyQuoteNo, clientNo, products, null);
+        }
+        
+        /// <remarks/>
+        public void FnConvertDependantAsync(string policyQuoteNo, string clientNo, string products, object userState) {
+            if ((this.FnConvertDependantOperationCompleted == null)) {
+                this.FnConvertDependantOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnConvertDependantOperationCompleted);
+            }
+            this.InvokeAsync("FnConvertDependant", new object[] {
+                        policyQuoteNo,
+                        clientNo,
+                        products}, this.FnConvertDependantOperationCompleted, userState);
+        }
+        
+        private void OnFnConvertDependantOperationCompleted(object arg) {
+            if ((this.FnConvertDependantCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnConvertDependantCompleted(this, new FnConvertDependantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4227,7 +4266,7 @@ namespace MajaniPortal.KYMCodeunit {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyAmmendments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyAmmendments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnNewPolicyAmmendments(string contractNumber, string idnumber, int gender, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dob, string occupation, int maritalstatus, string county, string empNo) {
+        public string FnNewPolicyAmmendments(string contractNumber, string idnumber, int gender, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dob, string occupation, int maritalstatus, string county, string empNo, bool ischecked, string newGrowerNo) {
             object[] results = this.Invoke("FnNewPolicyAmmendments", new object[] {
                         contractNumber,
                         idnumber,
@@ -4236,17 +4275,19 @@ namespace MajaniPortal.KYMCodeunit {
                         occupation,
                         maritalstatus,
                         county,
-                        empNo});
+                        empNo,
+                        ischecked,
+                        newGrowerNo});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo) {
-            this.FnNewPolicyAmmendmentsAsync(contractNumber, idnumber, gender, dob, occupation, maritalstatus, county, empNo, null);
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo, bool ischecked, string newGrowerNo) {
+            this.FnNewPolicyAmmendmentsAsync(contractNumber, idnumber, gender, dob, occupation, maritalstatus, county, empNo, ischecked, newGrowerNo, null);
         }
         
         /// <remarks/>
-        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo, object userState) {
+        public void FnNewPolicyAmmendmentsAsync(string contractNumber, string idnumber, int gender, System.DateTime dob, string occupation, int maritalstatus, string county, string empNo, bool ischecked, string newGrowerNo, object userState) {
             if ((this.FnNewPolicyAmmendmentsOperationCompleted == null)) {
                 this.FnNewPolicyAmmendmentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyAmmendmentsOperationCompleted);
             }
@@ -4258,7 +4299,9 @@ namespace MajaniPortal.KYMCodeunit {
                         occupation,
                         maritalstatus,
                         county,
-                        empNo}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
+                        empNo,
+                        ischecked,
+                        newGrowerNo}, this.FnNewPolicyAmmendmentsOperationCompleted, userState);
         }
         
         private void OnFnNewPolicyAmmendmentsOperationCompleted(object arg) {
@@ -6997,6 +7040,32 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal PushAgricultureClaimNotificationForValidationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnConvertDependantCompletedEventHandler(object sender, FnConvertDependantCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnConvertDependantCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnConvertDependantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

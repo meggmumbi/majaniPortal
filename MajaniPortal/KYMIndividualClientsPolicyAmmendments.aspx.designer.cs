@@ -76,15 +76,6 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox growerNumber;
         
         /// <summary>
-        /// growerdetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl growerdetails;
-        
-        /// <summary>
         /// Div1 control.
         /// </summary>
         /// <remarks>
@@ -119,6 +110,33 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ttxtFactoryName;
+        
+        /// <summary>
+        /// newGrowerNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox newGrowerNumber;
+        
+        /// <summary>
+        /// newGrowerNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox newGrowerNo;
+        
+        /// <summary>
+        /// growerdetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl growerdetails;
         
         /// <summary>
         /// financier control.
@@ -695,6 +713,33 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox promoteCode;
+        
+        /// <summary>
+        /// convertCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox convertCode;
+        
+        /// <summary>
+        /// product control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox product;
+        
+        /// <summary>
+        /// convert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button convert;
         
         /// <summary>
         /// removedependantCode control.

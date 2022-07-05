@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label>Grower No./Client ID</label><span class="text-danger" style="font-size:25px">*</span>
                             <asp:TextBox CssClass="form-control" runat="server" ID="growerNumber"  MaxLength="9" ReadOnly="true"></asp:TextBox>
-                             <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
+                            
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,26 @@
                         </div>
                     </div>
                 </div>
+            <div class="row">
+
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>Change of buying centre?</label>
+                        <asp:CheckBox CssClass="form-control" runat="server" ID="newGrowerNumber" OnCheckedChanged="newGrowerNumber_CheckedChanged" AutoPostBack="true"></asp:CheckBox>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label>New Grower No./Client ID</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="newGrowerNo" OnTextChanged="ValidateFactoryDetail_Click" AutoPostBack="true" MaxLength="9" Enabled="false" ></asp:TextBox>
+                        <asp:RegularExpressionValidator runat="server" Display="dynamic" ValidationExpression="^([\S\s]{9,9})$" ControlToValidate="newGrowerNo" ErrorMessage="Please Enter the CorrectGrower No Value,It must be a Whole number with 9 Characters" BackColor="Red" />
+                        <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
+                    </div>
+                </div>
+            </div>
                 <div class="row">
+                 
+
                     <div class="col-md-6 col-lg-6" runat="server" id="financier">
                         <div class="form-group">
                             <label>Financier</label><span class="text-danger" style="font-size:25px">*</span>
@@ -486,7 +505,7 @@
                         <th>ID No</th>
                         <th>Age</th>
                         <th>Dependant Type</th>
-                        <th>Photo</th>
+                        <th></th>                     
                         <th>Promote</th>
                         <th>Remove</th>
                     </tr>
@@ -509,7 +528,9 @@
                         <td><%= application.ID_No %></td>
                         <td><%= application.Age %></td>
                         <td><%= application.Depandant_Type %></td>
-                         <td> </td>
+                         <td>
+                            <label class="btn btn-success" onclick="ConvertToPolicy('<%=application.Client_No %>','<%=application.Product %>')"><i class="fa fa-plus"></i>convert to policy holder</label>
+                        </td>
                         <td>
                             <label class="btn btn-success" onclick="PromoteSelectedDependant('<%=application.Dependant_Code %>')"><i class="fa fa-plus"></i>Promote</label>
                         </td>
@@ -537,6 +558,25 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         <asp:Button runat="server" CssClass="btn btn-success" Text="Promote Dependant" OnClick="PromoteDepedant_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div id="ConvertModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirm Promoting Dependant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to Convert Dependant <strong id="dependantToConvert"></strong>?</p>
+                        <asp:TextBox runat="server" ID="convertCode" type="hidden" />
+                        <asp:TextBox runat="server" ID="product" type="hidden" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <asp:Button runat="server" CssClass="btn btn-success" Text="Convert To Policy Holder" ID="convert" OnClick="convert_Click" />
                     </div>
                 </div>
             </div>
@@ -857,11 +897,32 @@
                         try
                         {
 
+                            var name = "";
+                            var firstName = "";
+                            var lastname = "";
+                            var nav = Config.ReturnNav();
+                            var ApplicationNumber = Convert.ToString(Request.QueryString["ContractNo"]);
+                            if (ApplicationNumber != null)
+                            {
+                                var Application = nav.ServiceContracts.Where(x => x.Contract_No == ApplicationNumber).ToList();
+                                foreach (var item in Application)
+                                {
+                                    var CustomerInfor = nav.Customer.Where(x => x.No == item.Customer_No).ToList();
+                                    foreach (var itemCustomer in CustomerInfor)
+                                    {
+                                        firstName = itemCustomer.First_Name;
+                                        lastname = itemCustomer.Last_Name;
+                                        name = firstName + "_" + lastname;
+                                    }
+                                }
+                            }
+
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "MicroInsurance Amendement/";
                             String ApplicantionNo = Request.QueryString["ContractNo"].Trim();
                             ApplicantionNo = ApplicantionNo.Replace('/', '_');
                             ApplicantionNo = ApplicantionNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + ApplicantionNo + "/";
+                            string GrowerNumber = Request.QueryString["GrowerNo"].Trim();
+                            String documentDirectory = filesFolder + ApplicantionNo+GrowerNumber +"_"+ name+ "/";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))
@@ -953,6 +1014,14 @@
             document.getElementById("dependantToPromote").innerText = dependantNumber;
             document.getElementById("MainBody_promoteCode").value = dependantNumber;
             $("#PromoteModal").modal();
+        }
+    </script>
+        <script type="text/javascript">
+        function ConvertToPolicy(dependantNumber,product) {
+            document.getElementById("dependantToConvert").innerText = dependantNumber;
+            document.getElementById("MainBody_convertCode").value = dependantNumber;
+            document.getElementById("MainBody_product").value = product;
+            $("#ConvertModal").modal();
         }
     </script>
     <script type="text/javascript">
