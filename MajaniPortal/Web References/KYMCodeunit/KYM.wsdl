@@ -32,6 +32,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnGeneratreProfile">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="contractNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnGeneratreProfile_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -2443,6 +2457,12 @@
   <message name="FnConvertDependant_Result">
     <part name="parameters" element="tns:FnConvertDependant_Result" />
   </message>
+  <message name="FnGeneratreProfile">
+    <part name="parameters" element="tns:FnGeneratreProfile" />
+  </message>
+  <message name="FnGeneratreProfile_Result">
+    <part name="parameters" element="tns:FnGeneratreProfile_Result" />
+  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -3166,6 +3186,10 @@
       <input name="FnConvertDependant" message="tns:FnConvertDependant" />
       <output name="FnConvertDependant_Result" message="tns:FnConvertDependant_Result" />
     </operation>
+    <operation name="FnGeneratreProfile">
+      <input name="FnGeneratreProfile" message="tns:FnGeneratreProfile" />
+      <output name="FnGeneratreProfile_Result" message="tns:FnGeneratreProfile_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3660,6 +3684,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnConvertDependant_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnGeneratreProfile">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnGeneratreProfile" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnGeneratreProfile">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnGeneratreProfile_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -15,15 +15,14 @@
                         <table id="example1" class="table table-bordered table-striped datatable">
                             <thead>
                                 <tr>
-                                    <th>Client ID/Grower No</th>
-                                  <%--  <th>Contract No</th>
-                                    <th>Customer No</th>--%>
+                                    <th>Client ID/Grower No</th>                                
                                     <th>Name</th>
                                     <th>Policy Start Date</th>
-                                    <th>Policy End Date</th>
+                                    <th>Document Date</th>
                                     <th>Total Premiums</th>
                                     <th>Claim</th>
                                     <th>Ammend</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,12 +68,10 @@
                                             String[] arr = allInfo.Split('*');
                                             %>
                                             <tr>
-                                                <td><% =arr[0] %></td>
-                                              <%--  <td><% =arr[1] %></td>
-                                                <td><% =arr[2] %></td>--%>
+                                                <td><% =arr[0] %></td>                                            
                                                 <td><% =arr[3] %></td>
                                                 <td><% =arr[4] %></td>
-                                                <td><% =arr[5] %></td>
+                                                <td><% =arr[8] %></td>
                                                 <td><% =arr[7] %></td>
                                                 <td>
                                                     <a href="NewClaimNotification.aspx?GrowerNo=<%=arr[0] %>&&ContractNo=<%=arr[1] %>&&CustomerNo=<%=arr[2] %>" class="btn btn-success"><i class="fa fa-share"></i>Claim</a>
@@ -97,6 +94,9 @@
                                                    <%
                                                     }
                                                   %>
+                                                <td>
+                                                     <a href="ClientProfile?ContractNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-file"></i>View profile</a>
+                                                </td>
                                             </tr>
                                             <% 
                                         }

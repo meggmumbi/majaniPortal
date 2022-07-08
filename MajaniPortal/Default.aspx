@@ -5,13 +5,33 @@
    <%{
            var Connection = Config.ReturnNav();
            var EmplyeeNumber = Session["empNo"].ToString();
-       } %>
+           DateTime todayX = DateTime.Now;
+           DateTime prevMonths = DateTime.Now;
+           prevMonths = prevMonths.AddMonths(-1);
+           DateTime firstDayOfMonth = new DateTime(todayX.Year, todayX.Month, 1);
+           decimal commission = (20 / 100);
+           decimal totalAmount = 0;
 
+           string today = DateTime.Now.Month.ToString();
+           int prevMonth = Convert.ToInt32(today) - 1;
+           DateTime Document_date = DateTime.Now;
+
+
+           //var serviceContracts = Connection.ServiceContracts.Where(r => r.Salesperson_Code == EmplyeeNumber && r.Document_Date >= firstDayOfMonth && r.Document_Date <= todayX).ToList();
+
+           //foreach (var premCount in serviceContracts)
+           //{
+           //    totalAmount = Convert.ToDecimal((totalAmount + premCount.Total_Premiums) * commission);
+           //}
+
+
+
+%>
     <div class="row">
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3</h3>
 
                     <p>New Business Applications</p>
                 </div>
@@ -24,9 +44,9 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <h3><sup style="font-size: 20px"></sup></h3>
 
-                    <p>Claim Applications</p>
+                    <p>Total Commission</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -107,7 +127,7 @@
                           var ID = "";
                           var balance = "";
                           var balanceDue = "";
-                          var payment= "";
+                          var payment = "";
 
                           string profileType = "";
                           string profileCode = "";
@@ -170,12 +190,13 @@
                                     <td> <a href="PrintCustStatement?clientNo=<%=No %>" class="btn btn-success">View Statement</a></td>
                                 </tr>
                                 <% 
-                            }
-                        }
+                                        }
+                                    }
                     %>
                 </tbody>
             </table>
           </div>
         </div>
     </div>
+    <%} %>
 </asp:Content>

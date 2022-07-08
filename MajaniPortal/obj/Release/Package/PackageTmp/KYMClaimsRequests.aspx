@@ -13,7 +13,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Document No</th>
+                                        <th>Grower No</th>
+                                     
                                         <th>Customer No</th>
                                         <th>Policy No</th>
                                         <th>Date Of Reporting</th>
@@ -30,7 +31,8 @@
                                         {
                                     %>
                                     <tr>
-                                        <td><%= application.No %></td>
+                                         <td><%= application.Grower_No_Client_ID %></td>
+                                      
                                         <td><%= application.Customer_No %></td>
                                         <td><%= application.Policy_No %></td>
                                         <td><%= application.Date_of_Reporting %></td>

@@ -33,6 +33,8 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnConvertDependantOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnGeneratreProfileOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -314,6 +316,9 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnConvertDependantCompletedEventHandler FnConvertDependantCompleted;
+        
+        /// <remarks/>
+        public event FnGeneratreProfileCompletedEventHandler FnGeneratreProfileCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -734,6 +739,36 @@ namespace MajaniPortal.KYMCodeunit {
             if ((this.FnConvertDependantCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnConvertDependantCompleted(this, new FnConvertDependantCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGeneratreProfile", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGeneratreProfile_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnGeneratreProfile(string contractNo) {
+            object[] results = this.Invoke("FnGeneratreProfile", new object[] {
+                        contractNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnGeneratreProfileAsync(string contractNo) {
+            this.FnGeneratreProfileAsync(contractNo, null);
+        }
+        
+        /// <remarks/>
+        public void FnGeneratreProfileAsync(string contractNo, object userState) {
+            if ((this.FnGeneratreProfileOperationCompleted == null)) {
+                this.FnGeneratreProfileOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGeneratreProfileOperationCompleted);
+            }
+            this.InvokeAsync("FnGeneratreProfile", new object[] {
+                        contractNo}, this.FnGeneratreProfileOperationCompleted, userState);
+        }
+        
+        private void OnFnGeneratreProfileOperationCompleted(object arg) {
+            if ((this.FnGeneratreProfileCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnGeneratreProfileCompleted(this, new FnGeneratreProfileCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -7066,6 +7101,32 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnConvertDependantCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnGeneratreProfileCompletedEventHandler(object sender, FnGeneratreProfileCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnGeneratreProfileCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnGeneratreProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -17,6 +17,7 @@
                                 <thead>
                                     <tr>
                                         <th>Document No</th>
+                                        <th>Grower Number</th>
                                         <%--<th>Business Type</th>--%>
                                         <th>Name</th>
                                        <%-- <th>Middle Name</th>
@@ -36,7 +37,7 @@
                                     %>
                                     <tr>
                                         <td><%= application.No %></td>
-                                      <%--  <td><%= application.Business_Type %></td>--%>
+                                       <td><%= application.Grower_No_Client_ID %></td>
                                         <td><%= application.First_Name +" "+ application.Middle_Name +" "+ application.Last_Name %></td>
                                        <%-- <td><%= application.Middle_Name %></td>
                                         <td><%= application.Last_Name %></td>--%>

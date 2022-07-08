@@ -5081,6 +5081,7 @@
         <Property Name="Policy_No" Type="Edm.String" />
         <Property Name="Customer_Type" Type="Edm.String" />
         <Property Name="Insurer_Name" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
         <Property Name="Name" Type="Edm.String" />
         <Property Name="Address" Type="Edm.String" />
         <Property Name="Address_2" Type="Edm.String" />
