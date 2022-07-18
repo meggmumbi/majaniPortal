@@ -467,27 +467,32 @@ namespace MajaniPortal
 
                     tfactoryCode = txtFactoryCode.Text.Trim();
                     tfactoryName = ttxtFactoryName.Text.Trim();
-                    if (tgrowerapplicanttype < 1)
-                    {
-                        flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
-                    }
-                    else
-                    {
-                        if (tgrowerapplicanttype == 2)
-                        {
-                            financier = txtfinancier.Text.Trim();
-                            if (financier.Length < 1)
-                            {
-                                flag = true;
-                                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-                            }
 
+
+                    if (applicationTypes.SelectedValue != "FACTORY STAFF")
+                    {
+                        if (tgrowerapplicanttype < 1)
+                        {
+                            flag = true;
+                            str = "Please fill all highlighted fields with *(Mandatory Fields)";
                         }
                         else
                         {
-                            financier = "";
+                            if (tgrowerapplicanttype == 2)
+                            {
+                                financier = txtfinancier.Text.Trim();
+                                if (financier.Length < 1)
+                                {
+                                    flag = true;
+                                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                                }
 
+                            }
+                            else
+                            {
+                                financier = "";
+
+                            }
                         }
                     }
                 }
@@ -678,6 +683,9 @@ namespace MajaniPortal
         protected void ValidateFactoryDetail_Click(object sender, EventArgs e)
         {
             var tgrowerNumber = growerNumber.Text.Trim();
+            var FactoryName = "";
+
+
             var status = new Config().ObjNav().FnCheckifGrowerNoExist(tgrowerNumber);
             var res = status.Split('*');
             if (res[0] == "danger")
@@ -690,53 +698,56 @@ namespace MajaniPortal
                 growerdetails.InnerText = "";
             }
             var tgrowerapplicanttype = growerapplicanttype.SelectedIndex;
-            var FactoryCode = new Config().ObjNav().FnGetFactoryCode(tgrowerNumber, tgrowerapplicanttype);
-            if (FactoryCode == "")
-            {
-                growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
-            }
-            else
-            {
-                txtFactoryCode.Text = FactoryCode;
-            }
-            var FactoryName = new Config().ObjNav().FnGetFactoryName(tgrowerNumber, tgrowerapplicanttype);
-            if (FactoryName == "")
-            {
-                growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
-            }
-            else
-            {
-                ttxtFactoryName.Text = FactoryName;
-                NAV nav = Config.ReturnNav();
-                var tCategoryDetails = nav.KTDAFactories.Where(x => x.Code == FactoryName);
-                foreach (var item in tCategoryDetails)
+         
+                var FactoryCode = new Config().ObjNav().FnGetFactoryCode(tgrowerNumber, tgrowerapplicanttype);
+                if (FactoryCode == "")
                 {
-                    krapinNumber.Text = item.KRA_PIN;
+                    growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
+                }
+                else
+                {
+                    txtFactoryCode.Text = FactoryCode;
+                }
+                FactoryName = new Config().ObjNav().FnGetFactoryName(tgrowerNumber, tgrowerapplicanttype);
+                if (FactoryName == "")
+                {
+                    growerdetails.InnerText = "The Grower Number Provided is not valid.It must be a Whole number with 9 Characters";
                 }
 
-                int tgrowerapplicanttype1 = growerapplicanttype.SelectedIndex;
-                if (tgrowerapplicanttype1 == 2)
+                else
                 {
-                    List<DropDownList> KTDAFARMERSlist = new List<DropDownList>();
-                    string AllCustomers = new Config().ObjNav().FnGetKTDAFarmers(FactoryName);
-                    String[] info = AllCustomers.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (info != null)
+                    ttxtFactoryName.Text = FactoryName;
+                    NAV nav = Config.ReturnNav();
+                    var tCategoryDetails = nav.KTDAFactories.Where(x => x.Code == FactoryName);
+                    foreach (var item in tCategoryDetails)
                     {
-                        foreach (var allInfo in info)
-                        {
-                            String[] arr = allInfo.Split('*');
-                            DropDownList code = new DropDownList();
-                            code.Code = arr[0];
-                            code.Name = arr[0] + " " + arr[1];
-                            KTDAFARMERSlist.Add(code);
-                        }
+                        krapinNumber.Text = item.KRA_PIN;
                     }
-                    txtfinancier.DataSource = KTDAFARMERSlist;
-                    txtfinancier.DataValueField = "Code";
-                    txtfinancier.DataTextField = "Name";
-                    txtfinancier.DataBind();
-                    txtfinancier.Items.Insert(0, "--Select Financier--");
-                }
+
+                    int tgrowerapplicanttype1 = growerapplicanttype.SelectedIndex;
+                    if (tgrowerapplicanttype1 == 2)
+                    {
+                        List<DropDownList> KTDAFARMERSlist = new List<DropDownList>();
+                        string AllCustomers = new Config().ObjNav().FnGetKTDAFarmers(FactoryName);
+                        String[] info = AllCustomers.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (info != null)
+                        {
+                            foreach (var allInfo in info)
+                            {
+                                String[] arr = allInfo.Split('*');
+                                DropDownList code = new DropDownList();
+                                code.Code = arr[0];
+                                code.Name = arr[0] + " " + arr[1];
+                                KTDAFARMERSlist.Add(code);
+                            }
+                        }
+                        txtfinancier.DataSource = KTDAFARMERSlist;
+                        txtfinancier.DataValueField = "Code";
+                        txtfinancier.DataTextField = "Name";
+                        txtfinancier.DataBind();
+                        txtfinancier.Items.Insert(0, "--Select Financier--");
+                    }
+                                   
             }
         }
         protected void ValidateIDNumberDetail_Click(object sender, EventArgs e)
@@ -1850,6 +1861,16 @@ namespace MajaniPortal
             else
             {
 
+               
+                if (tsubcustomerCategory == "SUBSIDIARY STAFF")
+                { 
+                    growerapplicanttype.Enabled = false;
+                }
+                else
+                {
+                    growerapplicanttype.Enabled = true;
+                }
+
                 var KTDARelated = nav.KTDARelatedItems.Where(x => x.Customer_Category == tcustomerCategory && x.Code == tsubcustomerCategory && x.Department == "micro-insurance");
                 List<DropDownList> KTDARelatedItemsList = new List<DropDownList>();
                 foreach (var item in KTDARelated)
@@ -2361,6 +2382,20 @@ namespace MajaniPortal
             customerSubCategory.DataValueField = "Code";
             customerSubCategory.DataBind();
             customerSubCategory.Items.Insert(0, "--Select Customer Sub Category--");
+        }
+
+        protected void applicationTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tapplicationTypes = applicationTypes.SelectedValue.Trim();
+
+            if (tapplicationTypes == "FACTORY STAFF")
+            {
+                growerapplicanttype.Enabled = false;
+            }
+            else
+            {
+                growerapplicanttype.Enabled = true;
+            }
         }
     }
 }

@@ -9,20 +9,25 @@
            DateTime prevMonths = DateTime.Now;
            prevMonths = prevMonths.AddMonths(-1);
            DateTime firstDayOfMonth = new DateTime(todayX.Year, todayX.Month, 1);
-           decimal commission = (20 / 100);
-           decimal totalAmount = 0;
+           Double commission = 0.2;
+           double xtotalAmount = 0;
+           double totalAmount = 0;
 
            string today = DateTime.Now.Month.ToString();
            int prevMonth = Convert.ToInt32(today) - 1;
            DateTime Document_date = DateTime.Now;
 
+           try
+           {
+               var applications = Connection.ClientApplicationQuery.Where(r => r.Requestor == Convert.ToString(Session["empNo"])&&r.Status!="Open" && r.Document_Date >= firstDayOfMonth && r.Business_Type=="Micro-Insurance").ToList();
 
-           //var serviceContracts = Connection.ServiceContracts.Where(r => r.Salesperson_Code == EmplyeeNumber && r.Document_Date >= firstDayOfMonth && r.Document_Date <= todayX).ToList();
+               var serviceContracts = Connection.ServiceContracts.Where(r => r.Salesperson_Code == EmplyeeNumber && r.Document_Date >= firstDayOfMonth && r.Business_Type=="Micro-Insurance").ToList();
 
-           //foreach (var premCount in serviceContracts)
-           //{
-           //    totalAmount = Convert.ToDecimal((totalAmount + premCount.Total_Premiums) * commission);
-           //}
+               foreach (var premCount in serviceContracts)
+               {
+                   xtotalAmount = Convert.ToDouble((xtotalAmount + Convert.ToDouble(premCount.Total_Premiums)));
+               }
+               totalAmount = xtotalAmount * commission;
 
 
 
@@ -31,9 +36,9 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3</h3>
+                    <h3><%=applications.Count %></h3>
 
-                    <p>New Business Applications</p>
+                    <p>New Applications for the month of <%=todayX.ToString("MMMM") %> </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -44,9 +49,9 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3><sup style="font-size: 20px"></sup></h3>
+                    <h3><sup style="font-size: 20px"></sup><%=serviceContracts.Count %></h3>
 
-                    <p>Total Commission</p>
+                    <p>Upgrades for the month of <%=todayX.ToString("MMMM") %>  </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
@@ -57,9 +62,9 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3><%=xtotalAmount %> ksh</h3>
 
-                    <p>Open Policy Ammendments</p>
+                    <p>Total Premium</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
@@ -70,12 +75,27 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3><%=totalAmount %></h3>
 
-                    <p>New Clients Applications</p>
+                    <p>Total Commission</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>2800</h3>
+
+                    <p>Target </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -198,5 +218,15 @@
           </div>
         </div>
     </div>
-    <%} %>
+    <%}
+
+
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
+        %>
 </asp:Content>

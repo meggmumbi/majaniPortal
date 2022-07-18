@@ -15,8 +15,7 @@
                                     <tr>
                                         <th>Grower No</th>
                                      
-                                        <th>Customer No</th>
-                                        <th>Policy No</th>
+                                       
                                         <th>Date Of Reporting</th>
                                         <th>Date Of Accident</th> 
                                         <th>Reason For Relisting</th>                                     
@@ -33,13 +32,19 @@
                                     <tr>
                                          <td><%= application.Grower_No_Client_ID %></td>
                                       
-                                        <td><%= application.Customer_No %></td>
-                                        <td><%= application.Policy_No %></td>
+                                       
                                         <td><%= application.Date_of_Reporting %></td>
                                         <td><%= application.Date_of_Accident_Loss_Death %></td>
                                         <td><%= application.Reason_For_Relisting %></td>
                                         <%
-                                        if (application.Claim_Position == "CLAIM VERIFICATION")
+                                         if (application.Claim_Position == "CLAIM NOTIFICATION" || application.Claim_Position=="CLAIM VALIDATION")
+                                        {
+                                         %>
+                                       <td>  <a href="NewClaimNotification.aspx?step=1&&GrowerNo=<%=application.Grower_No_Client_ID %>&&requisitionNo=<%=application.No %>&&CustomerNo=<%=application.Customer_No %>&&ContractNo=<%=application.Policy_No %>" class="btn btn-success">View/Edit</a></td>
+                                       
+                                        <%}
+                                       
+                                        else if (application.Claim_Position == "CLAIM VERIFICATION")
                                         {
                                          %>
                                         <td style="background-color:cornsilk"><%= application.Claim_Position %></td>   
@@ -48,7 +53,8 @@
                                          {
                                            %>   
                                          <td style="background-color:darksalmon"><%= application.Claim_Position %></td> 
-                                        <%} %>                                
+                                        <%}%>
+                                                              
                                     </tr>
                                     <%
                                         }

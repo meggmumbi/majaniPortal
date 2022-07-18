@@ -2081,6 +2081,8 @@ namespace MajaniPortal
             {
                 //insurer.Text = item.Insurer;
                 serviceperiod.Text = item.Service_Period;
+
+
                 var BinderDetails = nav.Binders.Where(x => x.Product_Code == tproduct).ToList();
                 foreach (var binder in BinderDetails)
                 {
@@ -2088,6 +2090,8 @@ namespace MajaniPortal
                     int PolicyNumberUser = Convert.ToInt32(binder.Last_No_Used) + 1;
                     policyNumber.Text = binder.Code + "/" + "00" + PolicyNumberUser;
                     premiumsratings.Text = Convert.ToString(binder.Premium_Rating);
+                    binderfeerate.Text = Convert.ToString(binder.Binder_Fee_Rate);
+                    commissionRate.Text = Convert.ToString(binder.Commission_Rate);
                 }
                 if (item.Has_Binder == "Yes")
                 {
@@ -2097,7 +2101,7 @@ namespace MajaniPortal
                 {
                     lblhasbinder.SelectedIndex = 1;
                 }
-                GetBinderRates_Onlick();
+               // GetBinderRates_Onlick();
             }
         }
         protected void GetVehicleTypes_Onlick()
@@ -2141,7 +2145,7 @@ namespace MajaniPortal
         {
             NAV nav = Config.ReturnNav();
             string tlblproduct = lblproduct.SelectedValue.Trim();
-            var productDetails = nav.ClientApplicationQuery.Where(x => x.Product == tlblproduct);
+            var productDetails = nav.ClientApplicationQuery.Where(x => x.Product == tlblproduct).ToList();
             foreach (var item in productDetails)
             {
                 serviceperiod.Text = item.Service_Period;

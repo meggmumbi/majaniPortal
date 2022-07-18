@@ -47,7 +47,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Applicant Type</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:DropDownList CssClass="form-control select2" runat="server" ID="applicationTypes"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control select2" runat="server" ID="applicationTypes" OnSelectedIndexChanged="applicationTypes_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                     </div>
                 </div>
                    <div class="col-md-6 col-lg-6">
@@ -67,8 +67,8 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
                             <label>Grower No./Client ID</label><span class="text-danger" style="font-size:25px">*</span>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="growerNumber" OnTextChanged="ValidateFactoryDetail_Click" AutoPostBack="true" MaxLength="9"></asp:TextBox>
-                           <asp:RegularExpressionValidator runat="server" Display="dynamic" ValidationExpression="^([\S\s]{9,9})$" ControlToValidate="growerNumber" ErrorMessage="Please Enter the CorrectGrower No Value,It must be a Whole number with 9 Characters" BackColor="Red" />
+                            <asp:TextBox CssClass="form-control" runat="server" ID="growerNumber" OnTextChanged="ValidateFactoryDetail_Click" AutoPostBack="true" MinLength="3" MaxLength="9"></asp:TextBox>
+                           <asp:RegularExpressionValidator runat="server" Display="dynamic" ControlToValidate="growerNumber" ErrorMessage="Please Enter the CorrectGrower No Value,It must be a Whole number with 9 Characters" BackColor="Red" />
                              <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
                         </div>
                     </div>

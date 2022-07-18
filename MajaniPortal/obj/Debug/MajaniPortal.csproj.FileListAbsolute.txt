@@ -501,6 +501,6 @@ D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ko\System.Spatial.resources
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\ru\System.Spatial.resources.dll
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\System.Spatial.resources.dll
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
-D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.csprojResolveAssemblyReference.cache
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.dll
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.pdb
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.csprojResolveAssemblyReference.cache
