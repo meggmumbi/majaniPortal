@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label>Grower No./Client ID</label><span class="text-danger" style="font-size:25px">*</span>
                             <asp:TextBox CssClass="form-control" runat="server" ID="growerNumber"  MaxLength="9" ReadOnly="true"></asp:TextBox>
-                                <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
+                            <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>ID No/Passport</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="txtIdNumber" ReadOnly="true"></asp:TextBox></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="txtIdNumber" ReadOnly="true"></asp:TextBox>
                         <asp:RegularExpressionValidator runat="server" Display="dynamic" ValidationExpression="^([\S\s]{6,8})$" ControlToValidate="txtIdNumber" ErrorMessage="Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8" BackColor="Red" />
                      <span class="error" id="idNumberPassport" runat="server" style="background-color: red"></span>
                     </div>
@@ -355,7 +355,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Product </label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:DropDownList CssClass="form-control select2" runat="server" ID="lblproduct" OnSelectedIndexChanged="GetProductsdetails_Onlick" AutoPostBack="true"></asp:DropDownList>
+                        <asp:TextBox CssClass="form-control select2" runat="server" ID="lblproducts" OnTextChanged="GetProductsdetails_Onlick" AutoPostBack="true"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -387,7 +387,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>Policy Business Type</label><span class="text-danger" style="font-size: 25px">*</span>
-                        <asp:DropDownList CssClass="form-control" runat="server" ID="membertype" Placeholder="Select Product" readOnly="true"></asp:DropDownList>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="membertypes" Placeholder="Select Product" readOnly="true"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -438,12 +438,7 @@
                         <asp:TextBox CssClass="form-control" runat="server" ID="paymentRefCode"></asp:TextBox>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6" runat="server" id="Div5">
-                    <div class="form-group">
-                        <label>Financier</label><span class="text-danger" style="font-size: 25px">*</span>
-                        <asp:DropDownList CssClass="form-control select2" runat="server" ID="txtfinancier"></asp:DropDownList>
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 <div runat="server" id="generalformcheckoffs" visible="false">
@@ -563,9 +558,7 @@
         </div>
         <div class="box-body">
             <div runat="server" id="txtdependantsfeedbackdetails"></div>
-            <div class="panel-body pull-right">
-                <label class="btn btn-success" data-toggle="modal" data-target="#dependants"><i class="fa fa-plus fa-fw"></i>Add Dependants</label>
-            </div>         
+                  
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -584,10 +577,10 @@
                 <tbody>
                     <%
                     var nav = Config.ReturnNav();
-                    string docNo = Request.QueryString["requisitionNo"];
-                    string tproduct = Request.QueryString["product"];
-                          int counter = 0;
-                     var data = nav.AgricultureRiskDetails.Where(x => x.Client_App_No == docNo && x.Product==tproduct && x.Policy_Type=="AGRICULTURAL INSURANCE").ToList();
+                    string docNo = Convert.ToString(Request.QueryString["QuoteNo"]);
+                    string tproduct = Convert.ToString(Request.QueryString["product"]);
+                    int counter = 0;
+                    var data = nav.QuoteRiskDetails.Where(x => x.Qoute_No == docNo && x.Product==tproduct  && x.Policy_Type=="AGRICULTURAL INSURANCE").ToList();
                     foreach (var item in data)
                     {
                             counter++;
@@ -644,12 +637,12 @@
                         <h4 class="modal-title">Confirm Removing Dependant</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to removing the Dependant <strong id="depedantToDelete"></strong>?</p>
+                        <p>Are you sure you want to removing the livestock <strong id="depedantToDelete"></strong>?</p>
                         <asp:TextBox runat="server" ID="removedependantCode" type="hidden" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Dependant" />
+                        <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Dependant" id="delit" OnClick="delit_Click" />
                     </div>
                 </div>
             </div>
@@ -715,7 +708,7 @@
                             //string GrowerNumber = Request.QueryString["requisitionNo"].Trim();
                            
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Agriculture Underwriting/";
-                            String ApplicantionNo = Request.QueryString["requisitionNo"].Trim();
+                            String ApplicantionNo = Request.QueryString["QuoteNo"].Trim();
                             string str1 = Convert.ToString(ApplicantionNo);
                             ApplicantionNo = ApplicantionNo.Replace('/', '_');
                             ApplicantionNo = ApplicantionNo.Replace(':', '_');

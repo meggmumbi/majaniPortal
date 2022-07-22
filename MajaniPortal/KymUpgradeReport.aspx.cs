@@ -34,7 +34,9 @@ namespace MajaniPortal
             Boolean Error = false;
 
             string s = txtDate.Text;
-            
+            string endD = textEndDate.Text;
+
+
             if (s.Length < 1)
             {
                 Error = true;
@@ -43,6 +45,7 @@ namespace MajaniPortal
 
             DateTime dateTime = new DateTime();
             DateTime exact = Convert.ToDateTime(s);
+            DateTime exactend = Convert.ToDateTime(endD);
 
             var nav = Config.ReturnNav();
             var Tcontact = nav.ClientApplicationQuery.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Document_Date == exact).ToList();
@@ -50,6 +53,12 @@ namespace MajaniPortal
             {
                 Error = true;
                 feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exact + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+            var Tcontactend = nav.InsuranceClaims.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Date_Created == exactend).ToList();
+            if (Tcontactend.Count < 1)
+            {
+                Error = true;
+                feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exactend + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
 
             string tfactoryName = factoryName.Text;
@@ -68,7 +77,7 @@ namespace MajaniPortal
                   
                     string agentNo = Convert.ToString(Session["empNo"]);
 
-                    String status = new Config().ObjNav().FnGenerateUpgradeReport(exact, tfactoryName, agentNo);
+                    String status = new Config().ObjNav().FnGenerateUpgradeReport(exact, tfactoryName, agentNo, exactend);
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {

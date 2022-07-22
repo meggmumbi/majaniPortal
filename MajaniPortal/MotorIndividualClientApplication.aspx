@@ -607,7 +607,7 @@
                                 </div>
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label>Certificate No.</label><span class="text-danger" style="font-size: 25px">*</span>
+                                        <label>Certificate No.</label>
                                         <asp:TextBox CssClass="form-control" runat="server" ID="certificateNo"></asp:TextBox>
                                     </div>
                                 </div>

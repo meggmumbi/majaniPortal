@@ -499,13 +499,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
-        /// lblproduct control.
+        /// lblproducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lblproduct;
+        protected global::System.Web.UI.WebControls.TextBox lblproducts;
         
         /// <summary>
         /// insurer control.
@@ -535,13 +535,13 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox serviceperiod;
         
         /// <summary>
-        /// membertype control.
+        /// membertypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList membertype;
+        protected global::System.Web.UI.WebControls.TextBox membertypes;
         
         /// <summary>
         /// paymentOptions control.
@@ -614,24 +614,6 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox paymentRefCode;
-        
-        /// <summary>
-        /// Div5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div5;
-        
-        /// <summary>
-        /// txtfinancier control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtfinancier;
         
         /// <summary>
         /// generalformcheckoffs control.
@@ -821,6 +803,15 @@ namespace MajaniPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox removedependantCode;
+        
+        /// <summary>
+        /// delit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button delit;
         
         /// <summary>
         /// nextBtn control.

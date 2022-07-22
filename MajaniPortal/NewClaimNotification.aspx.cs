@@ -87,17 +87,21 @@ namespace MajaniPortal
                     txtnames.Text = item.Name;
                     lblselectedcustomers.Text = custNumber;
                 }
-
-                string trequisitionNo = Request.QueryString["requisitionNo"].Trim();
-                var insuranceClaim = nav.InsuranceClaims.Where(r => r.Business_Type == "Micro-Insurance" && r.No== trequisitionNo);
-                foreach (var item in insuranceClaim)
+                string trequisitionNo = "";
+                trequisitionNo = Request.QueryString["requisitionNo"];
+                if (!string.IsNullOrEmpty(trequisitionNo))
                 {
-                    lblclaimagainst.SelectedValue = item.Claiming_Against;
-                    lblclaimcategory.SelectedValue = item.Claim_Category;
-                    tlbldependantNumber.SelectedValue = item.Dependent_No;
-                    claimAmount.Text = item.Claiming_Against;
-                    lblplaceofOccurrences.SelectedValue = item.Place_of_Occurrence_Types;
-                    placeofoccurrences.Text = item.Place_of_Occurence;
+                    
+                    var insuranceClaim = nav.InsuranceClaims.Where(r => r.Business_Type == "Micro-Insurance" && r.No == trequisitionNo);
+                    foreach (var item in insuranceClaim)
+                    {
+                        lblclaimagainst.SelectedValue = item.Claiming_Against;
+                        lblclaimcategory.SelectedValue = item.Claim_Category;
+                        tlbldependantNumber.SelectedValue = item.Dependent_No;
+                        claimAmount.Text = item.Claiming_Against;
+                        lblplaceofOccurrences.SelectedValue = item.Place_of_Occurrence_Types;
+                        placeofoccurrences.Text = item.Place_of_Occurence;
+                    }
                 }
 
 

@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label>Grower No./Client ID</label><span class="text-danger" style="font-size:25px">*</span>
                             <asp:TextBox CssClass="form-control" runat="server" ID="growerNumber" OnTextChanged="ValidateFactoryDetail_Click" AutoPostBack="true" MinLength="3" MaxLength="9"></asp:TextBox>
-                           <asp:RegularExpressionValidator runat="server" Display="dynamic" ControlToValidate="growerNumber" ErrorMessage="Please Enter the CorrectGrower No Value,It must be a Whole number with 9 Characters" BackColor="Red" />
+                         <%--  <asp:RegularExpressionValidator runat="server" Display="dynamic" ControlToValidate="growerNumber" ErrorMessage="Please Enter the CorrectGrower No Value,It must be a Whole number with 9 Characters" BackColor="Red" />--%>
                              <span class="error" id="growerdetails" runat="server" style="background-color: red"></span>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label>KRA Pin No</label><span class="text-danger" style="font-size:25px">*</span>
-                        <asp:TextBox CssClass="form-control" runat="server" ID="krapinNumber" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" runat="server" ID="krapinNumber"></asp:TextBox>
                         <asp:RegularExpressionValidator runat="server" Display="dynamic" ValidationExpression="^([\S\s]{11,11})$" ControlToValidate="krapinNumber" ErrorMessage="Please Enter the Correct KRA Pin Number Value,It must be a Whole number with 11 Characters" BackColor="Red" />
                     </div>
                 </div>                

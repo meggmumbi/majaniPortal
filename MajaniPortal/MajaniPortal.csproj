@@ -195,6 +195,7 @@
     <Content Include="AgricultureIndividualClientApplication.aspx" />
     <Content Include="AgricultureIndividualClientsPolicyAmmendments.aspx" />
     <Content Include="AgricultureOpenApplications.aspx" />
+    <Content Include="AgricultureRenewal.aspx" />
     <Content Include="AllPolicies.aspx" />
     <Content Include="AllPolicyAmmendments.aspx" />
     <Content Include="ClientProfile.aspx" />
@@ -389,6 +390,7 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="GeneralOpenClientApplications.aspx" />
+    <Content Include="ICTHelpDesk.aspx" />
     <Content Include="InsuranceClainMReport.aspx" />
     <Content Include="KYMClaimsRequests.aspx" />
     <Content Include="KYMCorporateClientApplication.aspx" />
@@ -427,6 +429,7 @@
     <Content Include="MotorPolicies.aspx" />
     <Content Include="MotorPolicyAmmendments.aspx" />
     <Content Include="MotorVehicleDets.aspx" />
+    <Content Include="MyHelpDeskRequests.aspx" />
     <Content Include="MyPolicies.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="NewAgentOnboarding.aspx" />
@@ -438,6 +441,8 @@
     <Content Include="OpenClientApplications.aspx" />
     <Content Include="OpenMemberClaimNotifications.aspx" />
     <Content Include="OurProducts.aspx" />
+    <Content Include="p9.aspx" />
+    <Content Include="payslip.aspx" />
     <Content Include="PrintCustStatement.aspx" />
     <Content Include="ProductCategories.aspx" />
     <Content Include="RiskNoteProforma.aspx" />
@@ -743,6 +748,13 @@
     <Compile Include="AgricultureOpenApplications.aspx.designer.cs">
       <DependentUpon>AgricultureOpenApplications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AgricultureRenewal.aspx.cs">
+      <DependentUpon>AgricultureRenewal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgricultureRenewal.aspx.designer.cs">
+      <DependentUpon>AgricultureRenewal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AllPolicies.aspx.cs">
       <DependentUpon>AllPolicies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -842,6 +854,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ICTHelpDesk.aspx.cs">
+      <DependentUpon>ICTHelpDesk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ICTHelpDesk.aspx.designer.cs">
+      <DependentUpon>ICTHelpDesk.aspx</DependentUpon>
     </Compile>
     <Compile Include="InsuranceClainMReport.aspx.cs">
       <DependentUpon>InsuranceClainMReport.aspx</DependentUpon>
@@ -1103,6 +1122,13 @@
     <Compile Include="MotorVehicleDets.aspx.designer.cs">
       <DependentUpon>MotorVehicleDets.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyHelpDeskRequests.aspx.cs">
+      <DependentUpon>MyHelpDeskRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyHelpDeskRequests.aspx.designer.cs">
+      <DependentUpon>MyHelpDeskRequests.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyPolicies.aspx.cs">
       <DependentUpon>MyPolicies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1179,6 +1205,21 @@
     </Compile>
     <Compile Include="OurProducts.aspx.designer.cs">
       <DependentUpon>OurProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="p9.aspx.cs">
+      <DependentUpon>p9.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="p9.aspx.designer.cs">
+      <DependentUpon>p9.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payPeriods.cs" />
+    <Compile Include="payslip.aspx.cs">
+      <DependentUpon>payslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payslip.aspx.designer.cs">
+      <DependentUpon>payslip.aspx</DependentUpon>
     </Compile>
     <Compile Include="PrintCustStatement.aspx.cs">
       <DependentUpon>PrintCustStatement.aspx</DependentUpon>

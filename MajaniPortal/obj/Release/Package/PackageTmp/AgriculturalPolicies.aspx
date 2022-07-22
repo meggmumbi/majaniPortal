@@ -23,6 +23,7 @@
                                     <th>Insurer</th>
                                     <th>Claim</th>
                                     <th>Ammend</th>
+                                    <th>Renew</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,6 +91,24 @@
                                                     %>
                                                   <td>
                                                     <a href="AgricultureCorporatePolicyAmmendments?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Ammend</a>
+                                                  </td>
+                                                   <%
+                                                    }
+                                                  %>
+                                                          <%
+                                                     if (arr[7] == "Individual")
+                                                     {
+                                                  %>
+                                                 <td>
+                                                    <a href="AgricultureRenewal.aspx?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Renew</a>
+                                                  </td>
+                                                  <%
+                                                      }
+                                                      else
+                                                      {
+                                                    %>
+                                                  <td>
+                                                    <a href="AgricultureRenewal?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Renew</a>
                                                   </td>
                                                    <%
                                                     }

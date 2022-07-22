@@ -24,6 +24,12 @@
                             <asp:TextBox CssClass="form-control" runat="server" TextMode="Date" ID="txtDate"></asp:TextBox>
                         </div>
                     </div>
+                         <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <asp:TextBox CssClass="form-control" runat="server" TextMode="Date" ID="textEndDate"></asp:TextBox>
+                        </div>
+                    </div>
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">
                             <label>Factory Name</label>

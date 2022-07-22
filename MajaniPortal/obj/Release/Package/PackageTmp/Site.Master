@@ -124,6 +124,24 @@
                                 <i class="fa fa-th"></i><span>Employees Self Service</span>
                             </a>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Payroll Services</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active">
+                                    <a href="payslip.aspx">
+                                        <i class="fa fa-money"></i><span>Payslip</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="p9.aspx">
+                                        <i class="fa fa-file"></i><span>P9</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="ProductCategories.aspx">
                                 <i class="fa fa-th"></i><span>Product Categories</span>
@@ -167,20 +185,7 @@
                                          <li><a href="SubmittedAmmendments.aspx"><i class="fa fa-circle-o"></i>Submitted Amendments</a></li>                                                   
                                     </ul>
                                 </li>
-                                   <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-laptop"></i>
-                                        <span>Micro-insurance Reports</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                     <ul class="treeview-menu">
-                                        <li><a href="InsuranceClainMReport.aspx"><i class="fa fa-circle-o"></i>KYM Claims Report</a></li>
-                                        <li><a href="KymNewApp.aspx"><i class="fa fa-circle-o"></i>KYM Application Report</a></li>
-                                        <li><a href="KymUpgradeReport.aspx"><i class="fa fa-circle-o"></i>KYM Upgrade/Downgrade Report</a></li>
-                                    </ul>
-                                </li>
+                      
                                     
                                 <li class="treeview">
                                     <a href="#">
@@ -347,10 +352,35 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="NewPolicyQuote.aspx"><i class="fa fa-circle-o"></i>Existing  Clients(New Business)</a></li>
-                                 <li><a href="KYMWithdrawalForm.aspx"><i class="fa fa-circle-o"></i>KYM Withdrawal Form</a></li>
-                                <li><a href="KYMClaimsRequests.aspx"><i class="fa fa-circle-o"></i>KYM Claims</a></li>
-                                <li><a href="FarmersFinancier.aspx"><i class="fa fa-circle-o"></i>Farmers Financier</a></li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Micro-Insurance</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="NewPolicyQuote.aspx"><i class="fa fa-circle-o"></i>Existing  Clients(New Business)</a></li>
+                                        <li><a href="KYMWithdrawalForm.aspx"><i class="fa fa-circle-o"></i>KYM Withdrawal Form</a></li>
+                                        <li><a href="KYMClaimsRequests.aspx"><i class="fa fa-circle-o"></i>KYM Claims</a></li>
+                                        <li><a href="FarmersFinancier.aspx"><i class="fa fa-circle-o"></i>Farmers Financier</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Micro-insurance Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="InsuranceClainMReport.aspx"><i class="fa fa-circle-o"></i>KYM Claims Report</a></li>
+                                        <li><a href="KymNewApp.aspx"><i class="fa fa-circle-o"></i>KYM Application Report</a></li>
+                                        <li><a href="KymUpgradeReport.aspx"><i class="fa fa-circle-o"></i>KYM Upgrade/Downgrade Report</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -387,11 +417,29 @@
                             <ul class="treeview-menu">
                                 <li><a href="RiskNotesList.aspx"><i class="fa fa-circle-o"></i>Motor UnderWriting Reports</a></li>
                             </ul>
-                                   
-                                    
-                            
-                             </li>
-                       
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>ICT Helpdesk Services</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-cart"></i>
+                                        <span>ICT Helpdesk</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ICTHelpDesk.aspx">New Request</a></li>
+                                        <li><a href="MyHelpDeskRequests.aspx">My Requests</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </section>
             </aside>

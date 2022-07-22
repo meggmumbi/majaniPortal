@@ -46,6 +46,121 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnInsterAgricultureDetailsAmmend">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="livestockName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="livestock" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="earTag" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="breed" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="sex" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="ageinYears" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="milkProd" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="valueInsured" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="product" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnInsterAgricultureDetailsAmmend_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRemoveRiskAmend">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="riskCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRemoveRiskAmend_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeactivateAmend">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="riskCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reason" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnDeactivateAmend_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewPolicyRenewaIndAgric">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="contractNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnNewPolicyRenewaIndAgric_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslip">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payPeriod" type="dateTime" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GeneratePayslip_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateP9">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="startDate" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="dateTime" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateP9_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateIctRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="category" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateIctRequest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -2217,6 +2332,7 @@
             <element minOccurs="1" maxOccurs="1" name="documentDate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
             <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -2233,6 +2349,7 @@
             <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
             <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -2249,6 +2366,7 @@
             <element minOccurs="1" maxOccurs="1" name="startDate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="factoryName" type="string" />
             <element minOccurs="1" maxOccurs="1" name="agentCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="endDate" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -2462,6 +2580,48 @@
   </message>
   <message name="FnGeneratreProfile_Result">
     <part name="parameters" element="tns:FnGeneratreProfile_Result" />
+  </message>
+  <message name="FnInsterAgricultureDetailsAmmend">
+    <part name="parameters" element="tns:FnInsterAgricultureDetailsAmmend" />
+  </message>
+  <message name="FnInsterAgricultureDetailsAmmend_Result">
+    <part name="parameters" element="tns:FnInsterAgricultureDetailsAmmend_Result" />
+  </message>
+  <message name="FnRemoveRiskAmend">
+    <part name="parameters" element="tns:FnRemoveRiskAmend" />
+  </message>
+  <message name="FnRemoveRiskAmend_Result">
+    <part name="parameters" element="tns:FnRemoveRiskAmend_Result" />
+  </message>
+  <message name="FnDeactivateAmend">
+    <part name="parameters" element="tns:FnDeactivateAmend" />
+  </message>
+  <message name="FnDeactivateAmend_Result">
+    <part name="parameters" element="tns:FnDeactivateAmend_Result" />
+  </message>
+  <message name="FnNewPolicyRenewaIndAgric">
+    <part name="parameters" element="tns:FnNewPolicyRenewaIndAgric" />
+  </message>
+  <message name="FnNewPolicyRenewaIndAgric_Result">
+    <part name="parameters" element="tns:FnNewPolicyRenewaIndAgric_Result" />
+  </message>
+  <message name="GeneratePayslip">
+    <part name="parameters" element="tns:GeneratePayslip" />
+  </message>
+  <message name="GeneratePayslip_Result">
+    <part name="parameters" element="tns:GeneratePayslip_Result" />
+  </message>
+  <message name="GenerateP9">
+    <part name="parameters" element="tns:GenerateP9" />
+  </message>
+  <message name="GenerateP9_Result">
+    <part name="parameters" element="tns:GenerateP9_Result" />
+  </message>
+  <message name="CreateIctRequest">
+    <part name="parameters" element="tns:CreateIctRequest" />
+  </message>
+  <message name="CreateIctRequest_Result">
+    <part name="parameters" element="tns:CreateIctRequest_Result" />
   </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
@@ -3190,6 +3350,34 @@
       <input name="FnGeneratreProfile" message="tns:FnGeneratreProfile" />
       <output name="FnGeneratreProfile_Result" message="tns:FnGeneratreProfile_Result" />
     </operation>
+    <operation name="FnInsterAgricultureDetailsAmmend">
+      <input name="FnInsterAgricultureDetailsAmmend" message="tns:FnInsterAgricultureDetailsAmmend" />
+      <output name="FnInsterAgricultureDetailsAmmend_Result" message="tns:FnInsterAgricultureDetailsAmmend_Result" />
+    </operation>
+    <operation name="FnRemoveRiskAmend">
+      <input name="FnRemoveRiskAmend" message="tns:FnRemoveRiskAmend" />
+      <output name="FnRemoveRiskAmend_Result" message="tns:FnRemoveRiskAmend_Result" />
+    </operation>
+    <operation name="FnDeactivateAmend">
+      <input name="FnDeactivateAmend" message="tns:FnDeactivateAmend" />
+      <output name="FnDeactivateAmend_Result" message="tns:FnDeactivateAmend_Result" />
+    </operation>
+    <operation name="FnNewPolicyRenewaIndAgric">
+      <input name="FnNewPolicyRenewaIndAgric" message="tns:FnNewPolicyRenewaIndAgric" />
+      <output name="FnNewPolicyRenewaIndAgric_Result" message="tns:FnNewPolicyRenewaIndAgric_Result" />
+    </operation>
+    <operation name="GeneratePayslip">
+      <input name="GeneratePayslip" message="tns:GeneratePayslip" />
+      <output name="GeneratePayslip_Result" message="tns:GeneratePayslip_Result" />
+    </operation>
+    <operation name="GenerateP9">
+      <input name="GenerateP9" message="tns:GenerateP9" />
+      <output name="GenerateP9_Result" message="tns:GenerateP9_Result" />
+    </operation>
+    <operation name="CreateIctRequest">
+      <input name="CreateIctRequest" message="tns:CreateIctRequest" />
+      <output name="CreateIctRequest_Result" message="tns:CreateIctRequest_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3693,6 +3881,69 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="FnGeneratreProfile_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnInsterAgricultureDetailsAmmend">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsterAgricultureDetailsAmmend" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnInsterAgricultureDetailsAmmend">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnInsterAgricultureDetailsAmmend_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRemoveRiskAmend">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnRemoveRiskAmend" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRemoveRiskAmend">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRemoveRiskAmend_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnDeactivateAmend">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnDeactivateAmend" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnDeactivateAmend">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnDeactivateAmend_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnNewPolicyRenewaIndAgric">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyRenewaIndAgric" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnNewPolicyRenewaIndAgric">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnNewPolicyRenewaIndAgric_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GeneratePayslip">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:GeneratePayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GeneratePayslip">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GeneratePayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateP9">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:GenerateP9" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateP9">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateP9_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateIctRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:CreateIctRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateIctRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateIctRequest_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -394,24 +394,24 @@ namespace MajaniPortal
             if (cust_category.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), customer category";
             }
             if (customerSubCategory.SelectedValue.Trim().Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), customer sub category";
             }
             string applicanttype = applicationTypes.SelectedValue.Trim();
             if (applicanttype.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Application Type";
             }
             string countryOfResidence = countyofresidence.SelectedValue.Trim();
             if (countryOfResidence.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), county of residence";
             }
             int selectedIndex1 = 2;
             bool thasgrowerNo = false;
@@ -433,23 +433,19 @@ namespace MajaniPortal
                     if (tgrowerNumber.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), grower number";
                     }
                     if (tgrowerapplicanttype < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Grower applicant type";
                     }
                     else
                     {
                         if (tgrowerapplicanttype == 2)
                         {
                             financier = txtfinancier.Text.Trim();
-                            //if (financier.Length < 1)
-                            //{
-                            //    flag = true;
-                            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
-                            //}
+                        
 
                         }
                         else
@@ -469,44 +465,44 @@ namespace MajaniPortal
             if (selectedIndex2 < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields),Id type";
             }
             string s = txtDOB.Text.Trim();
             if (s.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Date of birth";
             }
             string id_passport = txtIdNumber.Text.Trim();
             if (id_passport.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Id Number";
             }
             int selectedIndex3 = lblgender.SelectedIndex;
             if (selectedIndex3 < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Gender";
             }
             string pinNo = krapinNumber.Text.Trim();
             if (pinNo.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Kra Pin number";
             }
 
             string countyCode = lblcountyCode.Text.Trim();
             if (countyCode.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), cunty code";
             }
             string firstName = txtfirstname.Text.Trim();
             if (firstName.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), first name";
             }
             int selectedIndex4 = lblmaritalstatus.SelectedIndex;
             if (selectedIndex4 < 1)
@@ -521,19 +517,19 @@ namespace MajaniPortal
             if (lastname.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), last name";
             }
             string occupation = ttxtoccupations.SelectedValue.Trim();
             if (occupation.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), occupation";
             }
             int selectedIndex5 = lbltitle.SelectedIndex;
             if (selectedIndex5 < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), title";
             }
             try
             {
@@ -579,14 +575,14 @@ namespace MajaniPortal
             if (registrationNo.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Registration Number";
             }
 
             Decimal rate = Convert.ToDecimal(txtrate.Text.Trim());
             if (rate < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Rate";
             }
             bool tbolnonerenewable = false;
             if (bolnonerenewable.Checked == true)
@@ -619,11 +615,11 @@ namespace MajaniPortal
                 basicpremiums = Convert.ToDecimal(txtbasicpremiums.Text.Trim());
             }
             string tcertificateNo = certificateNo.Text.Trim();
-            if (tcertificateNo.Length < 1)
-            {
-                flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            }
+            //if (tcertificateNo.Length < 1)
+            //{
+            //    flag = true;
+            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+            //}
             try
             {
                 if (flag)
@@ -920,7 +916,7 @@ namespace MajaniPortal
             if (ttelnumber1.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields),Telephone Number 1";
             }
             string ttelnumber2 = telnumber2.Text.Trim();
             //if (ttelnumber2.Length < 1)
@@ -938,7 +934,7 @@ namespace MajaniPortal
             if (ttxtemail.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Email Address";
             }
             string ttxttwitter = txttwitter.Text.Trim();
             //if (ttxttwitter.Length < 1)
@@ -950,13 +946,13 @@ namespace MajaniPortal
             if (tpostcodes.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), postCode";
             }
             string ttxtaddress = txtaddress.Text.Trim();
             if (ttxtaddress.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Address";
             }
             string ttxtlinkedin = txtlinkedin.Text.Trim();
             //if (ttxtlinkedin.Length < 1)
@@ -1035,14 +1031,14 @@ namespace MajaniPortal
             if (tlblpolicyType.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), policy Type";
             }
 
             string product = lblproduct.SelectedValue.Trim();
             if (product.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), product";
             }
 
 
@@ -1058,7 +1054,7 @@ namespace MajaniPortal
                 if (agentcode.Length < 1)
                 {
                     flag = true;
-                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    str = "Please fill all highlighted fields with *(Mandatory Fields),  agent code";
                 }
             }
             if (selectedIndex2 == 2)
@@ -1067,21 +1063,21 @@ namespace MajaniPortal
                 if (agentcode.Length < 1)
                 {
                     flag = true;
-                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    str = "Please fill all highlighted fields with *(Mandatory Fields),agent code";
                 }
             }
             var tpaidamount = paidamount.Text.Trim();
             if (tpaidamount.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), amount Paid";
             }
             DateTime alldatepaid = DateTime.Now;
             var tdatepaid = datepaid.Text.Trim();
             if (tdatepaid.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Date Paid";
             }
             else
             {
@@ -1092,7 +1088,7 @@ namespace MajaniPortal
             if (tpolicystartDate.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), policy start date";
             }
             else
             {
@@ -1127,37 +1123,37 @@ namespace MajaniPortal
             if (tserviceperiod.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), service period";
             }
             var ttxtinsurers = txtinsurers.SelectedValue.Trim();
             if (ttxtinsurers.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), insurer";
             }
             int tmodeofpayments = modeofpayments.SelectedIndex;
             if (tmodeofpayments < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), mode of payment";
             }
             int ttxtpaymentsoptions = txtpaymentsoptions.SelectedIndex;
             if (ttxtpaymentsoptions < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Payment Option";
             }
             int tagentDetail = agentDetail.SelectedIndex;
             if (tagentDetail < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Agent Details";
             }
             var tpaymentreferenceccode = paymentreferenceccode.Text.Trim();
             if (tpaymentreferenceccode.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Payment Reference Code";
             }
             bool tnonrenewable = false;
             if (nonrenewable.Checked == true)
@@ -1186,21 +1182,21 @@ namespace MajaniPortal
             if (tdepartment < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), departments";
             }
             string dhb = "";
 
             if (ttcommissionRate.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Commission Rate";
             }
             string Dbinderfeerate = binderfeerate.Text.Trim();
            
             if (Dbinderfeerate.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Binder Fee Rate";
             }
             else
             {
@@ -1211,13 +1207,13 @@ namespace MajaniPortal
             if (tbinderCodes.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Binder Codes";
             }
             string tpolicyNumber = policyNumber.Text.Trim();
             if (tpolicyNumber.Length < 1)
             {
                 flag = true;
-                str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Policy Number";
             }
             string tpremiumsratings = premiumsratings.Text.Trim();
             decimal ttpremiumsratings = 0;
@@ -1236,7 +1232,7 @@ namespace MajaniPortal
                 if (ttxtremarks.Length < 1)
                 {
                     flag = true;
-                    str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                    str = "Please fill all highlighted fields with *(Mandatory Fields), Remarks";
                 }
             }
             else
@@ -1772,67 +1768,67 @@ namespace MajaniPortal
                     if (registrationNo.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Registration Number";
                     }
                     string tmake = make.SelectedValue.Trim();
                     if (tmake.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Make";
                     }
                     string tmodel = model.SelectedValue.Trim();
                     if (tmodel.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Model";
                     }
                     string tvehicletype = vehicletype.SelectedValue.Trim();
                     if (tvehicletype.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Vehicle type";
                     }
 
                     if (tcovertype.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), cover type";
                     }
                     string cc = this.cc.Text.Trim();
                     if (cc.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), cc";
                     }
                     string chasisNo = chasisnumber.Text.Trim();
                     if (chasisNo.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Chasis Number";
                     }
                     string engineNo = enginenumber.Text.Trim();
                     if (engineNo.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Engine Number";
                     }
                     string yearofManufucture = yearofmanufucture.Text.Trim();
                     if (yearofManufucture.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Year of Manufacture";
                     }
                     string bodyType = txtdropdownlist.SelectedValue.Trim();
                     if (bodyType.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Body Type";
                     }
                     string s = policystratdate.Text.Trim();
                     if (s.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), policy start Date";
                     }
                     DateTime dateTime = new DateTime();
                     DateTime exact = DateTime.ParseExact(s, "dd-MM-yyyy", CultureInfo.InvariantCulture);
@@ -1840,7 +1836,7 @@ namespace MajaniPortal
                     if (tduration.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), Duration";
                     }
                     string ttonnage = tonnage.Text.Trim();
 
@@ -1855,7 +1851,7 @@ namespace MajaniPortal
                     if (tcertificateNo.Length < 1)
                     {
                         flag = true;
-                        str = "Please fill all highlighted fields with *(Mandatory Fields)";
+                        str = "Please fill all highlighted fields with *(Mandatory Fields), certificate Number";
                     }
                     try
                     {

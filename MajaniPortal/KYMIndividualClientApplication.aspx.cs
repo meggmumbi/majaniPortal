@@ -469,7 +469,7 @@ namespace MajaniPortal
                     tfactoryName = ttxtFactoryName.Text.Trim();
 
 
-                    if (applicationTypes.SelectedValue != "FACTORY STAFF")
+                    if (applicationTypes.SelectedValue != "FACTORY STAFF" && customerSubCategory.SelectedValue != "SUBSIDIARY STAFF")
                     {
                         if (tgrowerapplicanttype < 1)
                         {
@@ -683,6 +683,7 @@ namespace MajaniPortal
         protected void ValidateFactoryDetail_Click(object sender, EventArgs e)
         {
             var tgrowerNumber = growerNumber.Text.Trim();
+            string tsubcustomerCategory = customerSubCategory.SelectedValue.Trim();
             var FactoryName = "";
 
 
@@ -698,6 +699,8 @@ namespace MajaniPortal
                 growerdetails.InnerText = "";
             }
             var tgrowerapplicanttype = growerapplicanttype.SelectedIndex;
+
+            if (tsubcustomerCategory != "SUBSIDIARY STAFF") { 
          
                 var FactoryCode = new Config().ObjNav().FnGetFactoryCode(tgrowerNumber, tgrowerapplicanttype);
                 if (FactoryCode == "")
@@ -747,6 +750,7 @@ namespace MajaniPortal
                         txtfinancier.DataBind();
                         txtfinancier.Items.Insert(0, "--Select Financier--");
                     }
+                }
                                    
             }
         }

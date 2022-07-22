@@ -1686,11 +1686,13 @@
         <Property Name="Insured_PIN" Type="Edm.String" />
         <Property Name="Year_of_manufacture" Type="Edm.Int32" />
         <Property Name="Huduma_Number" Type="Edm.String" />
-        <Property Name="Tonnage" Type="Edm.String" />
+        <Property Name="Tonnage" Type="Edm.Int32" />
         <Property Name="Debit_Note_Number" Type="Edm.String" />
         <Property Name="Cert_Generated" Type="Edm.Boolean" />
         <Property Name="Status" Type="Edm.String" />
         <Property Name="Certficate_Type" Type="Edm.String" />
+        <Property Name="Client_Email" Type="Edm.String" />
+        <Property Name="Vehicle_Type" Type="Edm.Int32" />
       </EntityType>
       <EntityType Name="EffectiveProcurementPlans">
         <Key>
@@ -4561,6 +4563,12 @@
         <Property Name="Excess_Protect_Min_Value" Type="Edm.Decimal" />
         <Property Name="Excess_Rate" Type="Edm.Decimal" />
         <Property Name="Vehicle_Status" Type="Edm.String" />
+        <Property Name="Milk_Production_Per_Day" Type="Edm.String" />
+        <Property Name="Name_of_Animal" Type="Edm.String" />
+        <Property Name="Min_Age" Type="Edm.Decimal" />
+        <Property Name="Max_Animal_Age" Type="Edm.Decimal" />
+        <Property Name="Age_In_Years" Type="Edm.Decimal" />
+        <Property Name="Valuation_Amount" Type="Edm.Int32" />
         <Property Name="Total_Options_Amount" Type="Edm.Decimal" />
       </EntityType>
       <EntityType Name="ReceiptAndPaymentTypes">
@@ -4923,6 +4931,8 @@
         <Property Name="Excess_Protect_Min_Value" Type="Edm.Decimal" />
         <Property Name="Excess_Rate" Type="Edm.Decimal" />
         <Property Name="Salesperson_Code" Type="Edm.String" />
+        <Property Name="Evaluation_Amount_Total" Type="Edm.Decimal" />
+        <Property Name="Total_Premiums_Payable" Type="Edm.Decimal" />
       </EntityType>
       <EntityType Name="SalesPersons">
         <Key>

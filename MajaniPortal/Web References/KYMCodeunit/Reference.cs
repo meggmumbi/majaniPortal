@@ -35,6 +35,20 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback FnGeneratreProfileOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnInsterAgricultureDetailsAmmendOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnRemoveRiskAmendOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnDeactivateAmendOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnNewPolicyRenewaIndAgricOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GeneratePayslipOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GenerateP9OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateIctRequestOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -319,6 +333,27 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event FnGeneratreProfileCompletedEventHandler FnGeneratreProfileCompleted;
+        
+        /// <remarks/>
+        public event FnInsterAgricultureDetailsAmmendCompletedEventHandler FnInsterAgricultureDetailsAmmendCompleted;
+        
+        /// <remarks/>
+        public event FnRemoveRiskAmendCompletedEventHandler FnRemoveRiskAmendCompleted;
+        
+        /// <remarks/>
+        public event FnDeactivateAmendCompletedEventHandler FnDeactivateAmendCompleted;
+        
+        /// <remarks/>
+        public event FnNewPolicyRenewaIndAgricCompletedEventHandler FnNewPolicyRenewaIndAgricCompleted;
+        
+        /// <remarks/>
+        public event GeneratePayslipCompletedEventHandler GeneratePayslipCompleted;
+        
+        /// <remarks/>
+        public event GenerateP9CompletedEventHandler GenerateP9Completed;
+        
+        /// <remarks/>
+        public event CreateIctRequestCompletedEventHandler CreateIctRequestCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -769,6 +804,250 @@ namespace MajaniPortal.KYMCodeunit {
             if ((this.FnGeneratreProfileCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.FnGeneratreProfileCompleted(this, new FnGeneratreProfileCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnInsterAgricultureDetailsAmmend", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnInsterAgricultureDetailsAmmend_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnInsterAgricultureDetailsAmmend(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, string ageinYears, string milkProd, decimal valueInsured, string product) {
+            object[] results = this.Invoke("FnInsterAgricultureDetailsAmmend", new object[] {
+                        docNo,
+                        livestockName,
+                        livestock,
+                        earTag,
+                        breed,
+                        sex,
+                        ageinYears,
+                        milkProd,
+                        valueInsured,
+                        product});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnInsterAgricultureDetailsAmmendAsync(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, string ageinYears, string milkProd, decimal valueInsured, string product) {
+            this.FnInsterAgricultureDetailsAmmendAsync(docNo, livestockName, livestock, earTag, breed, sex, ageinYears, milkProd, valueInsured, product, null);
+        }
+        
+        /// <remarks/>
+        public void FnInsterAgricultureDetailsAmmendAsync(string docNo, string livestockName, string livestock, string earTag, string breed, int sex, string ageinYears, string milkProd, decimal valueInsured, string product, object userState) {
+            if ((this.FnInsterAgricultureDetailsAmmendOperationCompleted == null)) {
+                this.FnInsterAgricultureDetailsAmmendOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnInsterAgricultureDetailsAmmendOperationCompleted);
+            }
+            this.InvokeAsync("FnInsterAgricultureDetailsAmmend", new object[] {
+                        docNo,
+                        livestockName,
+                        livestock,
+                        earTag,
+                        breed,
+                        sex,
+                        ageinYears,
+                        milkProd,
+                        valueInsured,
+                        product}, this.FnInsterAgricultureDetailsAmmendOperationCompleted, userState);
+        }
+        
+        private void OnFnInsterAgricultureDetailsAmmendOperationCompleted(object arg) {
+            if ((this.FnInsterAgricultureDetailsAmmendCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnInsterAgricultureDetailsAmmendCompleted(this, new FnInsterAgricultureDetailsAmmendCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnRemoveRiskAmend", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnRemoveRiskAmend_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnRemoveRiskAmend(string riskCode, string docNumber) {
+            object[] results = this.Invoke("FnRemoveRiskAmend", new object[] {
+                        riskCode,
+                        docNumber});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnRemoveRiskAmendAsync(string riskCode, string docNumber) {
+            this.FnRemoveRiskAmendAsync(riskCode, docNumber, null);
+        }
+        
+        /// <remarks/>
+        public void FnRemoveRiskAmendAsync(string riskCode, string docNumber, object userState) {
+            if ((this.FnRemoveRiskAmendOperationCompleted == null)) {
+                this.FnRemoveRiskAmendOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnRemoveRiskAmendOperationCompleted);
+            }
+            this.InvokeAsync("FnRemoveRiskAmend", new object[] {
+                        riskCode,
+                        docNumber}, this.FnRemoveRiskAmendOperationCompleted, userState);
+        }
+        
+        private void OnFnRemoveRiskAmendOperationCompleted(object arg) {
+            if ((this.FnRemoveRiskAmendCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnRemoveRiskAmendCompleted(this, new FnRemoveRiskAmendCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnDeactivateAmend", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnDeactivateAmend_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnDeactivateAmend(string riskCode, string docNumber, string reason) {
+            object[] results = this.Invoke("FnDeactivateAmend", new object[] {
+                        riskCode,
+                        docNumber,
+                        reason});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnDeactivateAmendAsync(string riskCode, string docNumber, string reason) {
+            this.FnDeactivateAmendAsync(riskCode, docNumber, reason, null);
+        }
+        
+        /// <remarks/>
+        public void FnDeactivateAmendAsync(string riskCode, string docNumber, string reason, object userState) {
+            if ((this.FnDeactivateAmendOperationCompleted == null)) {
+                this.FnDeactivateAmendOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnDeactivateAmendOperationCompleted);
+            }
+            this.InvokeAsync("FnDeactivateAmend", new object[] {
+                        riskCode,
+                        docNumber,
+                        reason}, this.FnDeactivateAmendOperationCompleted, userState);
+        }
+        
+        private void OnFnDeactivateAmendOperationCompleted(object arg) {
+            if ((this.FnDeactivateAmendCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnDeactivateAmendCompleted(this, new FnDeactivateAmendCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewPolicyRenewaIndAgric", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewPolicyRenewaIndAgric_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnNewPolicyRenewaIndAgric(string contractNumber) {
+            object[] results = this.Invoke("FnNewPolicyRenewaIndAgric", new object[] {
+                        contractNumber});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyRenewaIndAgricAsync(string contractNumber) {
+            this.FnNewPolicyRenewaIndAgricAsync(contractNumber, null);
+        }
+        
+        /// <remarks/>
+        public void FnNewPolicyRenewaIndAgricAsync(string contractNumber, object userState) {
+            if ((this.FnNewPolicyRenewaIndAgricOperationCompleted == null)) {
+                this.FnNewPolicyRenewaIndAgricOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewPolicyRenewaIndAgricOperationCompleted);
+            }
+            this.InvokeAsync("FnNewPolicyRenewaIndAgric", new object[] {
+                        contractNumber}, this.FnNewPolicyRenewaIndAgricOperationCompleted, userState);
+        }
+        
+        private void OnFnNewPolicyRenewaIndAgricOperationCompleted(object arg) {
+            if ((this.FnNewPolicyRenewaIndAgricCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnNewPolicyRenewaIndAgricCompleted(this, new FnNewPolicyRenewaIndAgricCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:GeneratePayslip", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="GeneratePayslip_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GeneratePayslip(string employeeNumber, System.DateTime payPeriod) {
+            object[] results = this.Invoke("GeneratePayslip", new object[] {
+                        employeeNumber,
+                        payPeriod});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GeneratePayslipAsync(string employeeNumber, System.DateTime payPeriod) {
+            this.GeneratePayslipAsync(employeeNumber, payPeriod, null);
+        }
+        
+        /// <remarks/>
+        public void GeneratePayslipAsync(string employeeNumber, System.DateTime payPeriod, object userState) {
+            if ((this.GeneratePayslipOperationCompleted == null)) {
+                this.GeneratePayslipOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGeneratePayslipOperationCompleted);
+            }
+            this.InvokeAsync("GeneratePayslip", new object[] {
+                        employeeNumber,
+                        payPeriod}, this.GeneratePayslipOperationCompleted, userState);
+        }
+        
+        private void OnGeneratePayslipOperationCompleted(object arg) {
+            if ((this.GeneratePayslipCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GeneratePayslipCompleted(this, new GeneratePayslipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:GenerateP9", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="GenerateP9_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GenerateP9(string employeeNumber, System.DateTime startDate, System.DateTime endDate) {
+            object[] results = this.Invoke("GenerateP9", new object[] {
+                        employeeNumber,
+                        startDate,
+                        endDate});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GenerateP9Async(string employeeNumber, System.DateTime startDate, System.DateTime endDate) {
+            this.GenerateP9Async(employeeNumber, startDate, endDate, null);
+        }
+        
+        /// <remarks/>
+        public void GenerateP9Async(string employeeNumber, System.DateTime startDate, System.DateTime endDate, object userState) {
+            if ((this.GenerateP9OperationCompleted == null)) {
+                this.GenerateP9OperationCompleted = new System.Threading.SendOrPostCallback(this.OnGenerateP9OperationCompleted);
+            }
+            this.InvokeAsync("GenerateP9", new object[] {
+                        employeeNumber,
+                        startDate,
+                        endDate}, this.GenerateP9OperationCompleted, userState);
+        }
+        
+        private void OnGenerateP9OperationCompleted(object arg) {
+            if ((this.GenerateP9Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GenerateP9Completed(this, new GenerateP9CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:CreateIctRequest", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="CreateIctRequest_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateIctRequest(string empNo, string description, string category) {
+            object[] results = this.Invoke("CreateIctRequest", new object[] {
+                        empNo,
+                        description,
+                        category});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateIctRequestAsync(string empNo, string description, string category) {
+            this.CreateIctRequestAsync(empNo, description, category, null);
+        }
+        
+        /// <remarks/>
+        public void CreateIctRequestAsync(string empNo, string description, string category, object userState) {
+            if ((this.CreateIctRequestOperationCompleted == null)) {
+                this.CreateIctRequestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateIctRequestOperationCompleted);
+            }
+            this.InvokeAsync("CreateIctRequest", new object[] {
+                        empNo,
+                        description,
+                        category}, this.CreateIctRequestOperationCompleted, userState);
+        }
+        
+        private void OnCreateIctRequestOperationCompleted(object arg) {
+            if ((this.CreateIctRequestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateIctRequestCompleted(this, new CreateIctRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -6439,28 +6718,30 @@ namespace MajaniPortal.KYMCodeunit {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateKYMNewApkReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateKYMNewApkReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGenerateKYMNewApkReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime documentDate, string factoryName, string agentCode) {
+        public string FnGenerateKYMNewApkReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime documentDate, string factoryName, string agentCode, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime endDate) {
             object[] results = this.Invoke("FnGenerateKYMNewApkReport", new object[] {
                         documentDate,
                         factoryName,
-                        agentCode});
+                        agentCode,
+                        endDate});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode) {
-            this.FnGenerateKYMNewApkReportAsync(documentDate, factoryName, agentCode, null);
+        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode, System.DateTime endDate) {
+            this.FnGenerateKYMNewApkReportAsync(documentDate, factoryName, agentCode, endDate, null);
         }
         
         /// <remarks/>
-        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode, object userState) {
+        public void FnGenerateKYMNewApkReportAsync(System.DateTime documentDate, string factoryName, string agentCode, System.DateTime endDate, object userState) {
             if ((this.FnGenerateKYMNewApkReportOperationCompleted == null)) {
                 this.FnGenerateKYMNewApkReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateKYMNewApkReportOperationCompleted);
             }
             this.InvokeAsync("FnGenerateKYMNewApkReport", new object[] {
                         documentDate,
                         factoryName,
-                        agentCode}, this.FnGenerateKYMNewApkReportOperationCompleted, userState);
+                        agentCode,
+                        endDate}, this.FnGenerateKYMNewApkReportOperationCompleted, userState);
         }
         
         private void OnFnGenerateKYMNewApkReportOperationCompleted(object arg) {
@@ -6473,28 +6754,30 @@ namespace MajaniPortal.KYMCodeunit {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGenerateUpgradeReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGenerateUpgradeReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGenerateUpgradeReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode) {
+        public string FnGenerateUpgradeReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime endDate) {
             object[] results = this.Invoke("FnGenerateUpgradeReport", new object[] {
                         startDate,
                         factoryName,
-                        agentCode});
+                        agentCode,
+                        endDate});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode) {
-            this.FnGenerateUpgradeReportAsync(startDate, factoryName, agentCode, null);
+        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode, System.DateTime endDate) {
+            this.FnGenerateUpgradeReportAsync(startDate, factoryName, agentCode, endDate, null);
         }
         
         /// <remarks/>
-        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode, object userState) {
+        public void FnGenerateUpgradeReportAsync(System.DateTime startDate, string factoryName, string agentCode, System.DateTime endDate, object userState) {
             if ((this.FnGenerateUpgradeReportOperationCompleted == null)) {
                 this.FnGenerateUpgradeReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGenerateUpgradeReportOperationCompleted);
             }
             this.InvokeAsync("FnGenerateUpgradeReport", new object[] {
                         startDate,
                         factoryName,
-                        agentCode}, this.FnGenerateUpgradeReportOperationCompleted, userState);
+                        agentCode,
+                        endDate}, this.FnGenerateUpgradeReportOperationCompleted, userState);
         }
         
         private void OnFnGenerateUpgradeReportOperationCompleted(object arg) {
@@ -6507,28 +6790,30 @@ namespace MajaniPortal.KYMCodeunit {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnGeneratClaimReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnGeneratClaimReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnGeneratClaimReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode) {
+        public string FnGeneratClaimReport([System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime startDate, string factoryName, string agentCode, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime endDate) {
             object[] results = this.Invoke("FnGeneratClaimReport", new object[] {
                         startDate,
                         factoryName,
-                        agentCode});
+                        agentCode,
+                        endDate});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode) {
-            this.FnGeneratClaimReportAsync(startDate, factoryName, agentCode, null);
+        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode, System.DateTime endDate) {
+            this.FnGeneratClaimReportAsync(startDate, factoryName, agentCode, endDate, null);
         }
         
         /// <remarks/>
-        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode, object userState) {
+        public void FnGeneratClaimReportAsync(System.DateTime startDate, string factoryName, string agentCode, System.DateTime endDate, object userState) {
             if ((this.FnGeneratClaimReportOperationCompleted == null)) {
                 this.FnGeneratClaimReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnGeneratClaimReportOperationCompleted);
             }
             this.InvokeAsync("FnGeneratClaimReport", new object[] {
                         startDate,
                         factoryName,
-                        agentCode}, this.FnGeneratClaimReportOperationCompleted, userState);
+                        agentCode,
+                        endDate}, this.FnGeneratClaimReportOperationCompleted, userState);
         }
         
         private void OnFnGeneratClaimReportOperationCompleted(object arg) {
@@ -7127,6 +7412,188 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal FnGeneratreProfileCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnInsterAgricultureDetailsAmmendCompletedEventHandler(object sender, FnInsterAgricultureDetailsAmmendCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnInsterAgricultureDetailsAmmendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnInsterAgricultureDetailsAmmendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnRemoveRiskAmendCompletedEventHandler(object sender, FnRemoveRiskAmendCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnRemoveRiskAmendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnRemoveRiskAmendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnDeactivateAmendCompletedEventHandler(object sender, FnDeactivateAmendCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnDeactivateAmendCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnDeactivateAmendCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnNewPolicyRenewaIndAgricCompletedEventHandler(object sender, FnNewPolicyRenewaIndAgricCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnNewPolicyRenewaIndAgricCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnNewPolicyRenewaIndAgricCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GeneratePayslipCompletedEventHandler(object sender, GeneratePayslipCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GeneratePayslipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GeneratePayslipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GenerateP9CompletedEventHandler(object sender, GenerateP9CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GenerateP9CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GenerateP9CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateIctRequestCompletedEventHandler(object sender, CreateIctRequestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateIctRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateIctRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

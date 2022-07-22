@@ -20,6 +20,7 @@
                                         <th>Date Of Accident</th> 
                                         <th>Reason For Relisting</th>                                     
                                         <th style="background-color:cadetblue">Status</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                   <tbody>

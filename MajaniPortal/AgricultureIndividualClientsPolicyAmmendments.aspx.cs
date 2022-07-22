@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MajaniPortal
 {
@@ -91,7 +92,22 @@ namespace MajaniPortal
                     agentDetail.DataBind();
 
 
-                  
+                    var livestockDrop = nav.DisplaySheetItems.Where(r => r.Policy_Type == "AGRICULTURAL INSURANCE");
+                    livestock.DataSource = livestockDrop;
+                    livestock.DataTextField = "Item_Description";
+                    livestock.DataValueField = "Code";
+                    livestock.DataBind();
+                    livestock.Items.Insert(0, new ListItem("--select--", ""));
+
+                    var breedDrop = nav.breeds.ToList();
+                    Animalbreed.DataSource = breedDrop;
+                    Animalbreed.DataTextField = "Description";
+                    Animalbreed.DataValueField = "Code";
+                    Animalbreed.DataBind();
+                    Animalbreed.Items.Insert(0, new ListItem("--select--", ""));
+
+
+
 
 
 
@@ -135,16 +151,19 @@ namespace MajaniPortal
                                 txtlinkedin.Text = itemCustomer.LinkedIn;
                                 lblmaritalstatus.Text = item.Marital_Status;
                                 lbltitle.Text = item.Title;
-                               
-                                lblproduct.Text = item.Product;
+                                membertypes.Text = item.Policy_Business_Type;
+                                lblproducts.Text = item.Product;
                                 insurer.Text = item.Insurer;
-                                serviceperiod.Text = item.Service_Period;
+                                serviceperiod.Text = item.Service_Period;                                
                                
                             }
 
 
+
+
+
                         }
-                        string tpoduct = lblproduct.Text.Trim();
+                        string tpoduct = lblproducts.Text.Trim();
                         var MedicalSchedule = nav.MedicalSchedule.Where(x => x.Product_Code == tpoduct && x.Premium_TB_Options == "ADULT").ToList();
                         List<DropDownList> MedicalSchedulelist = new List<DropDownList>();
                         foreach (var item in MedicalSchedule)
@@ -306,7 +325,7 @@ namespace MajaniPortal
                 tpremiumrating = Convert.ToDecimal(premiumrating.Text.Trim());
             }
 
-            string product = lblproduct.SelectedValue.Trim();
+            string product = lblproducts.Text.Trim();
             if (product.Length < 1)
             {
                 flag = true;
@@ -368,7 +387,7 @@ namespace MajaniPortal
                 flag = true;
                 str = "Please enter your payment reference Code";
             }
-            string ttxtfinancier = txtfinancier.SelectedValue.Trim();
+          
 
             bool thasgrowerNo = false;
             int tgrowerapplicanttype = 0;
@@ -399,12 +418,7 @@ namespace MajaniPortal
                     {
                         if (tgrowerapplicanttype == 2)
                         {
-                            financier = txtfinancier.Text.Trim();
-                            if (financier.Length < 1)
-                            {
-                                flag = true;
-                                str = "Please fill all highlighted fields with *(Mandatory Fields)";
-                            }
+                           
 
                         }
                         else
@@ -436,11 +450,11 @@ namespace MajaniPortal
                 else
                 {
                     var documentsmodeofpayments = modeofpayments.SelectedValue.Trim();
-                    string ApplicationNumber = Request.QueryString["requisitionNo"].Trim();
+                    string ApplicationNumber = Request.QueryString["QuoteNo"].Trim();
                     ApplicationNumber = ApplicationNumber.Replace('/', '_');
                     ApplicationNumber = ApplicationNumber.Replace(':', '_');
                     string path1 = Config.FilesLocation() + "Agriculture Underwriting/";
-                    string rQuisitionNo = Request.QueryString["requisitionNo"];
+                    string rQuisitionNo = Request.QueryString["QuoteNo"];
                     string str1 = Convert.ToString(ApplicationNumber);
                     string folderName = path1 + str1 + "/";
                     bool error = false;
@@ -493,14 +507,15 @@ namespace MajaniPortal
 
 
 
-                    string docNo = this.Request.QueryString["requisitionNo"].Trim();
+                    string docNo = this.Request.QueryString["QuoteNo"].Trim();
+                    string tContractNo = Request.QueryString["ContractNo"].Trim();
                     var Applicant = Session["empNo"].ToString();
-                    var status = new Config().ObjNav().FnIndividualupdateAgriculturePolicyDetails(docNo, ttxtfinancier, product, tmodepayment, tAgentDetail, tpaymentRefCode, agentcode,
+                    var status = new Config().ObjNav().FnIndividualupdateAgriculturePolicyDetails(docNo, "", product, tmodepayment, tAgentDetail, tpaymentRefCode, agentcode,
                          tPolicyStartDate, tpymentOpt, tpremiumrating, tinsurer, hasbinder, tgrowerapplicanttype, tgrowerNumber, tfactoryCode, tfactoryName, thasgrowerNo);
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
-                        Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo + "&step=4" + "&product=" + product);
+                        Response.Redirect("AgricultureIndividualClientsPolicyAmmendments.aspx?QuoteNo=" + docNo + "&&step=4" + "&&product=" + product+ "&&ContractNo="+ tContractNo);
 
                     }
                     else
@@ -544,29 +559,19 @@ namespace MajaniPortal
             try
             {
 
-                var tprincipleName = "";
-                var tFirstName = "";
-                var tlastName = "";
-                string ApplicationNumber = Request.QueryString["requisitionNo"].Trim();
+                
+                string ApplicationNumber = Request.QueryString["QuoteNo"].Trim();
                 //string GrowerNumber = Request.QueryString["GrowerNumber"].Trim();
                 ApplicationNumber = ApplicationNumber.Replace('/', '_');
                 ApplicationNumber = ApplicationNumber.Replace(':', '_');
 
-                string rQuisitionNo = Request.QueryString["requisitionNo"];
-                string path1 = Config.FilesLocation() + "Agriculture Underwriting/";
+                string rQuisitionNo = Request.QueryString["QuoteNo"];
+                string path1 = Config.FilesLocation() + "Agriculture Amendments/";
                 string str1 = Convert.ToString(ApplicationNumber);
 
-                var nav = Config.ReturnNav();
-                var applications = nav.ClientApplicationQuery.Where(r => r.No == rQuisitionNo).ToList();
-                foreach (var principalname in applications)
-                {
-                    tFirstName = principalname.First_Name;
-                    tlastName = principalname.Last_Name;
-                }
-                tprincipleName = tFirstName + "_" + tlastName;
+                
 
-
-                string folderName = path1 + str1 + "_" + tprincipleName + "/";
+                string folderName = path1 + str1 + "/";
                 bool error = false;
                 string message = "";
                 try
@@ -583,14 +588,10 @@ namespace MajaniPortal
                             {
                                 Directory.CreateDirectory(folderName);
                             }
-                            //if (File.Exists(folderName + filename))
-                            //{
-                            //    File.Delete(folderName + filename);
-                            //}
+                            
                             filetoupload.SaveAs(folderName + filename);
-                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");
-                            //var Requisition = Request.QueryString["requisitionNo"].Trim();
-                            //var status = new Config().ObjNav().FnDocumentsValidations(Requisition, scannedcopy, depedantphoto);
+                            Config.navExtender.AddLinkToRecord("Agriculture Policy Amendment", rQuisitionNo, fullfileName, "");
+                          
 
                         }
                         else
@@ -633,7 +634,7 @@ namespace MajaniPortal
                             //    File.Delete(folderName + filename);
                             //}
                             guardianshipletter.SaveAs(folderName + filename);
-                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");
+                            Config.navExtender.AddLinkToRecord("Agriculture Policy Amendment", rQuisitionNo, fullfileName, "");
                         }
                         else
                         {
@@ -662,7 +663,7 @@ namespace MajaniPortal
                         string extension = System.IO.Path.GetExtension(guardianshipletter.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            string filename = "VetEvaluationReport " + extension;
+                            string filename = "idpassport " + extension;
                             string fullfileName = folderName + filename;
                             if (!Directory.Exists(folderName))
                             {
@@ -673,7 +674,7 @@ namespace MajaniPortal
                             //    File.Delete(folderName + filename);
                             //}
                             guardianshipletter.SaveAs(folderName + filename);
-                            Config.navExtender.AddLinkToRecord("Agriculture Ind Underwriting", rQuisitionNo, fullfileName, "");
+                            Config.navExtender.AddLinkToRecord("Agriculture Policy Amendment", rQuisitionNo, fullfileName, "");
                         }
                         else
                         {
@@ -690,9 +691,10 @@ namespace MajaniPortal
                 {
                     error = true;
                     message += message.Length > 0 ? "<br>" : "";
-                    message += "Kindly Upload the Vet Evaluation Report before you proceed" + ex;
+                    message += "Kindly Upload the document before you proceed" + ex;
 
                 }
+           
                 if (error)
                 {
                     documentsfeedback.InnerHtml = Config.GetAlert("danger", message);
@@ -830,11 +832,7 @@ namespace MajaniPortal
                             KTDAFARMERSlist.Add(code);
                         }
                     }
-                    txtfinancier.DataSource = KTDAFARMERSlist;
-                    txtfinancier.DataValueField = "Code";
-                    txtfinancier.DataTextField = "Name";
-                    txtfinancier.DataBind();
-                    txtfinancier.Items.Insert(0, "--Select Financier--");
+                    
                 }
             }
         }
@@ -854,7 +852,7 @@ namespace MajaniPortal
         {
             NAV nav = Config.ReturnNav();
 
-            var productDetails = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance" && x.No == lblproduct.SelectedValue);
+            var productDetails = nav.Items.Where(x => x.Policy_Type == "AGRICULTURAL INSURANCE" && x.Insurance_Item_type == "Insurance" && x.No == lblproducts.Text);
             foreach (var item in productDetails)
             {
                 insurer.Text = item.Insurer;
@@ -905,10 +903,10 @@ namespace MajaniPortal
                 string tearTag = earTag.Text.Trim();
                 string tAnimalbreed = Animalbreed.SelectedValue.Trim();
                 int tlivestocksex = Convert.ToInt32(livestocksex.SelectedValue.Trim());
-                Decimal tAge = Convert.ToDecimal(age.Text);
+                string tAge = age.Text;
                 string tmilkProd = milkProd.Text.Trim();
                 decimal tvalueInsured = Convert.ToDecimal(valueInsured.Text);
-                string docNo = Request.QueryString["requisitionNo"];
+                string docNo = Request.QueryString["QuoteNo"];
                 if (tNameOfAnimal.Length < 1)
                 {
                     error = true;
@@ -929,7 +927,7 @@ namespace MajaniPortal
                     error = true;
                     msg = "Please select breed";
                 }
-                if (tAge == 0)
+                if (tAge.Length < 1)
                 {
                     error = true;
                     msg = "Please enter age";
@@ -951,12 +949,12 @@ namespace MajaniPortal
                 else
                 {
                     string tproduct = Request.QueryString["product"];
-                    String status = new Config().ObjNav().FnInsterAgricultureDetails(docNo, tNameOfAnimal, tlivestock, tearTag, tAnimalbreed, tlivestocksex, tAge, tmilkProd, tvalueInsured, tproduct);
+                    String status = new Config().ObjNav().FnInsterAgricultureDetailsAmmend(docNo, tNameOfAnimal, tlivestock, tearTag, tAnimalbreed, tlivestocksex, tAge, tmilkProd, tvalueInsured, tproduct);
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
                         var nav = Config.ReturnNav();
-                        var Application = nav.ClientApplicationQuery.Where(x => x.No == docNo).ToList();
+                        var Application = nav.SalesHeader.Where(x => x.No == docNo).ToList();
                         foreach (var item in Application)
                         {
                             totalPremiums.Text = Convert.ToString(item.Total_Premiums);
@@ -988,17 +986,34 @@ namespace MajaniPortal
         protected void nextBtn_Click(object sender, EventArgs e)
         {
 
-            string docNo = Request.QueryString["requisitionNo"];
+            string docNo = Request.QueryString["QuoteNo"];
             string tproduct = Request.QueryString["product"];
-            Response.Redirect("RiskNoteProforma.aspx?requisitionNo=" + docNo + "&product=" + tproduct);
+            Response.Redirect("AgricultureIndividualClientsPolicyAmmendments.aspx?QuoteNo=" + docNo + "&step=5"+ "&product=" + tproduct);
         }
         protected void backtostep3_Click(object sender, EventArgs e)
         {
-            string docNo = Request.QueryString["requisitionNo"];
+            string docNo = Request.QueryString["QuoteNo"];
             string tproduct = Request.QueryString["product"];
-            Response.Redirect("AgricultureIndividualClientApplication.aspx?requisitionNo=" + docNo + "&step=3" + "&product=" + tproduct);
+            Response.Redirect("AgricultureIndividualClientsPolicyAmmendments.aspx?QuoteNo=" + docNo + "&step=3" + "&product=" + tproduct);
         }
 
+        protected void delit_Click(object sender, EventArgs e)
+        {
+            var tConditioncodetoRemove = removedependantCode.Text.Trim();
+            string docNo = Request.QueryString["QuoteNo"].Trim();
+            var Applicant = Session["empNo"].ToString();
+            var status = new Config().ObjNav().FnRemoveRiskAmend(tConditioncodetoRemove, docNo);
+            var res = status.Split('*');
+            if (res[0] == "success")
+            {
+                physicalLocations.InnerHtml = "<div class='alert alert-success'>" + res[1] + "</div>";
 
+            }
+            else
+            {
+                physicalLocations.InnerHtml = "<div class='alert alert-danger'>" + res[1] + "</div>";
+
+            }
+        }
     }
 }

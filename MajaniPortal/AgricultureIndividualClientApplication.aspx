@@ -477,7 +477,7 @@
                 </div>
                 <div class="col-md-6 col-lg-6" runat="server" id="financier">
                     <div class="form-group">
-                        <label>Financier</label><span class="text-danger" style="font-size: 25px">*</span>
+                        <label>Financier</label>
                         <asp:DropDownList CssClass="form-control select2" runat="server" ID="txtfinancier"></asp:DropDownList>
                     </div>
                 </div>
