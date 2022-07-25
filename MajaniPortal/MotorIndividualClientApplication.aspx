@@ -744,6 +744,15 @@
                                     </div>
                                 </div>
                             </div>
+                              <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label>Licensed to carry<span class="text-danger" style="font-size: 25px">*</span></label>
+                                        <asp:TextBox CssClass="form-control" runat="server" TextMode="Number" ID="licensedToCarry" ></asp:TextBox>
+                                    </div>
+                                </div>
+                         
+                            </div>
                          <div runat="server" id="divlatestevaluationreport">
                            <div class="row">
                            <div class="col-md-12 col-lg-12">

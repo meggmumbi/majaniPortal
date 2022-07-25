@@ -16,11 +16,11 @@ namespace MajaniPortal
 
                 //var nav = Config.ReturnNav();
                 //var Tcontact = nav.ClientApplicationQuery.Where(r => r.Agent_Salespersons_Code == Convert.ToString(Session["empNo"]));
+                factoryName.Text = Convert.ToString(Session["factoryCode"]);
 
-              
 
 
-               
+
             }
 
         }
@@ -45,18 +45,18 @@ namespace MajaniPortal
             DateTime exactend = Convert.ToDateTime(endD);
 
             var nav = Config.ReturnNav();
-            var Tcontact = nav.ClientApplicationQuery.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Document_Date == exact).ToList();
-            if (Tcontact.Count < 1)
-            {
-                Error = true;
-                feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exact + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-            var Tcontactend = nav.InsuranceClaims.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Date_Created == exactend).ToList();
-            if (Tcontactend.Count < 1)
-            {
-                Error = true;
-                feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exactend + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
+            //var Tcontact = nav.ClientApplicationQuery.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Document_Date == exact).ToList();
+            //if (Tcontact.Count < 1)
+            //{
+            //    Error = true;
+            //    feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exact + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //}
+            //var Tcontactend = nav.InsuranceClaims.Where(r => r.Requestor == Convert.ToString(Session["empNo"]) && r.Date_Created == exactend).ToList();
+            //if (Tcontactend.Count < 1)
+            //{
+            //    Error = true;
+            //    feedback.InnerHtml = "<div class='alert alert-danger'>There is no application made on this date" + exactend + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //}
             string tfactoryName = factoryName.Text;
             if (tfactoryName.Length < 1)
             {

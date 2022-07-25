@@ -31,12 +31,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-6">
-                        <div class="form-group">
-                            <label>Factory Name</label>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="TextBox1"></asp:TextBox>
-                        </div>
-                    </div>
+          
 
                     <div class="col-md-6 col-lg-6">
                         <div class="form-group">

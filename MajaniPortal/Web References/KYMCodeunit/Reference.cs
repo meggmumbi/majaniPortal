@@ -49,6 +49,10 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback CreateIctRequestOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LeaveApplicationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendRecordForApprovalOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -354,6 +358,12 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event CreateIctRequestCompletedEventHandler CreateIctRequestCompleted;
+        
+        /// <remarks/>
+        public event LeaveApplicationCompletedEventHandler LeaveApplicationCompleted;
+        
+        /// <remarks/>
+        public event SendRecordForApprovalCompletedEventHandler SendRecordForApprovalCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -1048,6 +1058,90 @@ namespace MajaniPortal.KYMCodeunit {
             if ((this.CreateIctRequestCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreateIctRequestCompleted(this, new CreateIctRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:LeaveApplication", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="LeaveApplication_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string LeaveApplication(string leaveNo, string employeeNumber, string leaveType, int annualLeaveType, int daysApplied, System.DateTime lStartDate, string phoneNumber, string emailAddress, string examdetails, System.DateTime dateOfExam, int previousAttempts) {
+            object[] results = this.Invoke("LeaveApplication", new object[] {
+                        leaveNo,
+                        employeeNumber,
+                        leaveType,
+                        annualLeaveType,
+                        daysApplied,
+                        lStartDate,
+                        phoneNumber,
+                        emailAddress,
+                        examdetails,
+                        dateOfExam,
+                        previousAttempts});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LeaveApplicationAsync(string leaveNo, string employeeNumber, string leaveType, int annualLeaveType, int daysApplied, System.DateTime lStartDate, string phoneNumber, string emailAddress, string examdetails, System.DateTime dateOfExam, int previousAttempts) {
+            this.LeaveApplicationAsync(leaveNo, employeeNumber, leaveType, annualLeaveType, daysApplied, lStartDate, phoneNumber, emailAddress, examdetails, dateOfExam, previousAttempts, null);
+        }
+        
+        /// <remarks/>
+        public void LeaveApplicationAsync(string leaveNo, string employeeNumber, string leaveType, int annualLeaveType, int daysApplied, System.DateTime lStartDate, string phoneNumber, string emailAddress, string examdetails, System.DateTime dateOfExam, int previousAttempts, object userState) {
+            if ((this.LeaveApplicationOperationCompleted == null)) {
+                this.LeaveApplicationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLeaveApplicationOperationCompleted);
+            }
+            this.InvokeAsync("LeaveApplication", new object[] {
+                        leaveNo,
+                        employeeNumber,
+                        leaveType,
+                        annualLeaveType,
+                        daysApplied,
+                        lStartDate,
+                        phoneNumber,
+                        emailAddress,
+                        examdetails,
+                        dateOfExam,
+                        previousAttempts}, this.LeaveApplicationOperationCompleted, userState);
+        }
+        
+        private void OnLeaveApplicationOperationCompleted(object arg) {
+            if ((this.LeaveApplicationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LeaveApplicationCompleted(this, new LeaveApplicationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:SendRecordForApproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="SendRecordForApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string SendRecordForApproval(string employeeNo, string recordNo, string recordType) {
+            object[] results = this.Invoke("SendRecordForApproval", new object[] {
+                        employeeNo,
+                        recordNo,
+                        recordType});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SendRecordForApprovalAsync(string employeeNo, string recordNo, string recordType) {
+            this.SendRecordForApprovalAsync(employeeNo, recordNo, recordType, null);
+        }
+        
+        /// <remarks/>
+        public void SendRecordForApprovalAsync(string employeeNo, string recordNo, string recordType, object userState) {
+            if ((this.SendRecordForApprovalOperationCompleted == null)) {
+                this.SendRecordForApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendRecordForApprovalOperationCompleted);
+            }
+            this.InvokeAsync("SendRecordForApproval", new object[] {
+                        employeeNo,
+                        recordNo,
+                        recordType}, this.SendRecordForApprovalOperationCompleted, userState);
+        }
+        
+        private void OnSendRecordForApprovalOperationCompleted(object arg) {
+            if ((this.SendRecordForApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendRecordForApprovalCompleted(this, new SendRecordForApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3492,7 +3586,7 @@ namespace MajaniPortal.KYMCodeunit {
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:FnNewMotorIndividualPolicyRiskDetails" +
             "", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="FnNewMotorIndividualPolicyRiskDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string FnNewMotorIndividualPolicyRiskDetails(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium) {
+        public string FnNewMotorIndividualPolicyRiskDetails(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium, int licensedtocarry) {
             object[] results = this.Invoke("FnNewMotorIndividualPolicyRiskDetails", new object[] {
                         docNo,
                         texcesspotector,
@@ -3500,17 +3594,18 @@ namespace MajaniPortal.KYMCodeunit {
                         nonRenewable,
                         rate,
                         txtvalued,
-                        basicpremium});
+                        basicpremium,
+                        licensedtocarry});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium) {
-            this.FnNewMotorIndividualPolicyRiskDetailsAsync(docNo, texcesspotector, registrationNo, nonRenewable, rate, txtvalued, basicpremium, null);
+        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium, int licensedtocarry) {
+            this.FnNewMotorIndividualPolicyRiskDetailsAsync(docNo, texcesspotector, registrationNo, nonRenewable, rate, txtvalued, basicpremium, licensedtocarry, null);
         }
         
         /// <remarks/>
-        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium, object userState) {
+        public void FnNewMotorIndividualPolicyRiskDetailsAsync(string docNo, decimal texcesspotector, string registrationNo, bool nonRenewable, decimal rate, bool txtvalued, decimal basicpremium, int licensedtocarry, object userState) {
             if ((this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted == null)) {
                 this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnNewMotorIndividualPolicyRiskDetailsOperationCompleted);
             }
@@ -3521,7 +3616,8 @@ namespace MajaniPortal.KYMCodeunit {
                         nonRenewable,
                         rate,
                         txtvalued,
-                        basicpremium}, this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted, userState);
+                        basicpremium,
+                        licensedtocarry}, this.FnNewMotorIndividualPolicyRiskDetailsOperationCompleted, userState);
         }
         
         private void OnFnNewMotorIndividualPolicyRiskDetailsOperationCompleted(object arg) {
@@ -7594,6 +7690,58 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal CreateIctRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void LeaveApplicationCompletedEventHandler(object sender, LeaveApplicationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LeaveApplicationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LeaveApplicationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void SendRecordForApprovalCompletedEventHandler(object sender, SendRecordForApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SendRecordForApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SendRecordForApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

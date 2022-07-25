@@ -44,10 +44,12 @@ namespace MajaniPortal
                         string idNumber = user.ID_Number;
                         string userName = user.User_Name;
                         string address = user.Address;
+                        Session["employeeNo"] = user.Employee_No;
                         Session["empNo"] = user.Employee_No;
                         Session["Profile"] = user.Profiles;
                         Session["Role"] = user.Record_Type;
                         Session["name"] = user.First_Name + "  " + user.Middle_Name + "  " + user.Last_Name;
+                        Session["factoryCode"] = user.Factory_Code;
                         Response.Redirect("Default.aspx");
                     }
                 }
@@ -57,9 +59,11 @@ namespace MajaniPortal
                 {
                     foreach (var user in majaniportalusers1)
                     {
+                        Session["employeeNo"] = user.Employee_No;
                         Session["empNo"] = user.Member_No;
                         Session["name"] = user.First_Name + " " + user.Middle_Name + " " + user.Last_Name;
                         Session["Role"] = user.Record_Type;
+                        Session["factoryCode"] = user.Factory_Code;
                         Response.Redirect("MemberDashboard.aspx");
 
                     }

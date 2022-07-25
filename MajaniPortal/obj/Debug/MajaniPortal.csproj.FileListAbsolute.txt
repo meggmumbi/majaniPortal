@@ -503,3 +503,4 @@ D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hans\System.Spatial.reso
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\bin\zh-Hant\System.Spatial.resources.dll
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.dll
 D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.pdb
+D:\C#projects\Clients\MAJANI\kym-v9\MajaniPortal\obj\Debug\MajaniPortal.csprojResolveAssemblyReference.cache

@@ -40,6 +40,15 @@ namespace MajaniPortal {
         protected global::System.Web.UI.WebControls.TextBox Description;
         
         /// <summary>
+        /// document control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload document;
+        
+        /// <summary>
         /// addICTHelpDeskRequest control.
         /// </summary>
         /// <remarks>

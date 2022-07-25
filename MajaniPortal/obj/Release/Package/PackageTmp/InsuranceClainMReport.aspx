@@ -12,7 +12,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <i class="icon-file"></i>
-          KYM Claims Report
+             KYM Claims Report
             </div>
             <!-- /widget-header -->
             <div class="panel-body">

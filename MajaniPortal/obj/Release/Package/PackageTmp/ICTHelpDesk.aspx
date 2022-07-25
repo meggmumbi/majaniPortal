@@ -24,9 +24,18 @@
                 <strong>Description:</strong>
                 <asp:TextBox runat="server" ID="Description" CssClass="form-control" placeholder="Description" TextMode="MultiLine" required/>
             </div>
+
             
             </div>    
       </div>
+                  <div class="row">
+                    <div class="col-md-6 col-lg-12">
+                        <div class="form-group">
+                            <label>Upload document</label><span class="text-danger" style="font-size: 25px">*</span>
+                            <asp:FileUpload runat="server" CssClass="form-control" ID="document" />
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-success pull-left" Text="Send Request

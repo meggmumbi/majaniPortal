@@ -161,6 +161,46 @@
           </sequence>
         </complexType>
       </element>
+      <element name="LeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="leaveNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="annualLeaveType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="daysApplied" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lStartDate" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="phoneNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emailAddress" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="examdetails" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateOfExam" type="dateTime" />
+            <element minOccurs="1" maxOccurs="1" name="previousAttempts" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendRecordForApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="recordNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="recordType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendRecordForApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -978,6 +1018,7 @@
             <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="txtvalued" type="boolean" />
             <element minOccurs="1" maxOccurs="1" name="basicpremium" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="licensedtocarry" type="int" />
           </sequence>
         </complexType>
       </element>
@@ -2623,6 +2664,18 @@
   <message name="CreateIctRequest_Result">
     <part name="parameters" element="tns:CreateIctRequest_Result" />
   </message>
+  <message name="LeaveApplication">
+    <part name="parameters" element="tns:LeaveApplication" />
+  </message>
+  <message name="LeaveApplication_Result">
+    <part name="parameters" element="tns:LeaveApplication_Result" />
+  </message>
+  <message name="SendRecordForApproval">
+    <part name="parameters" element="tns:SendRecordForApproval" />
+  </message>
+  <message name="SendRecordForApproval_Result">
+    <part name="parameters" element="tns:SendRecordForApproval_Result" />
+  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -3378,6 +3431,14 @@
       <input name="CreateIctRequest" message="tns:CreateIctRequest" />
       <output name="CreateIctRequest_Result" message="tns:CreateIctRequest_Result" />
     </operation>
+    <operation name="LeaveApplication">
+      <input name="LeaveApplication" message="tns:LeaveApplication" />
+      <output name="LeaveApplication_Result" message="tns:LeaveApplication_Result" />
+    </operation>
+    <operation name="SendRecordForApproval">
+      <input name="SendRecordForApproval" message="tns:SendRecordForApproval" />
+      <output name="SendRecordForApproval_Result" message="tns:SendRecordForApproval_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -3944,6 +4005,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="CreateIctRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:LeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendRecordForApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:SendRecordForApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendRecordForApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendRecordForApproval_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

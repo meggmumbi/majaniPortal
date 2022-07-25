@@ -404,6 +404,9 @@
     <Content Include="KYMPolicyAmendments.aspx" />
     <Content Include="KymUpgradeReport.aspx" />
     <Content Include="KYMWithdrawalForm.aspx" />
+    <Content Include="leave.aspx" />
+    <Content Include="leaveapplication.aspx" />
+    <Content Include="leavebalances.aspx" />
     <Content Include="LifePolicies.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginAssets\images\download.png" />
@@ -952,6 +955,27 @@
     </Compile>
     <Compile Include="KYMWithdrawalForm.aspx.designer.cs">
       <DependentUpon>KYMWithdrawalForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="leave.aspx.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="leave.aspx.designer.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="leaveapplication.aspx.cs">
+      <DependentUpon>leaveapplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="leaveapplication.aspx.designer.cs">
+      <DependentUpon>leaveapplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="leavebalances.aspx.cs">
+      <DependentUpon>leavebalances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="leavebalances.aspx.designer.cs">
+      <DependentUpon>leavebalances.aspx</DependentUpon>
     </Compile>
     <Compile Include="LifePolicies.aspx.cs">
       <DependentUpon>LifePolicies.aspx</DependentUpon>

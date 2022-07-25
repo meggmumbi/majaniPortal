@@ -123,6 +123,28 @@
                             <a href="http://192.168.101.252:8086/Dashboard.aspx">
                                 <i class="fa fa-th"></i><span>Employees Self Service</span>
                             </a>
+                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Human Resources Services</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-laptop"></i>
+                                        <span>Leave Management</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="leaveapplication.aspx">New Leave Application</a></li>
+                                        <li><a href="leave.aspx">Open Leave Applications</a></li>
+                                        <li><a href="leavebalances.aspx">Leave Balances</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">

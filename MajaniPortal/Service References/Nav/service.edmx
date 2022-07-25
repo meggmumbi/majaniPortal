@@ -2041,6 +2041,7 @@
         <Property Name="Region_Code" Type="Edm.String" />
         <Property Name="ICT_Help_Desk_Admin" Type="Edm.DateTime" />
         <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Factory_Code" Type="Edm.String" />
         <Property Name="Region" Type="Edm.String" />
         <Property Name="fName" Type="Edm.String" />
         <Property Name="mName" Type="Edm.String" />

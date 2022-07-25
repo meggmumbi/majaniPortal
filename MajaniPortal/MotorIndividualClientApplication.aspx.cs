@@ -577,6 +577,12 @@ namespace MajaniPortal
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields), Registration Number";
             }
+            string tlicensedToCarry = licensedToCarry.Text.Trim();
+            if (tlicensedToCarry.Length < 1)
+            {
+                flag = true;
+                str = "Please fill all highlighted fields with *(Mandatory Fields), Licensed to carry";
+            }
 
             Decimal rate = Convert.ToDecimal(txtrate.Text.Trim());
             if (rate < 1)
@@ -615,11 +621,7 @@ namespace MajaniPortal
                 basicpremiums = Convert.ToDecimal(txtbasicpremiums.Text.Trim());
             }
             string tcertificateNo = certificateNo.Text.Trim();
-            //if (tcertificateNo.Length < 1)
-            //{
-            //    flag = true;
-            //    str = "Please fill all highlighted fields with *(Mandatory Fields)";
-            //}
+   
             try
             {
                 if (flag)
@@ -656,7 +658,7 @@ namespace MajaniPortal
                         //}
                     }
                    
-                    var status = new Config().ObjNav().FnNewMotorIndividualPolicyRiskDetails(docNo ,tttxtprotector, registrationNo, tbolnonerenewable, rate, tbolvalued, basicpremiums);
+                    var status = new Config().ObjNav().FnNewMotorIndividualPolicyRiskDetails(docNo ,tttxtprotector, registrationNo, tbolnonerenewable, rate, tbolvalued, basicpremiums, Convert.ToInt32(tlicensedToCarry));
                     var res = status.Split('*');
                     if (res[0] == "success")
                     {
