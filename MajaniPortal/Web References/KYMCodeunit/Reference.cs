@@ -53,6 +53,14 @@ namespace MajaniPortal.KYMCodeunit {
         
         private System.Threading.SendOrPostCallback SendRecordForApprovalOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CreateWelfareRequestOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateWelfareBenefitRequestOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateWelfareMembershipOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RequestWelfareBenefitOperationCompleted;
+        
         private System.Threading.SendOrPostCallback NewClientOnboadingRequestsOperationCompleted;
         
         private System.Threading.SendOrPostCallback FnewClientOnboadingRequestsOperationCompleted;
@@ -364,6 +372,18 @@ namespace MajaniPortal.KYMCodeunit {
         
         /// <remarks/>
         public event SendRecordForApprovalCompletedEventHandler SendRecordForApprovalCompleted;
+        
+        /// <remarks/>
+        public event CreateWelfareRequestCompletedEventHandler CreateWelfareRequestCompleted;
+        
+        /// <remarks/>
+        public event CreateWelfareBenefitRequestCompletedEventHandler CreateWelfareBenefitRequestCompleted;
+        
+        /// <remarks/>
+        public event CreateWelfareMembershipCompletedEventHandler CreateWelfareMembershipCompleted;
+        
+        /// <remarks/>
+        public event RequestWelfareBenefitCompletedEventHandler RequestWelfareBenefitCompleted;
         
         /// <remarks/>
         public event NewClientOnboadingRequestsCompletedEventHandler NewClientOnboadingRequestsCompleted;
@@ -1142,6 +1162,146 @@ namespace MajaniPortal.KYMCodeunit {
             if ((this.SendRecordForApprovalCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SendRecordForApprovalCompleted(this, new SendRecordForApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareRequest", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="CreateWelfareRequest_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateWelfareRequest(string empNo, string description, int mType, string docNo) {
+            object[] results = this.Invoke("CreateWelfareRequest", new object[] {
+                        empNo,
+                        description,
+                        mType,
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareRequestAsync(string empNo, string description, int mType, string docNo) {
+            this.CreateWelfareRequestAsync(empNo, description, mType, docNo, null);
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareRequestAsync(string empNo, string description, int mType, string docNo, object userState) {
+            if ((this.CreateWelfareRequestOperationCompleted == null)) {
+                this.CreateWelfareRequestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateWelfareRequestOperationCompleted);
+            }
+            this.InvokeAsync("CreateWelfareRequest", new object[] {
+                        empNo,
+                        description,
+                        mType,
+                        docNo}, this.CreateWelfareRequestOperationCompleted, userState);
+        }
+        
+        private void OnCreateWelfareRequestOperationCompleted(object arg) {
+            if ((this.CreateWelfareRequestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateWelfareRequestCompleted(this, new CreateWelfareRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareBenefitRequest", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="CreateWelfareBenefitRequest_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateWelfareBenefitRequest(string empNo, string description, string docNo) {
+            object[] results = this.Invoke("CreateWelfareBenefitRequest", new object[] {
+                        empNo,
+                        description,
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareBenefitRequestAsync(string empNo, string description, string docNo) {
+            this.CreateWelfareBenefitRequestAsync(empNo, description, docNo, null);
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareBenefitRequestAsync(string empNo, string description, string docNo, object userState) {
+            if ((this.CreateWelfareBenefitRequestOperationCompleted == null)) {
+                this.CreateWelfareBenefitRequestOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateWelfareBenefitRequestOperationCompleted);
+            }
+            this.InvokeAsync("CreateWelfareBenefitRequest", new object[] {
+                        empNo,
+                        description,
+                        docNo}, this.CreateWelfareBenefitRequestOperationCompleted, userState);
+        }
+        
+        private void OnCreateWelfareBenefitRequestOperationCompleted(object arg) {
+            if ((this.CreateWelfareBenefitRequestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateWelfareBenefitRequestCompleted(this, new CreateWelfareBenefitRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareMembership", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="CreateWelfareMembership_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateWelfareMembership(string welfareNo, string raisedBy, string tDescription) {
+            object[] results = this.Invoke("CreateWelfareMembership", new object[] {
+                        welfareNo,
+                        raisedBy,
+                        tDescription});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareMembershipAsync(string welfareNo, string raisedBy, string tDescription) {
+            this.CreateWelfareMembershipAsync(welfareNo, raisedBy, tDescription, null);
+        }
+        
+        /// <remarks/>
+        public void CreateWelfareMembershipAsync(string welfareNo, string raisedBy, string tDescription, object userState) {
+            if ((this.CreateWelfareMembershipOperationCompleted == null)) {
+                this.CreateWelfareMembershipOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateWelfareMembershipOperationCompleted);
+            }
+            this.InvokeAsync("CreateWelfareMembership", new object[] {
+                        welfareNo,
+                        raisedBy,
+                        tDescription}, this.CreateWelfareMembershipOperationCompleted, userState);
+        }
+        
+        private void OnCreateWelfareMembershipOperationCompleted(object arg) {
+            if ((this.CreateWelfareMembershipCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateWelfareMembershipCompleted(this, new CreateWelfareMembershipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/KYM:RequestWelfareBenefit", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", ResponseElementName="RequestWelfareBenefit_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/KYM", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string RequestWelfareBenefit(string benefitNo, string raisedBy, int welfareCode, string tDescription) {
+            object[] results = this.Invoke("RequestWelfareBenefit", new object[] {
+                        benefitNo,
+                        raisedBy,
+                        welfareCode,
+                        tDescription});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RequestWelfareBenefitAsync(string benefitNo, string raisedBy, int welfareCode, string tDescription) {
+            this.RequestWelfareBenefitAsync(benefitNo, raisedBy, welfareCode, tDescription, null);
+        }
+        
+        /// <remarks/>
+        public void RequestWelfareBenefitAsync(string benefitNo, string raisedBy, int welfareCode, string tDescription, object userState) {
+            if ((this.RequestWelfareBenefitOperationCompleted == null)) {
+                this.RequestWelfareBenefitOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRequestWelfareBenefitOperationCompleted);
+            }
+            this.InvokeAsync("RequestWelfareBenefit", new object[] {
+                        benefitNo,
+                        raisedBy,
+                        welfareCode,
+                        tDescription}, this.RequestWelfareBenefitOperationCompleted, userState);
+        }
+        
+        private void OnRequestWelfareBenefitOperationCompleted(object arg) {
+            if ((this.RequestWelfareBenefitCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RequestWelfareBenefitCompleted(this, new RequestWelfareBenefitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -7742,6 +7902,110 @@ namespace MajaniPortal.KYMCodeunit {
         private object[] results;
         
         internal SendRecordForApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateWelfareRequestCompletedEventHandler(object sender, CreateWelfareRequestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateWelfareRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateWelfareRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateWelfareBenefitRequestCompletedEventHandler(object sender, CreateWelfareBenefitRequestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateWelfareBenefitRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateWelfareBenefitRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateWelfareMembershipCompletedEventHandler(object sender, CreateWelfareMembershipCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateWelfareMembershipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateWelfareMembershipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void RequestWelfareBenefitCompletedEventHandler(object sender, RequestWelfareBenefitCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RequestWelfareBenefitCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RequestWelfareBenefitCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

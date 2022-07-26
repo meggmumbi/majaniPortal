@@ -178,10 +178,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:32:03</publishTime>
     </File>
     <File Include="bin/MajaniPortal.dll">
-      <publishTime>07/25/2022 12:39:00</publishTime>
+      <publishTime>07/26/2022 17:49:40</publishTime>
     </File>
     <File Include="bin/MajaniPortal.XmlSerializers.dll">
-      <publishTime>07/25/2022 12:39:05</publishTime>
+      <publishTime>07/26/2022 17:49:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>02/16/2022 15:32:01</publishTime>
@@ -341,6 +341,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="ClientProfile.aspx">
       <publishTime>07/07/2022 13:00:20</publishTime>
+    </File>
+    <File Include="ClosedWelfareBenefit.aspx">
+      <publishTime>07/26/2022 11:44:25</publishTime>
+    </File>
+    <File Include="ClosedWelfareMembership.aspx">
+      <publishTime>07/26/2022 11:29:08</publishTime>
     </File>
     <File Include="CompanyProfile.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -1077,6 +1083,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="OpenMemberClaimNotifications.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
+    <File Include="OpenWelfareBenefit.aspx">
+      <publishTime>07/26/2022 11:43:00</publishTime>
+    </File>
+    <File Include="OpenWelfareMembership.aspx">
+      <publishTime>07/26/2022 11:27:09</publishTime>
+    </File>
     <File Include="OurProducts.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
@@ -1438,7 +1450,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2022 10:43:52</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>07/25/2022 11:12:28</publishTime>
+      <publishTime>07/26/2022 11:17:21</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -1457,6 +1469,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Web.config">
       <publishTime>07/25/2022 12:39:11</publishTime>
+    </File>
+    <File Include="WelfareBenefit.aspx">
+      <publishTime>07/26/2022 11:35:26</publishTime>
+    </File>
+    <File Include="WelfareMembership.aspx">
+      <publishTime>07/26/2022 11:25:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -99,6 +99,9 @@ namespace MajaniPortal
                                                 document.SaveAs(filename);
                                                 if (File.Exists(filename))
                                                 {
+
+                                                    Config.navExtender.AddLinkToRecord("ICT HelpdeskAllocation", imprestNo, filename, "");
+
                                                     ictFeedback.InnerHtml =
                                                         "<div class='alert alert-success'>The document was successfully uploaded. <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                                                 }
@@ -140,7 +143,7 @@ namespace MajaniPortal
                         ictFeedback.InnerHtml = "<div class='alert alert-success'> '" + info[1] + "' <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
                         ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                        "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
+                        "setTimeout(function() { window.location.replace('Default.aspx') }, 5000);", true);
                     }
                     else
                     {

@@ -199,6 +199,8 @@
     <Content Include="AllPolicies.aspx" />
     <Content Include="AllPolicyAmmendments.aspx" />
     <Content Include="ClientProfile.aspx" />
+    <Content Include="ClosedWelfareBenefit.aspx" />
+    <Content Include="ClosedWelfareMembership.aspx" />
     <Content Include="CompanyProfile.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -383,6 +385,10 @@
     <Content Include="Error\fonts\fontawesome-webfont.woff" />
     <Content Include="Error\fonts\fontawesome-webfont.woff2" />
     <Content Include="Error\fonts\FontAwesome.otf" />
+    <Content Include="OpenWelfareBenefit.aspx" />
+    <Content Include="OpenWelfareMembership.aspx" />
+    <Content Include="WelfareBenefit.aspx" />
+    <Content Include="WelfareMembership.aspx" />
     <None Include="Properties\PublishProfiles\MajaniKYMPortal.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -790,6 +796,20 @@
     <Compile Include="ClientProfile.aspx.designer.cs">
       <DependentUpon>ClientProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClosedWelfareBenefit.aspx.cs">
+      <DependentUpon>ClosedWelfareBenefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClosedWelfareBenefit.aspx.designer.cs">
+      <DependentUpon>ClosedWelfareBenefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClosedWelfareMembership.aspx.cs">
+      <DependentUpon>ClosedWelfareMembership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClosedWelfareMembership.aspx.designer.cs">
+      <DependentUpon>ClosedWelfareMembership.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CompanyProfile.aspx.cs">
       <DependentUpon>CompanyProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -841,6 +861,7 @@
       <DependentUpon>DependantConditons.aspx</DependentUpon>
     </Compile>
     <Compile Include="DropDownList.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="FarmersFinancier.aspx.cs">
       <DependentUpon>FarmersFinancier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1223,6 +1244,20 @@
     <Compile Include="OpenMemberClaimNotifications.aspx.designer.cs">
       <DependentUpon>OpenMemberClaimNotifications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OpenWelfareBenefit.aspx.cs">
+      <DependentUpon>OpenWelfareBenefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenWelfareBenefit.aspx.designer.cs">
+      <DependentUpon>OpenWelfareBenefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenWelfareMembership.aspx.cs">
+      <DependentUpon>OpenWelfareMembership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenWelfareMembership.aspx.designer.cs">
+      <DependentUpon>OpenWelfareMembership.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OurProducts.aspx.cs">
       <DependentUpon>OurProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1358,6 +1393,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WelfareBenefit.aspx.cs">
+      <DependentUpon>WelfareBenefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WelfareBenefit.aspx.designer.cs">
+      <DependentUpon>WelfareBenefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelfareMembership.aspx.cs">
+      <DependentUpon>WelfareMembership.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WelfareMembership.aspx.designer.cs">
+      <DependentUpon>WelfareMembership.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

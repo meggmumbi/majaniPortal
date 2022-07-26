@@ -201,6 +201,72 @@
           </sequence>
         </complexType>
       </element>
+      <element name="CreateWelfareRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="mType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateWelfareRequest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateWelfareBenefitRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateWelfareBenefitRequest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateWelfareMembership">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="welfareNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="raisedBy" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateWelfareMembership_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestWelfareBenefit">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="benefitNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="raisedBy" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="welfareCode" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="tDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestWelfareBenefit_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="NewClientOnboadingRequests">
         <complexType>
           <sequence>
@@ -2676,6 +2742,30 @@
   <message name="SendRecordForApproval_Result">
     <part name="parameters" element="tns:SendRecordForApproval_Result" />
   </message>
+  <message name="CreateWelfareRequest">
+    <part name="parameters" element="tns:CreateWelfareRequest" />
+  </message>
+  <message name="CreateWelfareRequest_Result">
+    <part name="parameters" element="tns:CreateWelfareRequest_Result" />
+  </message>
+  <message name="CreateWelfareBenefitRequest">
+    <part name="parameters" element="tns:CreateWelfareBenefitRequest" />
+  </message>
+  <message name="CreateWelfareBenefitRequest_Result">
+    <part name="parameters" element="tns:CreateWelfareBenefitRequest_Result" />
+  </message>
+  <message name="CreateWelfareMembership">
+    <part name="parameters" element="tns:CreateWelfareMembership" />
+  </message>
+  <message name="CreateWelfareMembership_Result">
+    <part name="parameters" element="tns:CreateWelfareMembership_Result" />
+  </message>
+  <message name="RequestWelfareBenefit">
+    <part name="parameters" element="tns:RequestWelfareBenefit" />
+  </message>
+  <message name="RequestWelfareBenefit_Result">
+    <part name="parameters" element="tns:RequestWelfareBenefit_Result" />
+  </message>
   <message name="NewClientOnboadingRequests">
     <part name="parameters" element="tns:NewClientOnboadingRequests" />
   </message>
@@ -3439,6 +3529,22 @@
       <input name="SendRecordForApproval" message="tns:SendRecordForApproval" />
       <output name="SendRecordForApproval_Result" message="tns:SendRecordForApproval_Result" />
     </operation>
+    <operation name="CreateWelfareRequest">
+      <input name="CreateWelfareRequest" message="tns:CreateWelfareRequest" />
+      <output name="CreateWelfareRequest_Result" message="tns:CreateWelfareRequest_Result" />
+    </operation>
+    <operation name="CreateWelfareBenefitRequest">
+      <input name="CreateWelfareBenefitRequest" message="tns:CreateWelfareBenefitRequest" />
+      <output name="CreateWelfareBenefitRequest_Result" message="tns:CreateWelfareBenefitRequest_Result" />
+    </operation>
+    <operation name="CreateWelfareMembership">
+      <input name="CreateWelfareMembership" message="tns:CreateWelfareMembership" />
+      <output name="CreateWelfareMembership_Result" message="tns:CreateWelfareMembership_Result" />
+    </operation>
+    <operation name="RequestWelfareBenefit">
+      <input name="RequestWelfareBenefit" message="tns:RequestWelfareBenefit" />
+      <output name="RequestWelfareBenefit_Result" message="tns:RequestWelfareBenefit_Result" />
+    </operation>
     <operation name="NewClientOnboadingRequests">
       <input name="NewClientOnboadingRequests" message="tns:NewClientOnboadingRequests" />
       <output name="NewClientOnboadingRequests_Result" message="tns:NewClientOnboadingRequests_Result" />
@@ -4023,6 +4129,42 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="SendRecordForApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateWelfareRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateWelfareRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateWelfareRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateWelfareBenefitRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareBenefitRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateWelfareBenefitRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateWelfareBenefitRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateWelfareMembership">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:CreateWelfareMembership" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateWelfareMembership">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateWelfareMembership_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RequestWelfareBenefit">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/KYM:RequestWelfareBenefit" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RequestWelfareBenefit">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RequestWelfareBenefit_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

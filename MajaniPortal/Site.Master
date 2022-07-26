@@ -164,6 +164,42 @@
                                 </li>
                             </ul>
                         </li>
+                           <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Welfare Management</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Welfare Membership</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="WelfareMembership.aspx">New Welfare Membership</a></li>
+                                        <li><a href="OpenWelfareMembership.aspx">Open Welfare Membership</a></li>
+                                        <li><a href="ClosedWelfareMembership.aspx">Approved Welfare Membership</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-home"></i>
+                                        <span>Welfare Benefit</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="WelfareBenefit.aspx">New Welfare Benefit</a></li>
+                                        <li><a href="OpenWelfareBenefit.aspx">Open Welfare Benefit</a></li>
+                                        <li><a href="ClosedWelfareBenefit.aspx">Approved Welfare Benefit</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="ProductCategories.aspx">
                                 <i class="fa fa-th"></i><span>Product Categories</span>
