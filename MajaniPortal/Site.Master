@@ -266,7 +266,7 @@
                                                 <li><a href="MotorIndividualClientApplication.aspx"><i class="fa fa-circle-o"></i>Individual Application</a></li>
                                                 <li><a href="MotorCorporateClientApplications.aspx"><i class="fa fa-circle-o"></i>Corporate Application</a></li>
                                                 <li><a href="GeneralOpenClientApplications.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>
-                                                <li><a href="MotorPolicies.aspx"><i class="fa fa-circle-o"></i>Motor Policies</a></li>
+                                                <li><a href="customerList.aspx"><i class="fa fa-circle-o"></i>Motor Policies</a></li>
                                             </ul>
                                         </li>
                                         <li class="treeview">

@@ -1232,6 +1232,7 @@
         <Property Name="DepedantPhoto" Type="Edm.Boolean" />
         <Property Name="Evaluation_Amount_Total" Type="Edm.Decimal" />
         <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
       </EntityType>
       <EntityType Name="ClientPreExistingConditons">
         <Key>
@@ -5093,6 +5094,7 @@
         <Property Name="Customer_Type" Type="Edm.String" />
         <Property Name="Insurer_Name" Type="Edm.String" />
         <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Policy_Status" Type="Edm.String" />
         <Property Name="Name" Type="Edm.String" />
         <Property Name="Address" Type="Edm.String" />
         <Property Name="Address_2" Type="Edm.String" />

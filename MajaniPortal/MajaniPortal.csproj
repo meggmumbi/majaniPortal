@@ -365,6 +365,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CorporateAgricultureUnd.aspx" />
     <Content Include="CorporateDependantConditions.aspx" />
+    <Content Include="customerList.aspx" />
     <Content Include="CustomJs\CustomJs.js" />
     <Content Include="DebitNotePrintOut.aspx" />
     <Content Include="DependantConditons.aspx" />
@@ -838,6 +839,13 @@
     </Compile>
     <Compile Include="CorporateDependantConditions.aspx.designer.cs">
       <DependentUpon>CorporateDependantConditions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="customerList.aspx.cs">
+      <DependentUpon>customerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="customerList.aspx.designer.cs">
+      <DependentUpon>customerList.aspx</DependentUpon>
     </Compile>
     <Compile Include="DebitNotePrintOut.aspx.cs">
       <DependentUpon>DebitNotePrintOut.aspx</DependentUpon>

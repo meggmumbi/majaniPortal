@@ -323,6 +323,10 @@ namespace MajaniPortal
                 generalformktdastaffdeduction.Visible = false;
                 divlatestevaluationreport.Visible = false;
 
+                
+
+
+
             }
         }
         protected void Next_Click(object sender, EventArgs e)

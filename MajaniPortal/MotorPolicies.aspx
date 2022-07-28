@@ -16,90 +16,66 @@
                                 <thead>
                                     <tr>
                                         <th>Contract No</th>
-                                        <th>Customer No</th>
-                                        <th>Name</th>
+                                        <th>Customer Name</th>
+                                       
                                         <th>Policy Start Date</th>
                                         <th>Policy End Date</th>
                                         <th>Claim</th>
                                         <th>Ammend</th>
                                          <th>Renewal</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <%
-                                      var nav = Config.ReturnNav();
-                                      string profileType = "";
-                                      string profileCode = "";
+                                        var nav = Config.ReturnNav();                                     
 
-                                      var Profle = Convert.ToString(Session["Profile"]);
-                                      var empNo = Session["empNo"].ToString();
+                                        var Profle = Convert.ToString(Session["Profile"]);
+                                        var empNo = Session["empNo"].ToString();
+                                        var customerNo = Convert.ToString(Request.QueryString["CustomerNo"]);
+
                                      
-
-                                      var employee = nav.Employees.Where(x => x.No == empNo).ToList();
-                                      foreach (var user in employee)
-                                      {
-                                          if (Profle == "Region")
-                                          {
-                                              profileType = "Region";
-                                              profileCode = user.Region_Code;
-                                          }
-                                          if (Profle == " Zone")
-                                          {
-                                              profileType = "Zone";
-                                              profileCode = user.Zone_Code;
-                                          }
-                                          if (Profle == " Factory")
-                                          {
-                                              profileType = "Factory";
-                                              profileCode = user.Factory_name;
-                                          }
-                                          if (Profle == "Branch")
-                                          {
-                                              profileType = "Branch";
-                                              profileCode = user.Global_Dimension_2_Code;
-                                          }
-                                      }
-                                        //var applications = nav.ServiceContracts.Where(x => x.Business_Type == "General").ToList();
-                                        string AllCustomers = new Config().ObjNav().FnGetMotorPolicies(profileCode,profileType);
-                                        String[] info = AllCustomers.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                                        if (info != null)
+                                        var applications = nav.ServiceContracts.Where(x => x.Customer_No == customerNo && x.Business_Type=="General" && x.Policy_Status=="Active").ToList();
+                                      
+                                        foreach (var allInfo in applications)
                                         {
-                                            foreach (var allInfo in info)
-                                            {
-                                                String[] arr = allInfo.Split('*');
+                                         
                                             %>
                                      
                                   
                                     <tr>
-                                        <td><%= arr[0] %></td>
-                                        <td><%= arr[1]%></td>
-                                        <td><%= arr[2]%></td>
-                                        <td><%= Convert.ToDateTime(arr[3]).ToString("dd/MM/yyyy")%></td>
-                                        <td><%= Convert.ToDateTime(arr[4]).ToString("dd/MM/yyyy")%></td>
+                                        <td><%= allInfo.Contract_No %></td>
+                                        <td><%= allInfo.Contact_Name%></td>
+                                       
+                                        <td><%= Convert.ToDateTime(allInfo.Policy_Start_Date).ToString("dd/MM/yyyy")%></td>
+                                        <td><%= Convert.ToDateTime(allInfo.Policy_End_Date).ToString("dd/MM/yyyy")%></td>
                                        <td>
-                                        <a href="MotorClaimNotifications.aspx?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Claim</a>
+                                        <a href="MotorClaimNotifications.aspx?ContractNo=<%=allInfo.Contract_No %>&&CustomerNo=<%=allInfo.Customer_No %>" class="btn btn-success"><i class="fa fa-share"></i>Claim</a>
                                         </td> 
                                         <%
-                                            if (arr[5] == "Individual")
+                                            if (allInfo.Customer_Type == "Individual")
                                             {
                                           %>
                                         <td>
-                                        <a href="MotorIndividualPolicyAmmendments.aspx?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Ammend</a>
+                                        <a href="MotorIndividualPolicyAmmendments.aspx?ContractNo=<%=allInfo.Contract_No %>&&CustomerNo=<%=allInfo.Customer_No %>" class="btn btn-success"><i class="fa fa-share"></i>Ammend</a>
                                         </td>
                                         <%
                                             }
-                                            if (arr[5] == "Corporate")
+                                            if (allInfo.Customer_Type == "Corporate")
                                             { %>  
                                         <td>
-                                        <a href="MotorCorporatePolicyAmmendments.aspx?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1]%>" class="btn btn-success"><i class="fa fa-share"></i>Ammend</a>
+                                        <a href="MotorCorporatePolicyAmmendments.aspx?ContractNo=<%=allInfo.Contract_No %>&&CustomerNo=<%=allInfo.Customer_No%>" class="btn btn-success"><i class="fa fa-share"></i>Ammend</a>
                                         </td>
                                         <% } %> 
                                          <td>
-                                        <a href="MotorIndividualPolicyRenewals.aspx?ContractNo=<%=arr[0] %>&&CustomerNo=<%=arr[1] %>" class="btn btn-success"><i class="fa fa-share"></i>Renewal</a>
-                                        </td>                                       
+                                        <a href="MotorIndividualPolicyRenewals.aspx?ContractNo=<%=allInfo.Contract_No %>&&CustomerNo=<%=allInfo.Customer_No %>" class="btn btn-success"><i class="fa fa-share"></i>Renewal</a>
+                                        </td> 
+                                         <td>
+                                                     <a href="ClientProfile?ContractNo=<%=allInfo.Contract_No %>" class="btn btn-success"><i class="fa fa-file"></i>View profile</a>
+                                                </td>                                      
                                      </tr>
                                     <%
-                                            }
+                                          
                                         }
                                     %>
                                 </tbody>

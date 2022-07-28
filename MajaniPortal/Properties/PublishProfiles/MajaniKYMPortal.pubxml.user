@@ -178,10 +178,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:32:03</publishTime>
     </File>
     <File Include="bin/MajaniPortal.dll">
-      <publishTime>07/26/2022 17:49:40</publishTime>
+      <publishTime>07/28/2022 16:46:11</publishTime>
     </File>
     <File Include="bin/MajaniPortal.XmlSerializers.dll">
-      <publishTime>07/26/2022 17:49:42</publishTime>
+      <publishTime>07/28/2022 16:46:16</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
       <publishTime>02/16/2022 15:32:01</publishTime>
@@ -852,6 +852,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Custom Js/CustomJs.js">
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
+    <File Include="customerList.aspx">
+      <publishTime>07/28/2022 15:58:38</publishTime>
+    </File>
     <File Include="CustomJs/CustomJs.js">
       <publishTime>06/10/2022 11:51:30</publishTime>
     </File>
@@ -1036,7 +1039,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/16/2022 15:31:51</publishTime>
     </File>
     <File Include="MotorPolicies.aspx">
-      <publishTime>05/25/2022 13:35:42</publishTime>
+      <publishTime>07/28/2022 13:01:45</publishTime>
     </File>
     <File Include="MotorPolicyAmmendments.aspx">
       <publishTime>02/16/2022 15:31:51</publishTime>
@@ -1450,7 +1453,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/17/2022 10:43:52</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>07/26/2022 11:17:21</publishTime>
+      <publishTime>07/28/2022 12:31:48</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>02/16/2022 15:31:51</publishTime>

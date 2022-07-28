@@ -384,12 +384,69 @@ namespace MajaniPortal
                 divlatestevaluationreport.Visible = false;
                 generalformktdastaffdeduction.Visible = false;
                 filecheques.Visible = false;
+
+
+                string tapplicationNo = "";
+                try
+                {
+                    tapplicationNo = Convert.ToString(Request.QueryString["requisitionNo"]);
+                    var applications = nav.ClientApplicationQuery.Where(r => r.No == tapplicationNo && r.Requestor == Convert.ToString(Session["empNo"])).ToList();
+                    if (applications.Count > 0)
+                    {
+                        foreach (var app in applications)
+                        {
+                            customerCategory.SelectedValue = app.Customer_Category;
+                            customerSubCategory.SelectedValue = app.Customer_Sub_Category;
+                            applicationTypes.SelectedValue = app.Applicant_Type;
+                            growerapplicanttype.SelectedValue = app.Grower_Type_of_Applicant;
+                            growerNumber.Text = app.Grower_No_Client_ID;
+                            txtFactoryCode.Text = app.Factory_Code_Branch_Code;
+                            ttxtFactoryName.Text = app.Factory_Name_Branch_Name;
+                            idtype.SelectedValue = app.ID_Type;
+                            txtIdNumber.Text = app.ID_No_Passport_No;
+                            lbltitle.SelectedValue = app.Title;
+                            txtfirstname.Text = app.First_Name;
+                            txtMiddleName.Text = app.Middle_Name;
+                            txtlastname.Text = app.Last_Name;
+                            lblgender.SelectedValue = app.Gender;
+
+                            ttxtoccupations.SelectedValue = app.Occupation;
+                            krapinNumber.Text = app.KRA_PIN_No;
+                            lblcountyCode.SelectedValue = app.County_Code;
+                            txtresidential.Text = app.Residential_Location;
+                            lblmaritalstatus.SelectedValue = app.Marital_Status;
+                            txtHudumaNo.Text = app.Huduma_No;
+                            countyofresidence.SelectedValue = app.Country_Region_Code;
+                            officelocation.Text = app.Office_Location;
+                            telnumber1.Text = app.Tel_Mobile_No;
+                            telnumber2.Text = app.Tel_Mobile_No_2;
+                            txtemail.Text = app.E_Mail;
+                            txtaddress.Text = app.Address;
+                            postcodes.SelectedValue = app.Post_Code;
+                            lblcity.Text = app.City;
+                            txtgoogle.Text = app.Google;
+                            txttwitter.Text = app.Twitter;
+                            txtfcebook.Text = app.Facebook;
+                            txtlinkedin.Text = app.LinkedIn;
+
+
+                        }
+                    }
+
+
+
+                }
+                catch
+                {
+
+                }
             }
         }
         protected void Next_Click(object sender, EventArgs e)
         {
             string str = "";
             bool flag = false;
+            string id_passport = txtIdNumber.Text.Trim();
             string cust_category = customerCategory.SelectedValue.Trim();
             if (cust_category.Length < 1)
             {
@@ -460,6 +517,32 @@ namespace MajaniPortal
                     throw ex;
                 }
             }
+
+            if (id_passport.Length > 8)
+            {
+                idNumberPassport.InnerText = "Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8";
+            }
+            if (id_passport.Length < 6)
+            {
+                idNumberPassport.InnerText = "Please Enter the Correct ID No/Passport Value,It must be a Whole number between 6 and 8";
+
+            }
+            else
+            {
+                var status = new Config().ObjNav().FnCheckifIdentityNoExist(id_passport);
+                var res = status.Split('*');
+                if (res[0] == "danger")
+                {
+                    flag = true;
+                    str = res[1];
+                }
+                else
+                {
+                    flag = false;
+                    
+                }
+            }
+
             string policyType = "";
             int selectedIndex2 = idtype.SelectedIndex;
             if (selectedIndex2 < 1)
@@ -473,7 +556,7 @@ namespace MajaniPortal
                 flag = true;
                 str = "Please fill all highlighted fields with *(Mandatory Fields), Date of birth";
             }
-            string id_passport = txtIdNumber.Text.Trim();
+           
             if (id_passport.Length < 1)
             {
                 flag = true;
@@ -541,8 +624,19 @@ namespace MajaniPortal
                 {
                     DateTime dateTime = new DateTime();
                     DateTime exact = DateTime.ParseExact(s, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                    string docNo = "";
+                    String docNo = "";
+                    try
+                    {
+                        docNo = Request.QueryString["requisitionNo"];
+                        docNo = String.IsNullOrEmpty(docNo) ? "" : docNo;
+                    }
+                    catch (Exception)
+                    {
+                        docNo = "";
+                    }
+                 
                     string empNo = Session["empNo"].ToString();
+                    //docNo = Convert.ToString(Request.QueryString["requisitionNo"]);
                     var status = new Config().ObjNav().FnewMotorClientOnboadingRequests(docNo, empNo, cust_category, selectedIndex1, policyType, selectedIndex2, id_passport, pinNo, selectedIndex5, firstName, middleName, lastname, countryOfResidence, exact, selectedIndex3, countyCode, selectedIndex4, hudumaNo, applicanttype, occupation, tgrowerapplicanttype, tgrowerNumber, tfactoryCode, tfactoryName, financier, thasgrowerNo, ttxtresidential, tofficelocation);
                     var res = status.Split('*');
                     if (res[0] == "success")
